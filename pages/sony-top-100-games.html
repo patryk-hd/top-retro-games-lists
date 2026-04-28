@@ -41,9 +41,6 @@ gap: 1.2rem;
 margin-bottom: 1.5rem;
 }
 .ps-symbol {
-font-family: ‘Barlow Condensed’, sans-serif;
-font-weight: 900;
-font-size: 1.1rem;
 width: 2.2rem;
 height: 2.2rem;
 display: flex;
@@ -52,6 +49,17 @@ justify-content: center;
 border-radius: 50%;
 border: 2px solid;
 opacity: 0.85;
+}
+.ps-symbol svg {
+width: 1.1rem;
+height: 1.1rem;
+display: block;
+stroke: currentColor;
+fill: none;
+stroke-width: 2.6;
+stroke-linecap: round;
+stroke-linejoin: round;
+vector-effect: non-scaling-stroke;
 }
 .sym-x { color: #6ab3f5; border-color: #6ab3f5; }
 .sym-o { color: #f08080; border-color: #f08080; }
@@ -69,7 +77,7 @@ margin-bottom: 0.6rem;
 }
 h1 {
 font-family: ‘Barlow Condensed’, sans-serif;
-font-size: clamp(3.5rem, 10vw, 7rem);
+font-size: clamp(2.9rem, 8vw, 5.8rem);
 font-weight: 900;
 line-height: 0.88;
 letter-spacing: -0.01em;
@@ -79,11 +87,11 @@ text-shadow: 0 0 60px rgba(0,112,209,0.5);
 h1 span {
 display: block;
 color: #4da6ff;
-font-size: 0.5em;
+font-size: 0.27em;
 font-weight: 300;
-letter-spacing: 0.12em;
+letter-spacing: 0.16em;
 text-shadow: none;
-margin-top: 0.4rem;
+margin-top: 0.75rem;
 }
 h1 em{color:#0070d1;font-style:normal;}
 .header-sub {
@@ -330,10 +338,10 @@ line-height: 1.9;
 
 <header>
   <div class="ps-logo-row">
-    <div class="ps-symbol sym-x">✕</div>
-    <div class="ps-symbol sym-o">○</div>
-    <div class="ps-symbol sym-sq">□</div>
-    <div class="ps-symbol sym-tri">△</div>
+    <div class="ps-symbol sym-x" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 6L18 18M18 6L6 18"/></svg></div>
+    <div class="ps-symbol sym-o" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/></svg></div>
+    <div class="ps-symbol sym-sq" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="0.5"/></svg></div>
+    <div class="ps-symbol sym-tri" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5L19 18H5Z"/></svg></div>
   </div>
   <div class="header-eyebrow">Community All-Time Acclaimed</div>
   <h1><em>PLAYSTATION</em> GREATEST<span>4 Consoles · PS1 · PS2 · PSP · PS Vita</span></h1>
