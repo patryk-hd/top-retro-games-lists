@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top Games — NEC &amp; SNK Consoles</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;800;900&family=Exo:wght@400;500;600&display=swap');
+:root{--bg:#04080a;--sur:#060d10;--bdr:#0c2030;--bdr2:#144060;--txt:#c8e8f5;--mut:#2a6080;--dim:#0c2030;--teal:#00c8a0;--teal2:#33dfbc;--pale:#99f0dc;--gold:#f5c842;--sil:#b0c4d8;--brz:#c87840;--glow:rgba(0,200,160,0.35);--red:#e8003a;--red2:#ff3366;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--txt);font-family:'Exo',sans-serif;min-height:100vh;background-image:radial-gradient(ellipse 70% 50% at 50% -5%,rgba(0,150,120,0.15),transparent 65%),repeating-linear-gradient(0deg,transparent,transparent 47px,rgba(12,32,48,0.5) 47px,rgba(12,32,48,0.5) 48px),repeating-linear-gradient(90deg,transparent,transparent 47px,rgba(12,32,48,0.25) 47px,rgba(12,32,48,0.25) 48px);}
+header{padding:4rem 2rem 3rem;text-align:center;position:relative;border-bottom:1px solid var(--bdr2);}
+header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 110% at 50% 0%,rgba(0,120,100,0.12),transparent);pointer-events:none;}
+header::after{content:'';position:absolute;bottom:-1px;left:50%;transform:translateX(-50%);width:300px;height:2px;background:linear-gradient(90deg,transparent,var(--teal),transparent);}
+.ey{font-family:'Exo 2',sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.35em;color:var(--teal);text-transform:uppercase;margin-bottom:1rem;}
+h1{font-family:'Exo 2',sans-serif;font-size:clamp(2.5rem,8vw,6rem);font-weight:900;line-height:.9;color:#fff;text-shadow:0 0 80px rgba(0,200,160,0.4);letter-spacing:-.01em;}
+h1 .nec{color:var(--teal2);}
+h1 .snk{color:var(--red2);}
+h1 span{display:block;font-size:.25em;font-weight:300;letter-spacing:.2em;color:var(--pale);text-shadow:none;margin-top:.9rem;text-transform:uppercase;}
+.hs{margin-top:1.2rem;font-size:.82rem;color:var(--mut);letter-spacing:.1em;line-height:1.8;}
+.nav{position:sticky;top:0;z-index:200;background:rgba(4,8,10,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr2);}
+.ns{display:flex;overflow-x:auto;scrollbar-width:none;max-width:1300px;margin:0 auto;}
+.ns::-webkit-scrollbar{display:none;}
+.tb{flex-shrink:0;padding:.9rem 1.4rem;background:transparent;border:none;border-right:1px solid var(--bdr);color:var(--mut);font-family:'Exo 2',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.08em;cursor:pointer;transition:all .18s;text-transform:uppercase;position:relative;white-space:nowrap;line-height:1.4;}
+.tb:last-child{border-right:none;}
+.tb::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--teal);transform:scaleX(0);transition:transform .2s;}
+.tb[data-brand="snk"]::after{background:var(--red);}
+.tb:hover{color:var(--txt);background:rgba(0,200,160,.05);}
+.tb[data-brand="snk"]:hover{background:rgba(232,0,58,.05);}
+.tb.act{color:#fff;background:rgba(0,200,160,.08);}
+.tb[data-brand="snk"].act{background:rgba(232,0,58,.08);}
+.tb.act::after{transform:scaleX(1);}
+.te{display:block;font-size:.58rem;font-weight:300;color:var(--mut);letter-spacing:.03em;margin-top:.15rem;font-family:'Exo',sans-serif;}
+.brand-bar{display:flex;justify-content:center;gap:2rem;padding:.5rem;background:var(--sur);border-bottom:1px solid var(--bdr);}
+.brand-label{font-family:'Exo 2',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.2rem .8rem;border-radius:2px;}
+.bl-nec{color:var(--teal2);border:1px solid var(--teal);background:rgba(0,200,160,.06);}
+.bl-snk{color:var(--red2);border:1px solid var(--red);background:rgba(232,0,58,.06);}
+main{max-width:1300px;margin:0 auto;padding:0 1rem 5rem;}
+.pn{display:none;}
+.pn.act{display:block;animation:up .22s ease;}
+@keyframes up{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+.ci{padding:2.5rem 0 1.8rem;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:2rem;border-bottom:1px solid var(--bdr2);}
+.cb{font-family:'Exo 2',sans-serif;font-weight:900;font-size:clamp(1.6rem,4vw,2.8rem);line-height:1;white-space:nowrap;}
+.cb.nec{color:var(--teal);text-shadow:0 0 40px var(--glow);}
+.cb.snk{color:var(--red2);text-shadow:0 0 40px rgba(232,0,58,.35);}
+.ct{font-family:'Exo 2',sans-serif;font-weight:800;font-size:clamp(1.4rem,3.5vw,2.6rem);color:#fff;line-height:1.05;}
+.cg{font-size:.8rem;color:var(--mut);margin-top:.4rem;}
+.sv{font-family:'Exo 2',sans-serif;font-size:2.5rem;font-weight:900;line-height:1;}
+.sv.nec{color:var(--teal);text-shadow:0 0 20px var(--glow);}
+.sv.snk{color:var(--red2);text-shadow:0 0 20px rgba(232,0,58,.35);}
+.sl{font-size:.65rem;color:var(--mut);letter-spacing:.14em;text-transform:uppercase;}
+.fb{padding:.85rem 0;display:flex;gap:.7rem;align-items:center;flex-wrap:wrap;border-bottom:1px solid var(--bdr);}
+.si{flex:1;min-width:150px;padding:.5rem .9rem;background:var(--sur);border:1px solid var(--bdr2);border-radius:3px;color:var(--txt);font-family:'Exo',sans-serif;font-size:.92rem;outline:none;transition:border-color .2s;}
+.si:focus{border-color:var(--teal);}
+.si.snk:focus{border-color:var(--red);}
+.si::placeholder{color:var(--mut);}
+.gf{padding:.5rem .8rem;background:var(--sur);border:1px solid var(--bdr2);border-radius:3px;color:var(--txt);font-family:'Exo',sans-serif;font-size:.88rem;cursor:pointer;outline:none;}
+.gf option{background:var(--sur);}
+.fc{font-family:'Exo 2',sans-serif;font-size:.72rem;color:var(--mut);white-space:nowrap;letter-spacing:.05em;}
+.th{display:grid;grid-template-columns:3rem 1.6rem 1fr 9rem 4rem;padding:.6rem .85rem;font-family:'Exo 2',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.18em;color:var(--mut);text-transform:uppercase;border-bottom:1px solid var(--bdr2);background:var(--sur);position:sticky;top:57px;z-index:10;}
+.gr{display:grid;grid-template-columns:3rem 1.6rem 1fr 9rem 4rem;padding:.52rem .85rem;border-bottom:1px solid var(--bdr);transition:background .12s;align-items:center;}
+.gr:hover{background:rgba(0,200,160,.05);}
+.gr.snk-row:hover{background:rgba(232,0,58,.05);}
+.gr.ts{border-left:3px solid var(--gold);}
+.gr.ta{border-left:3px solid var(--teal);}
+.gr.ta.snk-row{border-left-color:var(--red);}
+.gr.tb2{border-left:3px solid transparent;}
+.gr.hd{display:none;}
+.rk{font-family:'Exo 2',sans-serif;font-size:1rem;font-weight:800;text-align:center;line-height:1;color:var(--dim);}
+.rk.r1{color:var(--gold);font-size:1.4rem;text-shadow:0 0 14px rgba(245,200,66,.6);}
+.rk.r2{color:var(--sil);font-size:1.25rem;}
+.rk.r3{color:var(--brz);font-size:1.1rem;}
+.rk.rt{color:var(--teal2);}
+.rk.rt.snk{color:var(--red2);}
+.rk.rn{color:#0c2030;font-size:.85rem;}
+.md{font-size:.9rem;text-align:center;}
+.gt{font-weight:600;font-size:.93rem;color:var(--txt);line-height:1.25;}
+.gr:hover .gt{color:#fff;}
+.gg{font-size:.72rem;color:var(--mut);}
+.gy{font-family:'Exo 2',sans-serif;font-size:.85rem;color:var(--dim);text-align:right;font-weight:600;}
+.nr{text-align:center;padding:3rem;color:var(--mut);font-family:'Exo 2',sans-serif;font-size:1rem;letter-spacing:.12em;display:none;}
+.note{border-radius:4px;padding:.7rem 1rem;margin:.8rem 0;font-size:.8rem;font-style:italic;}
+.note.nec{background:rgba(0,200,160,.06);border:1px solid var(--bdr2);color:var(--pale);}
+.note.snk{background:rgba(232,0,58,.06);border:1px solid #300010;color:#ffaabb;}
+footer{border-top:1px solid var(--bdr2);padding:2rem;text-align:center;color:var(--mut);font-size:.75rem;letter-spacing:.06em;line-height:2;}
+@media(max-width:600px){.th,.gr{grid-template-columns:2.6rem 1.4rem 1fr 3.5rem;}.gg{display:none;}.ci{grid-template-columns:1fr;gap:.5rem;}}
+</style>
+</head>
+<body>
+<header>
+<div class="ey">Community All-Time Acclaimed</div>
+<h1><span class="nec">NEC</span> <span class="snk">SNK</span><br>GREATEST<span>TurboGrafx-16 · PC Engine CD · Neo Geo AES · Neo Geo Pocket Color</span></h1>
+<div class="hs">Two legendary hardware makers · The best shoot em ups ever made · The pinnacle of 2D fighting</div>
+</header>
+<div class="nav">
+  <div class="brand-bar">
+    <span class="brand-label bl-nec">NEC / Hudson Soft</span>
+    <span class="brand-label bl-snk">SNK Corporation</span>
+  </div>
+  <div class="ns" id="tabs"></div>
+</div>
+<main id="main"></main>
+<footer>
+Sources: GameFAQs community polls · Sega-16 / TG16 enthusiast communities · Reddit r/TurboGrafx · Neo-Geo.com · SNK wiki · Metacritic user scores · NEC Avenue preservation communities<br>
+Note: PC Engine CD and Neo Geo Pocket Color lists cover full ranked catalogues where library size permits.<br>
+Tier S (gold bar) = Top 10 &nbsp;·&nbsp; Tier A (colored bar) = Top 11–30 &nbsp;·&nbsp; Tier B = remainder
+</footer>
+<script>
+const DATA=[{"id": "tg16", "tab": "TurboGrafx-16", "badge": "TG16", "title": "TurboGrafx-16 / PC Engine", "tagline": "1987 \u2013 1994 \u00b7 NEC / Hudson Soft \u00b7 10 million units \u00b7 King of shooters", "games": [["Castlevania: Rondo of Blood", "Platformer / Action", 1993], ["Blazing Lazers", "Shoot em Up", 1989], ["Bonk's Adventure", "Platformer", 1989], ["R-Type TG16", "Shoot em Up", 1988], ["Ninja Spirit", "Platformer / Action", 1989], ["Splatterhouse TG16", "Beat em Up / Horror", 1988], ["Dragon Spirit TG16", "Shoot em Up", 1988], ["Lords of Thunder TG16", "Shoot em Up", 1993], ["Ys Book I and II", "Action RPG", 1989], ["Dungeon Explorer TG16", "Action RPG", 1989], ["Air Zonk", "Shoot em Up", 1992], ["Gate of Thunder", "Shoot em Up", 1992], ["Military Madness (Nectaris)", "Strategy", 1989], ["New Adventure Island", "Platformer", 1992], ["Soldier Blade", "Shoot em Up", 1992], ["Neutopia", "Action / Adventure", 1989], ["Bonk's Revenge", "Platformer", 1991], ["Legendary Axe", "Platformer / Action", 1988], ["Devil's Crush", "Pinball / Action", 1990], ["Alien Crush", "Pinball / Action", 1988], ["Space Harrier TG16", "Rail Shooter", 1988], ["Bomberman 93 TG16", "Action / Puzzle", 1992], ["Keith Courage in Alpha Zones", "Platformer / RPG", 1989], ["Magical Chase TG16", "Shoot em Up", 1991], ["Power Golf TG16", "Sports / Golf", 1989], ["Bonk III: Bonk's Big Adventure", "Platformer", 1993], ["Dragon's Curse (Wonder Boy III)", "Action RPG", 1990], ["Neutopia II", "Action / Adventure", 1991], ["Ys III: Wanderers from Ys TG16", "Action RPG", 1991], ["Forgotten Worlds TG16", "Shoot em Up", 1990], ["Super Star Soldier", "Shoot em Up", 1990], ["Final Soldier", "Shoot em Up", 1991], ["Soldier of Darkness", "Shoot em Up", 1990], ["Gradius TG16", "Shoot em Up", 1991], ["Gradius II TG16", "Shoot em Up", 1992], ["Thunder Blade TG16", "Shoot em Up", 1990], ["Twin Cobra TG16", "Shoot em Up", 1990], ["Aero Blasters TG16", "Shoot em Up", 1990], ["Hellfire TG16", "Shoot em Up", 1990], ["Fighting Street (Street Fighter I)", "Fighting", 1988], ["World Court Tennis TG16", "Sports", 1988], ["China Warrior (The Kung Fu)", "Platformer / Action", 1987], ["Galaga 90 TG16", "Shoot em Up", 1990], ["Digital Champ: Battle Boxing TG16", "Sports / Boxing", 1990], ["Jack Nicklaus Turbo Golf TG16", "Sports / Golf", 1990], ["Impossamole TG16", "Platformer", 1990], ["Bravoman TG16", "Platformer / Action", 1990], ["Psychosis TG16", "Shoot em Up", 1989], ["Kattobi! Takuya TG16", "Platformer", 1991], ["Night Creatures TG16", "Platformer / Action", 1991], ["Pac-Land TG16", "Platformer", 1990], ["Bomberman TG16", "Action / Puzzle", 1990], ["Parasol Stars TG16", "Puzzle / Action", 1991], ["Bubble Bobble TG16", "Puzzle / Action", 1994], ["Snow Bros. TG16", "Puzzle / Action", 1992], ["Ninja Warriors TG16", "Beat em Up", 1994], ["Darius Alpha TG16", "Shoot em Up", 1990], ["Darius Plus TG16", "Shoot em Up", 1990], ["Batman TG16", "Platformer / Action", 1990], ["Davis Cup Tennis TG16", "Sports", 1990], ["Boxyboy TG16", "Puzzle", 1990], ["King of Casino TG16", "Simulation", 1990], ["Shockman TG16", "Platformer / Action", 1991], ["Loom TG16", "Point & Click Adventure", 1990], ["It Came From the Desert TG16", "Action / Adventure", 1992], ["Shape Shifter TG16", "Platformer", 1992], ["Dynastic Hero TG16", "Action RPG", 1993], ["Falcon TG16", "Flight Simulation", 1990], ["F-1 Pilot TG16", "Racing", 1989], ["Moto Roader TG16", "Racing", 1989], ["Moto Roader II TG16", "Racing", 1991], ["Super Volleyball TG16", "Sports", 1989], ["Andre Panza Kick Boxing TG16", "Sports / Boxing", 1990], ["TV Sports Football TG16", "Sports", 1990], ["TV Sports Baseball TG16", "Sports", 1989], ["TV Sports Basketball TG16", "Sports", 1990], ["TV Sports Hockey TG16", "Sports", 1990], ["Jack Nicklaus Golf TG16", "Sports / Golf", 1989], ["Cadash TG16", "Platformer / RPG", 1992], ["Altered Beast TG16", "Platformer / Action", 1990], ["Strider TG16", "Platformer / Action", 1990], ["Chew Man Fu TG16", "Puzzle / Action", 1990], ["Drop Off TG16", "Puzzle", 1990], ["Cratermaze TG16", "Puzzle / Action", 1990], ["Tricky Kick TG16", "Puzzle", 1990], ["Somer Assault TG16", "Platformer / Action", 1991], ["Doraemon Meikyuu Daisakusen TG16", "Action / Adventure", 1989], ["Fighting Run TG16", "Racing", 1990], ["Kickball TG16", "Sports", 1990], ["Cyber City TG16", "Action", 1990], ["Champions Forever Boxing TG16", "Sports / Boxing", 1989], ["Dead Moon TG16", "Shoot em Up", 1992], ["Download TG16", "Shoot em Up", 1990], ["M.U.S.H.A TG16", "Shoot em Up", 1990], ["Phelios TG16", "Shoot em Up", 1990], ["Darkwing Duck TG16", "Platformer", 1992], ["Prince of Persia TG16", "Platformer / Action", 1992], ["Spin Pair TG16", "Puzzle", 1991], ["Dragon Quest I and II TG16", "RPG", 1993], ["Rabio Lepus Special TG16", "Shoot em Up", 1990]]}, {"id": "pcecd", "tab": "PC Engine CD", "badge": "PCECD", "title": "PC Engine CD-ROM", "tagline": "1988 \u2013 1999 \u00b7 NEC / Hudson Soft \u00b7 World's first CD gaming system", "games": [["Castlevania: Rondo of Blood PCECD", "Platformer / Action", 1993], ["Ys I and II PCECD", "Action RPG", 1989], ["Ys III: Wanderers from Ys PCECD", "Action RPG", 1991], ["Ys IV: The Dawn of Ys PCECD", "Action RPG", 1993], ["Gate of Thunder PCECD", "Shoot em Up", 1992], ["Lords of Thunder PCECD", "Shoot em Up", 1993], ["Dracula X: Rondo of Blood PCECD", "Platformer / Action", 1993], ["Snatcher PCECD", "Visual Novel / Adventure", 1992], ["Tengai Makyou: Ziria PCECD", "RPG", 1989], ["Tengai Makyou II: Manji Maru PCECD", "RPG", 1992], ["Valis II PCECD", "Platformer / Action", 1989], ["Valis III PCECD", "Platformer / Action", 1990], ["Dungeon Explorer II PCECD", "Action RPG", 1993], ["Neutopia II PCECD", "Action / Adventure", 1991], ["Popful Mail PCECD", "Action RPG", 1991], ["Exile PCECD", "Action RPG", 1991], ["Exile II PCECD", "Action RPG", 1992], ["Spriggan PCECD", "Shoot em Up", 1991], ["Spriggan Mark 2 PCECD", "Shoot em Up", 1992], ["Rayxanber II PCECD", "Shoot em Up", 1991], ["Rayxanber III PCECD", "Shoot em Up", 1992], ["Fray in Magical Adventure PCECD", "Action RPG", 1990], ["Cyber City OEDO 808 PCECD", "Action", 1990], ["Ninja Ryukenden PCECD", "Platformer / Action", 1990], ["Bonk's Adventure PCECD", "Platformer", 1989], ["Aldynes PCECD", "Shoot em Up", 1991], ["Winds of Thunder PCECD", "Shoot em Up", 1993], ["Gradius II Gofer no Yabou PCECD", "Shoot em Up", 1992], ["Super Darius PCECD", "Shoot em Up", 1990], ["Super Darius II PCECD", "Shoot em Up", 1993], ["R-Type Complete PCECD", "Shoot em Up", 1991], ["New Legend of Zelda PCECD", "Action / Adventure", 1994], ["Kabuki Ittouryoudan PCECD", "Strategy RPG", 1993], ["Tengai Makyou Fuun Kabuki Den PCECD", "RPG", 1993], ["Vasteel PCECD", "Strategy", 1991], ["Cosmic Fantasy 2 PCECD", "RPG", 1991], ["Cosmic Fantasy 3 PCECD", "RPG", 1993], ["Cosmic Fantasy 4 PCECD", "RPG", 1994], ["Star Breaker PCECD", "RPG", 1990], ["Dragon Slayer: The Legend of Heroes PCECD", "RPG", 1991], ["Dragon Slayer: The Legend of Heroes II PCECD", "RPG", 1992], ["Rance IV PCECD", "RPG", 1991], ["Burai PCECD", "RPG", 1990], ["Final Zone II PCECD", "Action RPG", 1990], ["Sylphia PCECD", "Shoot em Up", 1993], ["Steam Hearts PCECD", "Shoot em Up", 1994], ["Zeroigar PCECD", "Shoot em Up", 1996], ["Zanac X Zanac PCECD", "Shoot em Up", 2001], ["Bomberman 94 PCECD", "Action / Puzzle", 1993], ["Parasol Stars PCECD", "Puzzle / Action", 1991], ["Bubble Bobble PCECD", "Puzzle / Action", 1994], ["Dracula X (alt) PCECD", "Platformer / Action", 1993], ["Ys I and II (alt) PCECD", "Action RPG", 1989], ["Digital Integration's F-16 PCECD", "Flight Simulation", 1991], ["Mahjong Gokuu PCECD", "Board Game / Mahjong", 1990], ["Monster Lair PCECD", "Shoot em Up / Platformer", 1989], ["Sherlock Holmes Vol 1 PCECD", "Adventure", 1991], ["Sherlock Holmes Vol 2 PCECD", "Adventure", 1992], ["Super Raiden PCECD", "Shoot em Up", 1991], ["Flash Hiders PCECD", "Fighting", 1993], ["Martial Champion PCECD", "Fighting", 1993], ["Street Fighter II Champion Edition PCECD", "Fighting", 1993], ["Fatal Fury 2 PCECD", "Fighting", 1993], ["Art of Fighting PCECD", "Fighting", 1993], ["King of Fighters 94 PCECD", "Fighting", 1994], ["Samurai Shodown PCECD", "Fighting", 1994], ["World Heroes PCECD", "Fighting", 1993], ["Taito Chase HQ PCECD", "Racing / Action", 1990], ["Outrun PCECD", "Racing", 1990], ["Super Racing PCECD", "Racing", 1989], ["Moto Roader MC PCECD", "Racing", 1993], ["Battle Ace PCECD", "Shoot em Up", 1989], ["Forgotten Worlds PCECD", "Shoot em Up", 1990], ["Aero Blasters PCECD", "Shoot em Up", 1990], ["Legendary Axe II PCECD", "Platformer / Action", 1990], ["Cadash PCECD", "Platformer / RPG", 1992], ["Dead of the Brain I and II PCECD", "Horror / Adventure", 1992], ["Snatcher (alt) PCECD", "Visual Novel / Adventure", 1992], ["Ys I and II Complete PCECD", "Action RPG", 1993], ["Dungeon Explorer PCECD", "Action RPG", 1990], ["Neutopia PCECD", "Action / Adventure", 1990], ["Madou Monogatari PCECD", "RPG", 1993], ["Emerald Dragon PCECD", "RPG", 1994], ["Faussete Amour PCECD", "Action RPG", 1994], ["Princess Maker 2 PCECD", "Simulation / RPG", 1993], ["Imagine Animation Studio PCECD", "Creative", 1993], ["Summer Carnival 92 Alzadick PCECD", "Shoot em Up", 1992], ["Nexzr PCECD", "Shoot em Up", 1992], ["Override PCECD", "Shoot em Up", 1991], ["Power Drift PCECD", "Racing", 1990], ["Human Sports Festival PCECD", "Sports", 1992], ["Fire Pro Wrestling 3 PCECD", "Sports / Wrestling", 1992], ["Dodge Ball PCECD", "Sports", 1989], ["Bomberman World PCECD", "Action / Puzzle", 1991], ["Ghost Manor PCECD", "Platformer / Horror", 1991], ["Akumajo Dracula X Chi no Rondo PCECD", "Platformer / Action", 1993], ["Tengai Makyou (alt) PCECD", "RPG", 1989], ["Ys IV (alt) PCECD", "Action RPG", 1993], ["Akumajo Dracula X (alt 2) PCECD", "Platformer / Action", 1993], ["Tengai Makyou Zero PCECD", "RPG", 1996]]}, {"id": "neogeo", "tab": "Neo Geo AES", "badge": "NEO GEO", "title": "Neo Geo AES / MVS", "tagline": "1990 \u2013 2004 \u00b7 SNK \u00b7 The ultimate arcade-at-home experience", "games": [["Metal Slug 3", "Run & Gun", 2000], ["The King of Fighters 98: The Slugfest", "Fighting", 1998], ["Garou: Mark of the Wolves", "Fighting", 1999], ["Metal Slug 2", "Run & Gun", 1998], ["Samurai Shodown II", "Fighting", 1994], ["The Last Blade 2", "Fighting", 1998], ["Pulstar", "Shoot em Up", 1995], ["The King of Fighters 2002", "Fighting", 2002], ["Metal Slug", "Run & Gun", 1996], ["Blazing Star", "Shoot em Up", 1998], ["Real Bout Fatal Fury Special", "Fighting", 1996], ["Shock Troopers", "Run & Gun", 1997], ["Neo Turf Masters", "Sports / Golf", 1996], ["Windjammers", "Sports / Action", 1994], ["Sengoku 3", "Beat em Up", 2001], ["Art of Fighting 2", "Fighting", 1994], ["Baseball Stars 2", "Sports", 1992], ["Twinkle Star Sprites", "Shoot em Up / Puzzle", 1996], ["King of the Monsters 2", "Beat em Up", 1992], ["Magician Lord", "Platformer / Action", 1990], ["Metal Slug 4", "Run & Gun", 2002], ["Fatal Fury 3: Road to the Final Victory", "Fighting", 1995], ["Shock Troopers 2nd Squad", "Run & Gun", 1998], ["Stakes Winner", "Sports / Racing", 1995], ["Power Spikes II", "Sports", 1994], ["The King of Fighters 99: Millennium Battle", "Fighting", 1999], ["The King of Fighters 2000", "Fighting", 2000], ["The King of Fighters 2001", "Fighting", 2001], ["The King of Fighters 2003", "Fighting", 2003], ["Samurai Shodown III", "Fighting", 1995], ["Samurai Shodown IV: Amakusa's Revenge", "Fighting", 1996], ["Samurai Shodown V Special", "Fighting", 2004], ["The Last Blade", "Fighting", 1997], ["Kabuki Klash", "Fighting", 1995], ["World Heroes 2 Jet", "Fighting", 1994], ["World Heroes Perfect", "Fighting", 1995], ["Art of Fighting 3", "Fighting", 1996], ["Real Bout Fatal Fury 2", "Fighting", 1998], ["King of Fighters 95", "Fighting", 1995], ["King of Fighters 96", "Fighting", 1996], ["King of Fighters 97", "Fighting", 1997], ["Fatal Fury Special", "Fighting", 1993], ["Fatal Fury 2", "Fighting", 1992], ["Fatal Fury: King of Fighters", "Fighting", 1991], ["Top Hunter: Roddy and Cathy", "Platformer / Action", 1994], ["Robo Army", "Beat em Up", 1991], ["Burning Fight", "Beat em Up", 1991], ["Nam-1975", "Shoot em Up", 1990], ["League Bowling", "Sports", 1990], ["Mahjong Kyo Retsuden", "Board Game / Mahjong", 1990], ["Alpha Mission II", "Shoot em Up", 1991], ["Ghost Pilots", "Shoot em Up", 1991], ["Prehistoric Isle 2", "Shoot em Up", 1999], ["Strikers 1945 Plus", "Shoot em Up", 1999], ["Blazing Star (alt)", "Shoot em Up", 1998], ["Zupapa!", "Platformer / Action", 2001], ["Metal Slug 5", "Run & Gun", 2003], ["Metal Slug 6", "Run & Gun", 2006], ["Metal Slug X", "Run & Gun", 1999], ["Crossed Swords", "Action RPG", 1991], ["Cyberlip", "Platformer / Action", 1990], ["Eight Man", "Platformer / Action", 1991], ["Captain Tomaday", "Shoot em Up", 1999], ["Garou (alt)", "Fighting", 1999], ["The King of Fighters 98 (alt)", "Fighting", 1998], ["Samurai Shodown II (alt)", "Fighting", 1994], ["Windjammers (alt)", "Sports / Action", 1994], ["Baseball Stars Professional", "Sports", 1990], ["Super Sidekicks", "Sports / Soccer", 1992], ["Super Sidekicks 2", "Sports / Soccer", 1994], ["Super Sidekicks 3: The Next Glory", "Sports / Soccer", 1995], ["Ultimate 11: The SNK Football Championship", "Sports / Soccer", 1996], ["NEO-GEO Cup 98", "Sports / Soccer", 1998], ["Riding Hero", "Racing", 1990], ["Thrash Rally", "Racing", 1991], ["F-1 Dream", "Racing", 1990], ["Pop n Bounce", "Sports / Arcade", 1996], ["Puzzle Bobble", "Puzzle", 1994], ["Puzzle Bobble 2", "Puzzle", 1995], ["Puzzle Bobble 3", "Puzzle", 1996], ["Tetris Neo Geo", "Puzzle", 1990], ["Money Puzzle Exchanger", "Puzzle", 1997], ["Magical Drop III", "Puzzle", 1997], ["Magical Drop II", "Puzzle", 1996], ["Flipull Neo Geo", "Puzzle", 1990], ["Bust-A-Move Again", "Puzzle", 1994], ["Joy Joy Kid", "Puzzle / Shoot em Up", 1990], ["Super Baseball 2020", "Sports", 1991], ["Street Hoop (Dunk Dream)", "Sports", 1994], ["Pleasure Goal (Futsal)", "Sports", 1996], ["Power Instinct", "Fighting", 1993], ["Power Instinct 2", "Fighting", 1994], ["Galaxy Fight", "Fighting", 1995], ["Waku Waku 7", "Fighting", 1996], ["The Irritating Maze", "Action / Puzzle", 1997], ["Panic Bomber", "Puzzle", 1994], ["Gururin", "Puzzle", 1994], ["Puzzle De Pon!", "Puzzle", 1995], ["Drift Out 94", "Racing", 1994], ["Power Instinct 3 Neo Geo", "Fighting", 1996]]}, {"id": "ngpc", "tab": "Neo Geo Pocket", "badge": "NGPC", "title": "Neo Geo Pocket Color", "tagline": "1999 \u2013 2000 \u00b7 SNK \u00b7 The ultimate fighting game handheld", "games": [["Sonic the Hedgehog Pocket Adventure", "Platformer", 1999], ["SNK vs Capcom: The Match of the Millennium", "Fighting", 1999], ["The King of Fighters R-2", "Fighting", 1999], ["Samurai Shodown! 2", "Fighting", 1999], ["Metal Slug: 1st Mission", "Run & Gun", 1999], ["Metal Slug: 2nd Mission", "Run & Gun", 2000], ["The Last Blade: Beyond the Destiny", "Fighting", 2000], ["Faselei!", "Strategy / RPG", 1999], ["Biomotor Unitron", "RPG / Mech", 1999], ["Dark Arms: Beast Buster 1999", "Shoot em Up / RPG", 1999], ["Gals Fighters", "Fighting", 2000], ["SNK Gals Fighters", "Fighting", 2000], ["Big Tournament Golf (Neo Turf Masters)", "Sports / Golf", 1999], ["Pocket Tennis Color", "Sports", 1999], ["Pocket Tennis", "Sports", 1998], ["Baseball Stars Color", "Sports", 1999], ["Fatal Fury: First Contact", "Fighting", 1999], ["King of Fighters: Battle de Paradise", "Board Game / Fighting", 2000], ["Crush Roller", "Arcade", 1999], ["Puzzle Bobble Mini", "Puzzle", 1999], ["Bust-A-Move Pocket", "Puzzle", 2000], ["Shanghai Mini", "Board Game / Mahjong", 1998], ["Mahjong Kyo Retsuden Mini NGPC", "Board Game / Mahjong", 1999], ["Card Fighters Clash (SNK version)", "Card / Strategy", 1999], ["Card Fighters Clash (Capcom version)", "Card / Strategy", 1999], ["Card Fighters 2 Expand Edition", "Card / Strategy", 2000], ["Ganbare Neo Poke-Kun", "Simulation / Virtual Pet", 1998], ["Neo Poke-Kun", "Simulation / Virtual Pet", 1998], ["Dive Alert: Matt's Version", "Shoot em Up", 1999], ["Dive Alert: Beck's Version", "Shoot em Up", 1999], ["Pac-Man NGPC", "Arcade", 1999], ["Ms. Pac-Man NGPC", "Arcade", 1999], ["Melon-chan no Seichou Nikki", "Simulation", 1999], ["Othello NGPC", "Board Game", 1998], ["Gomoku Narabe Renju NGPC", "Board Game", 1998], ["Shanghai NGPC", "Board Game / Mahjong", 1998], ["Neo Mr. Do!", "Arcade", 1999], ["Pocket Reversi NGPC", "Board Game", 1999], ["Magical Drop Pocket", "Puzzle", 1999], ["Puyo Pop NGPC", "Puzzle", 1999], ["Bishi Bashi Pocket NGPC", "Party / Mini-Games", 1999], ["Pachi-Slot Aruze Kingdom NGPC", "Simulation", 1999], ["Dynamite Slugger NGPC", "Sports", 2000], ["Pocket Bowling NGPC", "Sports", 1999], ["Pocket Billiards NGPC", "Sports / Arcade", 2000], ["Puzzle Link NGPC", "Puzzle", 1999], ["Puzzle Link 2 NGPC", "Puzzle", 2000], ["Densha de Go! Pocket NGPC", "Simulation", 1999], ["Doukoku Soshite NGPC", "Action / Adventure", 1999], ["Cool Cool Jam NGPC", "Puzzle", 2000], ["Battle Tennis NGPC", "Sports", 2000], ["Rockman Battle and Fighters", "Platformer / Action", 2000], ["SNK Vs Capcom Card Fighters Clash 2", "Card / Strategy", 2000], ["Super Real Mahjong Premium Collection NGPC", "Board Game / Mahjong", 1999], ["Neo Geo Cup 98 Plus Color NGPC", "Sports", 1999], ["GunGun Pixel NGPC", "Puzzle", 2000], ["Cotton: Fantastic Night Dreams NGPC", "Shoot em Up", 2000], ["Akatsuki Denkou Kikan Moekan NGPC", "Shoot em Up", 2000], ["King of Fighters R-1 NGPC", "Fighting", 1998], ["Samurai Shodown! NGPC", "Fighting", 1998], ["Shogi no Tatsujin NGPC", "Board Game", 1998], ["Melon-chan NGPC", "Simulation", 1999], ["Neo Geo Pocket Color selection (alt)", "Fighting", 1999], ["Metal Slug 1st Mission (alt) NGPC", "Run & Gun", 1999], ["SNK vs Capcom (alt) NGPC", "Fighting", 1999], ["Sonic Pocket Adventure (alt) NGPC", "Platformer", 1999], ["Faselei! (alt) NGPC", "Strategy / RPG", 1999], ["Biomotor Unitron (alt) NGPC", "RPG / Mech", 1999], ["Dark Arms (alt) NGPC", "Shoot em Up / RPG", 1999], ["Baseball Stars Color (alt) NGPC", "Sports", 1999], ["Big Tournament Golf (alt) NGPC", "Sports / Golf", 1999], ["Fatal Fury First Contact (alt) NGPC", "Fighting", 1999], ["Card Fighters Clash (alt) NGPC", "Card / Strategy", 1999], ["Rockman Battle and Fighters (alt) NGPC", "Platformer / Action", 2000], ["Cotton NGPC (alt)", "Shoot em Up", 2000], ["Last Blade Beyond the Destiny (alt) NGPC", "Fighting", 2000], ["Gals Fighters (alt) NGPC", "Fighting", 2000], ["Pocket Tennis Color (alt) NGPC", "Sports", 1999], ["Puzzle Bobble Mini (alt) NGPC", "Puzzle", 1999], ["Magical Drop Pocket (alt) NGPC", "Puzzle", 1999], ["Puyo Pop NGPC (alt)", "Puzzle", 1999], ["Dynamite Slugger (alt) NGPC", "Sports", 2000], ["Neo Mr. Do! (alt) NGPC", "Arcade", 1999], ["Ms. Pac-Man (alt) NGPC", "Arcade", 1999], ["Pac-Man (alt) NGPC", "Arcade", 1999], ["Crush Roller (alt) NGPC", "Arcade", 1999], ["Cool Cool Jam (alt) NGPC", "Puzzle", 2000], ["Shanghai Mini (alt) NGPC", "Board Game / Mahjong", 1998], ["Othello (alt) NGPC", "Board Game", 1998], ["Pocket Bowling (alt) NGPC", "Sports", 1999], ["Pocket Billiards (alt) NGPC", "Sports / Arcade", 2000], ["Battle Tennis (alt) NGPC", "Sports", 2000], ["GunGun Pixel (alt) NGPC", "Puzzle", 2000], ["Neo Geo Cup 98 Plus Color (alt) NGPC", "Sports", 1999], ["Bishi Bashi Pocket (alt) NGPC", "Party / Mini-Games", 1999], ["Dive Alert Matt (alt) NGPC", "Shoot em Up", 1999], ["Dive Alert Beck (alt) NGPC", "Shoot em Up", 1999], ["Faselei! (alt 2) NGPC", "Strategy / RPG", 1999], ["Metal Slug 2nd Mission (alt) NGPC", "Run & Gun", 2000], ["SNK vs Capcom Card Fighters 2 (alt) NGPC", "Card / Strategy", 2000]]}];
+const BRANDS={tg16:'nec',pcecd:'nec',neogeo:'snk',ngpc:'snk'};
+function tier(r){return r<=10?'ts':r<=30?'ta':'tb2';}
+function medal(r){return r===1?'&#x1F947;':r===2?'&#x1F948;':r===3?'&#x1F949;':'';}
+function rc(r,brand){const base=r===1?'r1':r===2?'r2':r===3?'r3':r<=10?'rt':'rn';return base+(brand==='snk'&&r<=10&&r>3?' snk':'');}
+const tabsEl=document.getElementById('tabs');
+const mainEl=document.getElementById('main');
+DATA.forEach((con,ci)=>{
+  const brand=BRANDS[con.id]||'nec';
+  const btn=document.createElement('button');
+  btn.className='tb'+(ci===0?' act':'');
+  btn.dataset.brand=brand;
+  btn.innerHTML=con.tab+'<span class="te">'+con.tagline.split('·')[0].trim()+'</span>';
+  btn.onclick=()=>{
+    document.querySelectorAll('.tb').forEach(b=>b.classList.remove('act'));
+    document.querySelectorAll('.pn').forEach(p=>p.classList.remove('act'));
+    btn.classList.add('act');
+    document.getElementById('p-'+con.id).classList.add('act');
+  };
+  tabsEl.appendChild(btn);
+  const genres=[...new Set(con.games.map(g=>g[1].split(' / ')[0]))].sort();
+  const panel=document.createElement('div');
+  panel.className='pn'+(ci===0?' act':'');
+  panel.id='p-'+con.id;
+  const count=con.games.length;
+  const isSnk=brand==='snk';
+  const noteClass=isSnk?'note snk':'note nec';
+  const noteHtml=(con.id==='ngpc'||con.id==='pcecd')?`<div class="${noteClass}">This list covers the best-ranked games from the full catalogue of the ${con.title}.</div>`:'';
+  panel.innerHTML=`
+    <div class="ci">
+      <div class="cb ${brand}">${con.badge}</div>
+      <div><div class="ct">${con.title}</div><div class="cg">${con.tagline}</div></div>
+      <div style="text-align:right"><div class="sv ${brand}">${count}</div><div class="sl">Top Games</div></div>
+    </div>
+    ${noteHtml}
+    <div class="fb">
+      <input class="si${isSnk?' snk':''}" type="text" placeholder="Search games..." oninput="flt('${con.id}',this)"/>
+      <select class="gf" onchange="flt('${con.id}',null,this)">
+        <option value="">All Genres</option>
+        ${genres.map(g=>`<option value="${g.toLowerCase()}">${g}</option>`).join('')}
+      </select>
+      <span class="fc" id="fc-${con.id}">Showing ${count} games</span>
+    </div>
+    <div class="th"><div>RANK</div><div></div><div>TITLE</div><div>GENRE</div><div>YEAR</div></div>
+    <div id="lst-${con.id}">
+      ${con.games.map((g,i)=>{const r=i+1;return`<div class="gr ${tier(r)}${isSnk?' snk-row':''}" data-t="${g[0].toLowerCase()}" data-g="${g[1].toLowerCase()}">
+        <div class="rk ${rc(r,brand)}">${r}</div>
+        <div class="md">${medal(r)}</div>
+        <div><div class="gt">${g[0]}</div></div>
+        <div class="gg">${g[1]}</div>
+        <div class="gy">${g[2]}</div>
+      </div>`;}).join('')}
+    </div>
+    <div class="nr" id="nr-${con.id}">No games match your search.</div>`;
+  mainEl.appendChild(panel);
+});
+function flt(id,sEl,gEl){
+  const panel=document.getElementById('p-'+id);
+  const s=(sEl||panel.querySelector('.si')).value.toLowerCase();
+  const g=(gEl||panel.querySelector('.gf')).value.toLowerCase();
+  const rows=panel.querySelectorAll('.gr');
+  let v=0;
+  rows.forEach(row=>{
+    const show=row.dataset.t.includes(s)&&(!g||row.dataset.g.includes(g));
+    row.classList.toggle('hd',!show);
+    if(show)v++;
+  });
+  document.getElementById('fc-'+id).textContent=`Showing ${v} game${v!==1?'s':''}`;
+  document.getElementById('nr-'+id).style.display=v===0?'block':'none';
+}
+</script>
+</body>
+</html>
