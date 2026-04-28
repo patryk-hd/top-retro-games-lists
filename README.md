@@ -15,7 +15,19 @@ Community-curated rankings of the greatest games across classic platforms — ho
 | **PlayStation** | [pages/sony-top-100-games.html](pages/sony-top-100-games.html) | PlayStation 1, PlayStation 2, PSP, PS Vita |
 | **Atari** | [pages/atari-top-100-games.html](pages/atari-top-100-games.html) | Atari 2600, 5200, 7800 ProSystem, Lynx, Jaguar |
 | **NEC & SNK** | [pages/nec-snk-top-100-games.html](pages/nec-snk-top-100-games.html) | TurboGrafx-16, PC Engine CD-ROM, Neo Geo AES, Neo Geo Pocket Color |
+| **Arcade** | [pages/arcade-top-100-games.html](pages/arcade-top-100-games.html) | MAME / Arcade, Capcom CPS, Sega NAOMI, Cave shooters |
 | **Home Computers** | [pages/home-computers-top-100-games.html](pages/home-computers-top-100-games.html) | Commodore 64, Commodore Amiga, ZX Spectrum, MSX, MS-DOS/PC |
+
+## 🆕 Arcade Page
+
+The new arcade page adds a dedicated home for coin-op classics and emulator-era preservation favorites, with tabbed rankings covering:
+
+- **MAME / Arcade** classics across the 1970s to 2000s
+- **Capcom CPS** highlights from CPS-1, CPS-2, and CPS-3
+- **Sega NAOMI / Atomiswave** arcade standouts
+- **Cave shooters** and related bullet hell essentials
+
+Like the rest of the site, the page is self-contained static HTML with built-in search and genre filtering.
 
 ## 🚀 Deploying to GitHub Pages
 
@@ -29,6 +41,7 @@ Community-curated rankings of the greatest games across classic platforms — ho
 ```
 index.html                        ← Landing page with links to all lists
 pages/
+  arcade-top-100-games.html
   atari-top-100-games.html
   home-computers-top-100-games.html
   nec-snk-top-100-games.html
