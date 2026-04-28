@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top Retro Games Lists</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Oswald:wght@300;400;600;700&display=swap');
+:root{--bg:#0a0800;--sur:#120f00;--bdr:#2a2000;--bdr2:#4a3800;--txt:#f5e8c0;--mut:#8a7040;--ora:#ff8c00;--ora2:#ffb347;--pale:#ffd990;--glow:rgba(255,140,0,0.35);}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--txt);font-family:'Rajdhani',sans-serif;min-height:100vh;background-image:radial-gradient(ellipse 70% 50% at 50% -5%,rgba(180,100,0,0.18),transparent 65%),repeating-linear-gradient(0deg,transparent,transparent 47px,rgba(42,32,0,0.5) 47px,rgba(42,32,0,0.5) 48px),repeating-linear-gradient(90deg,transparent,transparent 47px,rgba(42,32,0,0.25) 47px,rgba(42,32,0,0.25) 48px);}
+header{padding:5rem 2rem 3rem;text-align:center;position:relative;border-bottom:1px solid var(--bdr2);}
+header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 110% at 50% 0%,rgba(160,80,0,0.14),transparent);pointer-events:none;}
+header::after{content:'';position:absolute;bottom:-1px;left:50%;transform:translateX(-50%);width:300px;height:2px;background:linear-gradient(90deg,transparent,var(--ora),transparent);}
+.ey{font-family:'Oswald',sans-serif;font-size:.75rem;font-weight:400;letter-spacing:.35em;color:var(--ora);text-transform:uppercase;margin-bottom:1rem;}
+h1{font-family:'Oswald',sans-serif;font-size:clamp(3rem,9vw,7rem);font-weight:700;line-height:.88;color:#fff;text-shadow:0 0 80px rgba(255,140,0,0.45);letter-spacing:.02em;}
+h1 em{color:var(--ora2);font-style:normal;}
+h1 span{display:block;font-size:.25em;font-weight:300;letter-spacing:.2em;color:var(--pale);text-shadow:none;margin-top:.9rem;text-transform:uppercase;}
+.sub{margin-top:1.4rem;font-size:1rem;color:var(--mut);letter-spacing:.08em;line-height:1.8;max-width:600px;margin-left:auto;margin-right:auto;}
+main{max-width:1000px;margin:0 auto;padding:3rem 1.5rem 6rem;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;}
+.card{display:block;background:var(--sur);border:1px solid var(--bdr2);border-radius:6px;padding:2rem 1.8rem;text-decoration:none;color:var(--txt);transition:all .2s;position:relative;overflow:hidden;}
+.card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(255,140,0,0.08),transparent);opacity:0;transition:opacity .2s;}
+.card:hover{border-color:var(--ora);transform:translateY(-3px);box-shadow:0 8px 30px rgba(255,140,0,0.12);}
+.card:hover::before{opacity:1;}
+.card-icon{font-size:2.4rem;margin-bottom:1rem;display:block;}
+.card-title{font-family:'Oswald',sans-serif;font-size:1.5rem;font-weight:700;color:#fff;letter-spacing:.03em;line-height:1.15;margin-bottom:.5rem;position:relative;}
+.card-desc{font-size:.88rem;color:var(--mut);line-height:1.6;position:relative;}
+.card-arrow{position:absolute;top:2rem;right:1.8rem;font-size:1.2rem;color:var(--ora);opacity:0;transform:translateX(-6px);transition:all .2s;}
+.card:hover .card-arrow{opacity:1;transform:translateX(0);}
+footer{text-align:center;padding:2rem;font-size:.78rem;color:var(--mut);letter-spacing:.08em;border-top:1px solid var(--bdr);}
+footer a{color:var(--ora);text-decoration:none;}
+footer a:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+<header>
+<div class="ey">Community-Curated Rankings</div>
+<h1>TOP <em>RETRO</em> GAMES<span>Browse the Definitive Lists</span></h1>
+<p class="sub">Explore top game rankings across classic platforms — from 8-bit home computers to early 3D consoles. Pick a platform family below to dive in.</p>
+</header>
+<main>
+<div class="grid">
+<a class="card" href="pages/nintendo-top-100-games.html">
+<span class="card-icon">🍄</span>
+<div class="card-title">Nintendo Consoles</div>
+<div class="card-desc">NES, SNES, Game Boy, N64, GBA, GameCube &amp; more — the best of Nintendo's legendary library.</div>
+<span class="card-arrow">→</span>
+</a>
+<a class="card" href="pages/sega-top-100-games.html">
+<span class="card-icon">🦔</span>
+<div class="card-title">Sega Consoles</div>
+<div class="card-desc">Master System, Genesis, Saturn, Dreamcast &amp; handhelds — Sega's finest from every era.</div>
+<span class="card-arrow">→</span>
+</a>
+<a class="card" href="pages/sony-top-100-games.html">
+<span class="card-icon">🎮</span>
+<div class="card-title">PlayStation Consoles</div>
+<div class="card-desc">PS1, PS2, PSP — Sony's groundbreaking titles that defined generations of gaming.</div>
+<span class="card-arrow">→</span>
+</a>
+<a class="card" href="pages/atari-top-100-games.html">
+<span class="card-icon">🕹️</span>
+<div class="card-title">Atari Consoles</div>
+<div class="card-desc">2600, 5200, 7800, Jaguar &amp; Lynx — the pioneers that started it all.</div>
+<span class="card-arrow">→</span>
+</a>
+<a class="card" href="pages/nec-snk-top-100-games.html">
+<span class="card-icon">⚔️</span>
+<div class="card-title">NEC &amp; SNK Consoles</div>
+<div class="card-desc">TurboGrafx-16, PC Engine, Neo Geo &amp; more — the cult-classic powerhouses.</div>
+<span class="card-arrow">→</span>
+</a>
+<a class="card" href="pages/home-computers-top-100-games.html">
+<span class="card-icon">💾</span>
+<div class="card-title">Classic Home Computers</div>
+<div class="card-desc">Commodore 64, Amiga, ZX Spectrum, DOS &amp; more — the golden age of computer gaming.</div>
+<span class="card-arrow">→</span>
+</a>
+</div>
+</main>
+<footer>
+<a href="https://github.com/patryk-hd/top-retro-games-lists">top-retro-games-lists</a> — hosted on GitHub Pages
+</footer>
+</body>
+</html>

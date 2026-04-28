@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top Games — Atari Consoles</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Oswald:wght@300;400;600;700&display=swap');
+:root{--bg:#0a0800;--sur:#120f00;--bdr:#2a2000;--bdr2:#4a3800;--txt:#f5e8c0;--mut:#8a7040;--dim:#2a2000;--ora:#ff8c00;--ora2:#ffb347;--pale:#ffd990;--gold:#f5c842;--sil:#b0c4d8;--brz:#c87840;--glow:rgba(255,140,0,0.35);}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--txt);font-family:'Rajdhani',sans-serif;min-height:100vh;background-image:radial-gradient(ellipse 70% 50% at 50% -5%,rgba(180,100,0,0.18),transparent 65%),repeating-linear-gradient(0deg,transparent,transparent 47px,rgba(42,32,0,0.5) 47px,rgba(42,32,0,0.5) 48px),repeating-linear-gradient(90deg,transparent,transparent 47px,rgba(42,32,0,0.25) 47px,rgba(42,32,0,0.25) 48px);}
+header{padding:4rem 2rem 3rem;text-align:center;position:relative;border-bottom:1px solid var(--bdr2);}
+header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 110% at 50% 0%,rgba(160,80,0,0.14),transparent);pointer-events:none;}
+header::after{content:'';position:absolute;bottom:-1px;left:50%;transform:translateX(-50%);width:300px;height:2px;background:linear-gradient(90deg,transparent,var(--ora),transparent);}
+.ey{font-family:'Oswald',sans-serif;font-size:.75rem;font-weight:400;letter-spacing:.35em;color:var(--ora);text-transform:uppercase;margin-bottom:1rem;}
+h1{font-family:'Oswald',sans-serif;font-size:clamp(3rem,9vw,7rem);font-weight:700;line-height:.88;color:#fff;text-shadow:0 0 80px rgba(255,140,0,0.45);letter-spacing:.02em;}
+h1 em{color:var(--ora2);font-style:normal;}
+h1 span{display:block;font-size:.25em;font-weight:300;letter-spacing:.2em;color:var(--pale);text-shadow:none;margin-top:.9rem;text-transform:uppercase;}
+.hs{margin-top:1.2rem;font-size:.85rem;color:var(--mut);letter-spacing:.1em;line-height:1.8;}
+.nav{position:sticky;top:0;z-index:200;background:rgba(10,8,0,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr2);}
+.ns{display:flex;overflow-x:auto;scrollbar-width:none;max-width:1300px;margin:0 auto;}
+.ns::-webkit-scrollbar{display:none;}
+.tb{flex-shrink:0;padding:.9rem 1.5rem;background:transparent;border:none;border-right:1px solid var(--bdr);color:var(--mut);font-family:'Oswald',sans-serif;font-size:.9rem;font-weight:400;letter-spacing:.1em;cursor:pointer;transition:all .18s;text-transform:uppercase;position:relative;white-space:nowrap;line-height:1.4;}
+.tb:last-child{border-right:none;}
+.tb::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--ora);transform:scaleX(0);transition:transform .2s;}
+.tb:hover{color:var(--txt);background:rgba(255,140,0,.05);}
+.tb.act{color:#fff;background:rgba(255,140,0,.08);}
+.tb.act::after{transform:scaleX(1);}
+.te{display:block;font-size:.6rem;font-weight:300;color:var(--mut);letter-spacing:.04em;margin-top:.15rem;font-family:'Rajdhani',sans-serif;}
+main{max-width:1300px;margin:0 auto;padding:0 1rem 5rem;}
+.pn{display:none;}
+.pn.act{display:block;animation:up .22s ease;}
+@keyframes up{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+.ci{padding:2.5rem 0 1.8rem;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:2rem;border-bottom:1px solid var(--bdr2);}
+.cb{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(1.8rem,4.5vw,3rem);color:var(--ora);text-shadow:0 0 40px var(--glow);line-height:1;white-space:nowrap;}
+.ct{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(1.6rem,4vw,3rem);color:#fff;line-height:1.05;letter-spacing:.03em;}
+.cg{font-size:.85rem;color:var(--mut);margin-top:.4rem;font-weight:500;}
+.sv{font-family:'Oswald',sans-serif;font-size:2.5rem;font-weight:700;color:var(--ora);line-height:1;text-shadow:0 0 20px var(--glow);}
+.sl{font-size:.65rem;color:var(--mut);letter-spacing:.14em;text-transform:uppercase;}
+.fb{padding:.85rem 0;display:flex;gap:.7rem;align-items:center;flex-wrap:wrap;border-bottom:1px solid var(--bdr);}
+.si{flex:1;min-width:150px;padding:.5rem .9rem;background:var(--sur);border:1px solid var(--bdr2);border-radius:3px;color:var(--txt);font-family:'Rajdhani',sans-serif;font-size:.95rem;outline:none;transition:border-color .2s;}
+.si:focus{border-color:var(--ora);}
+.si::placeholder{color:var(--mut);}
+.gf{padding:.5rem .8rem;background:var(--sur);border:1px solid var(--bdr2);border-radius:3px;color:var(--txt);font-family:'Rajdhani',sans-serif;font-size:.9rem;cursor:pointer;outline:none;}
+.gf option{background:var(--sur);}
+.fc{font-family:'Oswald',sans-serif;font-size:.75rem;color:var(--mut);white-space:nowrap;letter-spacing:.06em;}
+.th{display:grid;grid-template-columns:3rem 1.6rem 1fr 9rem 4rem;padding:.6rem .85rem;font-family:'Oswald',sans-serif;font-size:.65rem;font-weight:400;letter-spacing:.18em;color:var(--mut);text-transform:uppercase;border-bottom:1px solid var(--bdr2);background:var(--sur);position:sticky;top:57px;z-index:10;}
+.gr{display:grid;grid-template-columns:3rem 1.6rem 1fr 9rem 4rem;padding:.52rem .85rem;border-bottom:1px solid var(--bdr);transition:background .12s;align-items:center;}
+.gr:hover{background:rgba(255,140,0,.06);}
+.gr.ts{border-left:3px solid var(--gold);}
+.gr.ta{border-left:3px solid var(--ora);}
+.gr.tb2{border-left:3px solid transparent;}
+.gr.hd{display:none;}
+.rk{font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;text-align:center;line-height:1;color:var(--dim);}
+.rk.r1{color:var(--gold);font-size:1.4rem;text-shadow:0 0 14px rgba(245,200,66,.6);}
+.rk.r2{color:var(--sil);font-size:1.25rem;}
+.rk.r3{color:var(--brz);font-size:1.1rem;}
+.rk.rt{color:var(--ora2);}
+.rk.rn{color:#3a2800;font-size:.85rem;}
+.md{font-size:.9rem;text-align:center;}
+.gt{font-weight:600;font-size:.95rem;color:var(--txt);line-height:1.25;}
+.gr:hover .gt{color:#fff;}
+.gg{font-size:.72rem;color:var(--mut);}
+.gy{font-family:'Oswald',sans-serif;font-size:.85rem;color:var(--dim);text-align:right;font-weight:400;}
+.nr{text-align:center;padding:3rem;color:var(--mut);font-family:'Oswald',sans-serif;font-size:1rem;letter-spacing:.12em;display:none;}
+.note{background:rgba(255,140,0,.06);border:1px solid var(--bdr2);border-radius:4px;padding:.7rem 1rem;margin:.8rem 0;font-size:.8rem;color:var(--pale);font-style:italic;}
+footer{border-top:1px solid var(--bdr2);padding:2rem;text-align:center;color:var(--mut);font-size:.75rem;letter-spacing:.06em;line-height:2;}
+@media(max-width:600px){.th,.gr{grid-template-columns:2.6rem 1.4rem 1fr 3.5rem;}.gg{display:none;}.ci{grid-template-columns:1fr;gap:.5rem;}}
+</style>
+</head>
+<body>
+<nav style="background:rgba(10,8,0,.97);border-bottom:1px solid #4a3800;padding:.6rem 1.5rem;"><a href="../index.html" style="font-family:Oswald,sans-serif;font-size:.85rem;color:#ff8c00;text-decoration:none;letter-spacing:.08em;">&#8592; ALL LISTS</a></nav>
+<header>
+<div class="ey">Community All-Time Acclaimed</div>
+<h1><em>ATARI</em> GREATEST<span>5 Consoles · 2600 · 5200 · 7800 · Lynx · Jaguar</span></h1>
+<div class="hs">From the console that started it all to the 64-bit era — ranked by player acclaim and community legacy</div>
+</header>
+<div class="nav"><div class="ns" id="tabs"></div></div>
+<main id="main"></main>
+<footer>
+Sources: AtariAge community · GameFAQs polls · Metacritic user scores · Reddit r/atari, r/retrogaming · Digital Press · Classic Gaming community rankings<br>
+Note: Atari 5200, 7800, and Jaguar had smaller libraries — lists reflect top-ranked games from their full catalogues.<br>
+Tier S (gold bar) = Top 10 &nbsp;·&nbsp; Tier A (orange bar) = Top 11–30 &nbsp;·&nbsp; Tier B = remainder
+</footer>
+<script>
+const DATA=[{"id": "atari2600", "tab": "Atari 2600", "badge": "2600", "title": "Atari 2600", "tagline": "1977 \u2013 1992 \u00b7 The console that started it all \u00b7 30 million units", "games": [["Pitfall!", "Platformer / Action", 1982], ["River Raid", "Shoot em Up", 1982], ["Demon Attack", "Shoot em Up", 1982], ["Missile Command", "Shooter", 1981], ["Kaboom!", "Action", 1981], ["Asteroids", "Shoot em Up", 1981], ["Space Invaders", "Shoot em Up", 1980], ["Pitfall II: Lost Caverns", "Platformer / Action", 1984], ["Yars' Revenge", "Shoot em Up", 1982], ["Enduro", "Racing", 1983], ["Adventure", "Action / Adventure", 1980], ["Megamania", "Shoot em Up", 1982], ["Beamrider", "Shoot em Up", 1983], ["Atlantis", "Shoot em Up", 1982], ["Berzerk", "Action", 1982], ["Keystone Kapers", "Platformer", 1983], ["Solaris", "Shoot em Up", 1986], ["Combat", "Action", 1977], ["Breakout", "Arcade", 1978], ["Frogger", "Arcade", 1981], ["Pac-Man 2600", "Arcade", 1982], ["Donkey Kong 2600", "Platformer", 1982], ["Jungle Hunt", "Platformer / Action", 1983], ["Dig Dug 2600", "Arcade", 1983], ["Q*bert 2600", "Arcade / Puzzle", 1983], ["Popeye 2600", "Platformer / Action", 1983], ["Centipede 2600", "Arcade / Shooter", 1982], ["Galaga 2600", "Shoot em Up", 1987], ["Space Shuttle: A Journey into Space", "Simulation", 1983], ["Haunted House", "Adventure", 1982], ["Freeway", "Action", 1981], ["Night Driver", "Racing", 1978], ["Stampede", "Action", 1981], ["Laser Blast", "Shoot em Up", 1981], ["Cosmic Ark", "Shoot em Up", 1982], ["Spider Fighter", "Shoot em Up", 1982], ["Imagic Shootist (Trick Shot)", "Sports / Arcade", 1982], ["Tennis 2600", "Sports", 1981], ["Video Chess", "Board Game", 1979], ["Checkers 2600", "Board Game", 1980], ["Basketball 2600", "Sports", 1978], ["Baseball 2600", "Sports", 1979], ["Boxing 2600", "Sports / Boxing", 1980], ["Ice Hockey 2600", "Sports", 1981], ["Skiing 2600", "Sports", 1980], ["Sky Diver", "Action", 1979], ["Flag Capture", "Puzzle", 1978], ["Home Run 2600", "Sports", 1978], ["Canyon Bomber", "Shoot em Up", 1979], ["Air-Sea Battle", "Shoot em Up", 1977], ["Superman 2600", "Action / Adventure", 1979], ["Swordquest: EarthWorld", "Action / Adventure", 1982], ["Swordquest: FireWorld", "Action / Adventure", 1982], ["Swordquest: WaterWorld", "Action / Adventure", 1983], ["E.T. The Extra-Terrestrial", "Adventure", 1982], ["Raiders of the Lost Ark 2600", "Action / Adventure", 1982], ["Star Wars: The Arcade Game 2600", "Shoot em Up", 1984], ["Star Wars: The Empire Strikes Back 2600", "Shoot em Up", 1982], ["Phoenix 2600", "Shoot em Up", 1982], ["Defender 2600", "Shoot em Up", 1982], ["Moon Patrol 2600", "Platformer / Shooter", 1983], ["Joust 2600", "Arcade", 1983], ["Burger Time 2600", "Arcade", 1983], ["Pole Position 2600", "Racing", 1983], ["Pitfall! (alt)", "Platformer / Action", 1982], ["H.E.R.O.", "Action / Adventure", 1984], ["Starmaster", "Shoot em Up", 1982], ["Chopper Command", "Shoot em Up", 1982], ["Spy Hunter 2600", "Action / Racing", 1984], ["Pressure Cooker", "Puzzle / Action", 1983], ["Trick Shot", "Sports / Arcade", 1982], ["Plaque Attack", "Shoot em Up", 1983], ["Crackpots", "Action", 1983], ["River Raid II", "Shoot em Up", 1988], ["Warlords 2600", "Action", 1981], ["Armor Ambush", "Strategy", 1982], ["Fast Food 2600", "Action", 1982], ["Amidar 2600", "Arcade", 1982], ["Kangaroo 2600", "Platformer", 1983], ["Tron: Deadly Discs", "Action", 1982], ["Zaxxon 2600", "Shoot em Up", 1982], ["Gyruss 2600", "Shoot em Up", 1984], ["Robotron: 2084 2600", "Shoot em Up", 1984], ["Space Dungeon 2600", "Shoot em Up", 1983], ["Gravitar 2600", "Shoot em Up", 1983], ["Battlezone 2600", "Shoot em Up", 1983], ["Tempest 2600", "Shoot em Up", 1984], ["Venture 2600", "Action / Adventure", 1982], ["Montezuma's Revenge 2600", "Platformer", 1984], ["Private Eye 2600", "Action / Adventure", 1983], ["James Bond 007 2600", "Action", 1983], ["Ghostbusters 2600", "Action", 1985], ["Dark Chambers 2600", "Action / RPG", 1988], ["Spiderman 2600", "Action", 1982], ["Double Dunk 2600", "Sports", 1989], ["Decathlon 2600", "Sports", 1983], ["Video Pinball 2600", "Pinball", 1981], ["RealSports Volleyball 2600", "Sports", 1982], ["RealSports Tennis 2600", "Sports", 1983], ["Circus Atari", "Arcade", 1980]]}, {"id": "atari5200", "tab": "Atari 5200", "badge": "5200", "title": "Atari 5200", "tagline": "1982 \u2013 1984 \u00b7 The SuperSystem \u00b7 ~69 games released", "games": [["Pac-Man 5200", "Arcade", 1982], ["Missile Command 5200", "Shooter", 1982], ["Centipede 5200", "Arcade / Shooter", 1982], ["Defender 5200", "Shoot em Up", 1982], ["Space Invaders 5200", "Shoot em Up", 1982], ["Asteroids 5200", "Shoot em Up", 1982], ["Galaxian 5200", "Shoot em Up", 1982], ["Super Pac-Man 5200", "Arcade", 1982], ["Pitfall! 5200", "Platformer / Action", 1983], ["Pole Position 5200", "Racing", 1982], ["Joust 5200", "Arcade", 1983], ["Dig Dug 5200", "Arcade", 1983], ["Qix 5200", "Arcade / Puzzle", 1982], ["Kangaroo 5200", "Platformer", 1983], ["Moon Patrol 5200", "Platformer / Shooter", 1983], ["Star Wars: The Arcade Game 5200", "Shoot em Up", 1984], ["Frogger 5200", "Arcade", 1982], ["Jungle Hunt 5200", "Platformer / Action", 1983], ["River Raid 5200", "Shoot em Up", 1982], ["Kaboom! 5200", "Action", 1983], ["Berzerk 5200", "Action", 1983], ["Vanguard 5200", "Shoot em Up", 1983], ["Gyruss 5200", "Shoot em Up", 1984], ["Pengo 5200", "Arcade / Puzzle", 1983], ["Tempest 5200", "Shoot em Up", 1983], ["Robotron: 2084 5200", "Shoot em Up", 1983], ["Bounty Bob Strikes Back 5200", "Platformer", 1984], ["Miner 2049er 5200", "Platformer", 1983], ["Gremlins 5200", "Action", 1984], ["Montezuma's Revenge 5200", "Platformer", 1984], ["Frogger II: ThreeeDeep! 5200", "Arcade", 1984], ["Buck Rogers: Planet of Zoom 5200", "Shoot em Up", 1983], ["James Bond 007 5200", "Action", 1983], ["Zaxxon 5200", "Shoot em Up", 1982], ["Popeye 5200", "Platformer / Action", 1983], ["Countermeasure 5200", "Shoot em Up", 1982], ["Realsports Baseball 5200", "Sports", 1983], ["Realsports Football 5200", "Sports", 1983], ["Realsports Tennis 5200", "Sports", 1983], ["Realsports Soccer 5200", "Sports", 1983], ["Track and Field 5200", "Sports", 1984], ["Ballblazer 5200", "Sports / Action", 1984], ["Rescue on Fractalus 5200", "Action", 1984], ["H.E.R.O. 5200", "Action / Adventure", 1984], ["Pitfall II 5200", "Platformer / Action", 1984], ["Mr. Do's Castle 5200", "Arcade / Puzzle", 1984], ["Q*bert 5200", "Arcade / Puzzle", 1983], ["Wizard of Wor 5200", "Action", 1982], ["Tac-Scan 5200", "Shoot em Up", 1982], ["Xari Arena 5200 (unreleased proto)", "Puzzle", 1983], ["Meebzork 5200 (unreleased proto)", "Adventure", 1983], ["Meteorites 5200", "Shoot em Up", 1983], ["Miniature Golf 5200", "Sports", 1983], ["Basketball 5200", "Sports", 1983], ["Baseball 5200", "Sports", 1983], ["Football 5200", "Sports", 1983], ["Soccer 5200", "Sports", 1983], ["Tennis 5200", "Sports", 1983], ["Skiing 5200", "Sports", 1983], ["Chess 5200", "Board Game", 1983], ["Checkers 5200", "Board Game", 1983], ["Backgammon 5200", "Board Game", 1983], ["Space Dungeon 5200", "Shoot em Up", 1983], ["Choplifter 5200", "Action", 1982], ["Battlezone 5200", "Shoot em Up", 1983], ["Gravitar 5200", "Shoot em Up", 1983], ["Crystal Castles 5200", "Arcade", 1984], ["Congo Bongo 5200", "Arcade / Action", 1983]]}, {"id": "atari7800", "tab": "Atari 7800", "badge": "7800", "title": "Atari 7800 ProSystem", "tagline": "1986 \u2013 1992 \u00b7 Backward compatible with 2600 \u00b7 ~59 games released", "games": [["Ballblazer 7800", "Sports / Action", 1984], ["Rescue on Fractalus 7800", "Action", 1984], ["Pole Position II 7800", "Racing", 1984], ["Ms. Pac-Man 7800", "Arcade", 1984], ["Centipede 7800", "Arcade / Shooter", 1987], ["Dig Dug 7800", "Arcade", 1987], ["Pac-Man 7800", "Arcade", 1984], ["Joust 7800", "Arcade", 1987], ["Galaga 7800", "Shoot em Up", 1987], ["Asteroids 7800", "Shoot em Up", 1987], ["Commando 7800", "Run & Gun", 1987], ["Karateka 7800", "Beat em Up", 1987], ["One on One Basketball 7800", "Sports", 1987], ["Robotron: 2084 7800", "Shoot em Up", 1987], ["Xevious 7800", "Shoot em Up", 1987], ["Desert Falcon 7800", "Shoot em Up", 1987], ["Dark Chambers 7800", "Action / RPG", 1988], ["Donkey Kong 7800", "Platformer", 1988], ["Donkey Kong Jr. 7800", "Platformer", 1988], ["Mario Bros. 7800", "Platformer", 1988], ["Choplifter! 7800", "Action", 1988], ["Food Fight 7800", "Arcade / Action", 1987], ["Hat Trick 7800", "Sports / Hockey", 1988], ["Midnight Mutants 7800", "Action / Adventure", 1990], ["Summer Games 7800", "Sports", 1987], ["Winter Games 7800", "Sports", 1987], ["World Games 7800", "Sports", 1988], ["Mean 18 Ultimate Golf 7800", "Sports / Golf", 1990], ["Ninja Golf 7800", "Sports / Action", 1990], ["Basketbrawl 7800", "Sports / Beat em Up", 1990], ["Scrapyard Dog 7800", "Platformer", 1991], ["Rampage 7800", "Action", 1988], ["Double Dragon 7800", "Beat em Up", 1990], ["Fight Night 7800", "Sports / Boxing", 1988], ["Alien Brigade 7800", "Run & Gun", 1990], ["Crossbow 7800", "Shoot em Up / Light Gun", 1987], ["Crack'ed 7800", "Shoot em Up / Light Gun", 1988], ["Tomcat: The F-14 Fighter Simulator 7800", "Flight Simulation", 1988], ["Super Huey UH-IX 7800", "Flight Simulation", 1988], ["Title Match Pro Wrestling 7800", "Sports / Wrestling", 1987], ["Lee Trevino's Fighting Golf 7800", "Sports / Golf", 1989], ["Sirius 7800", "Shoot em Up", 1987], ["Sentinel 7800", "Action", 1990], ["Realsports Baseball 7800", "Sports", 1988], ["Touchdown Football 7800", "Sports", 1988], ["F-18 Hornet 7800", "Flight Simulation", 1988], ["Kung Fu Master 7800", "Beat em Up", 1987], ["Tower Toppler (Nebulous) 7800", "Platformer / Puzzle", 1988], ["Jinks 7800", "Breakout / Action", 1987], ["Klax 7800", "Puzzle", 1990], ["Xenophobe 7800", "Shoot em Up", 1990], ["Tank Command 7800", "Strategy", 1988], ["Professor Pac-Man 7800", "Puzzle / Educational", 1984], ["Impossible Mission 7800", "Platformer / Action", 1990], ["Water Ski 7800", "Sports", 1988], ["Mat Mania Challenge 7800", "Sports / Wrestling", 1990], ["Ace of Aces 7800", "Flight / Action", 1988], ["Ikari Warriors 7800", "Run & Gun", 1987], ["Pete Rose Baseball 7800", "Sports", 1988], ["GATO (submarine sim) 7800", "Strategy / Simulation", 1989]]}, {"id": "lynx", "tab": "Atari Lynx", "badge": "LYNX", "title": "Atari Lynx", "tagline": "1989 \u2013 1994 \u00b7 World's first color handheld \u00b7 ~76 games released", "games": [["California Games Lynx", "Sports", 1989], ["Chip's Challenge Lynx", "Puzzle", 1989], ["Blue Lightning Lynx", "Rail Shooter", 1989], ["Gates of Zendocon Lynx", "Shoot em Up", 1989], ["Checkered Flag Lynx", "Racing", 1991], ["Todd's Adventures in Slime World Lynx", "Action / Adventure", 1990], ["Slime World Lynx", "Action / Adventure", 1990], ["Shadow of the Beast Lynx", "Platformer / Action", 1992], ["Ninja Gaiden Lynx", "Platformer / Action", 1990], ["Batman Returns Lynx", "Platformer / Action", 1992], ["Klax Lynx", "Puzzle", 1990], ["Paperboy Lynx", "Action", 1990], ["Shanghai Lynx", "Board Game / Puzzle", 1989], ["Gauntlet: The Third Encounter Lynx", "Dungeon Crawler", 1990], ["Awesome Golf Lynx", "Sports / Golf", 1991], ["Turbo Sub Lynx", "Shoot em Up", 1990], ["Rygar Lynx", "Platformer / Action", 1990], ["Vindicators Lynx", "Shoot em Up / Action", 1991], ["Xenophobe Lynx", "Shoot em Up", 1990], ["Rampage Lynx", "Action", 1990], ["Super Skweek Lynx", "Puzzle / Action", 1991], ["Robotron 2084 Lynx", "Shoot em Up", 1991], ["Ms. Pac-Man Lynx", "Arcade", 1990], ["Pac-Land Lynx", "Platformer", 1992], ["Crystal Mines II Lynx", "Puzzle / Action", 1992], ["Lemmings Lynx", "Puzzle", 1992], ["Joust Lynx", "Arcade", 1992], ["Rampart Lynx", "Strategy / Action", 1992], ["Zarlor Mercenary Lynx", "Shoot em Up", 1990], ["A.P.B. Lynx", "Action / Racing", 1989], ["Desert Strike Lynx", "Action", 1992], ["Warbirds Lynx", "Flight / Action", 1990], ["Basketbrawl Lynx", "Sports / Beat em Up", 1992], ["Electrocop Lynx", "Action", 1989], ["Road Blasters Lynx", "Shoot em Up / Racing", 1991], ["Toki Lynx", "Platformer", 1992], ["Viking Child Lynx", "Platformer / Action", 1992], ["Hockey Lynx", "Sports", 1991], ["Baseball Heroes Lynx", "Sports", 1991], ["Pit Fighter Lynx", "Fighting", 1992], ["Dirty Larry: Renegade Cop Lynx", "Beat em Up", 1992], ["NFL Football Lynx", "Sports", 1993], ["Fidelity Ultimate Chess Challenge Lynx", "Board Game", 1991], ["World Class Soccer Lynx", "Sports", 1992], ["European Soccer Challenge Lynx", "Sports", 1992], ["Power Factor Lynx", "Shoot em Up", 1990], ["Scrapyard Dog Lynx", "Platformer", 1992], ["Super Asteroids and Missile Command Lynx", "Shoot em Up", 1995], ["Stun Runner Lynx", "Racing", 1990], ["Hydra Lynx", "Racing / Action", 1991], ["Hard Drivin' Lynx", "Racing", 1991], ["Steel Talons Lynx", "Flight / Action", 1992], ["Pinball Jam Lynx", "Pinball", 1992], ["Cyberball Lynx", "Sports", 1992], ["Gordo 106: The Mutated Lab Monkey Lynx", "Platformer", 1993], ["Krazy Ace Miniature Golf Lynx", "Sports / Golf", 1993], ["Malibu Bikini Volleyball Lynx", "Sports", 1993], ["Nerd's Challenge Lynx (unreleased)", "Puzzle", 1991], ["Eye of the Beholder Lynx", "RPG", 1991], ["Xybots Lynx", "Shoot em Up", 1991], ["Block Out Lynx", "Puzzle", 1991], ["Robo-Squash Lynx", "Sports / Arcade", 1990], ["S.T.U.N. Runner Lynx", "Racing", 1990], ["Ultravore Lynx", "Shoot em Up", 1995], ["Kung Food Lynx", "Beat em Up", 1992], ["Bubble Trouble Lynx", "Arcade / Puzzle", 1990], ["Dracula the Undead Lynx", "Adventure / Horror", 1991], ["Ninja Gaiden III Lynx", "Platformer / Action", 1994], ["Todd's Adventures (alt) Lynx", "Action / Adventure", 1990], ["California Games II Lynx (planned)", "Sports", 1992], ["Switchblade II Lynx", "Platformer / Action", 1992], ["Battlezone 2000 Lynx", "Shoot em Up", 1994], ["BLL (Baseball) Lynx", "Sports", 1992], ["Assault Lynx", "Shoot em Up", 1990], ["Chip's Challenge (alt) Lynx", "Puzzle", 1989]]}, {"id": "jaguar", "tab": "Atari Jaguar", "badge": "JAG", "title": "Atari Jaguar", "tagline": "1993 \u2013 1996 \u00b7 64-bit era \u00b7 ~67 games released", "games": [["Tempest 2000 Jaguar", "Shoot em Up", 1994], ["Alien vs. Predator Jaguar", "First-Person Shooter", 1994], ["Doom Jaguar", "First-Person Shooter", 1994], ["Wolfenstein 3D Jaguar", "First-Person Shooter", 1994], ["Rayman Jaguar", "Platformer", 1995], ["Iron Soldier Jaguar", "Mech Action", 1994], ["Brutal Sports Football Jaguar", "Sports / Action", 1994], ["Zool 2 Jaguar", "Platformer", 1994], ["Checkered Flag Jaguar", "Racing", 1994], ["Kasumi Ninja Jaguar", "Fighting", 1994], ["Cybermorph Jaguar", "Shoot em Up", 1993], ["Ultra Vortek Jaguar", "Fighting", 1995], ["Club Drive Jaguar", "Racing", 1994], ["Flashback: The Quest for Identity Jaguar", "Platformer / Action", 1994], ["Super Burnout Jaguar", "Racing", 1995], ["Bubsy in Fractured Furry Tales Jaguar", "Platformer", 1994], ["NBA Jam Tournament Edition Jaguar", "Sports", 1994], ["Cannon Fodder Jaguar", "Strategy / Action", 1995], ["Syndicate Jaguar", "Strategy / Action", 1995], ["Theme Park Jaguar", "Simulation", 1995], ["Defender 2000 Jaguar", "Shoot em Up", 1996], ["Iron Soldier 2 Jaguar", "Mech Action", 1996], ["Battle Morph Jaguar", "Shoot em Up", 1994], ["Atari Karts Jaguar", "Kart Racing", 1995], ["Hover Strike Jaguar", "Action", 1995], ["Troy Aikman NFL Football Jaguar", "Sports", 1995], ["Pitfall: The Mayan Adventure Jaguar", "Platformer", 1994], ["Val d'Isere Skiing Jaguar", "Sports", 1994], ["White Men Can't Jump Jaguar", "Sports", 1995], ["Ruiner Pinball Jaguar", "Pinball", 1995], ["Flip Out! Jaguar", "Puzzle", 1995], ["Worms Jaguar", "Strategy", 1996], ["Primal Rage Jaguar", "Fighting", 1995], ["I-War (Independence War) Jaguar", "Shoot em Up", 1995], ["BattleSphere Jaguar", "Space Combat", 2000], ["Skyhammer Jaguar", "Shoot em Up", 1996], ["Power Drive Rally Jaguar", "Racing", 1996], ["Attack of the Mutant Penguins Jaguar", "Action / Puzzle", 1994], ["Towers II: Plight of the Stargazer Jaguar", "RPG / Puzzle", 1996], ["Baldies Jaguar", "Strategy", 1995], ["Zero 5 Jaguar", "Shoot em Up", 1995], ["Missile Command 3D Jaguar", "Shoot em Up", 1995], ["Protector SE Jaguar", "Shoot em Up", 2001], ["Reboot Jaguar (homebrew)", "Action", 2002], ["Hyper Force Jaguar (homebrew)", "Shoot em Up", 2000], ["Breakout 2000 Jaguar", "Breakout", 1996], ["Pinball Fantasies Jaguar", "Pinball", 1996], ["Soccer Kid Jaguar", "Platformer / Sports", 1994], ["International Sensible Soccer Jaguar", "Sports", 1995], ["NBA Jam TE Jaguar", "Sports", 1994], ["NFL Football Jaguar", "Sports", 1994], ["Fever Pitch Soccer Jaguar", "Sports", 1995], ["Wolfenstein 3D (alt) Jaguar", "First-Person Shooter", 1994], ["Doom (alt) Jaguar", "First-Person Shooter", 1994], ["Tempest 2000 (alt) Jaguar", "Shoot em Up", 1994], ["Alien vs. Predator (alt) Jaguar", "First-Person Shooter", 1994], ["Dragon's Lair Jaguar", "Interactive Movie", 1995], ["Space Ace Jaguar", "Interactive Movie", 1994], ["Aircars Jaguar", "Flight / Action", 1995], ["Trevor McFur in the Crescent Galaxy Jaguar", "Shoot em Up", 1993], ["Evolution Dino Dudes Jaguar", "Platformer", 1994], ["Mind Bender Jaguar", "Puzzle", 1995], ["Towers: Lord Baniff's Deceit Jaguar", "RPG / Puzzle", 1994], ["Vid Grid Jaguar", "Puzzle / Music", 1994], ["Dino Dudes (alt) Jaguar", "Platformer", 1994], ["Crescent Galaxy (alt) Jaguar", "Shoot em Up", 1993], ["Cannon Fodder (alt) Jaguar", "Strategy / Action", 1995], ["Super Burnout (alt) Jaguar", "Racing", 1995]]}];
+const SMALL=['atari5200','atari7800','lynx','jaguar'];
+function tier(r){return r<=10?'ts':r<=30?'ta':'tb2';}
+function medal(r){return r===1?'&#x1F947;':r===2?'&#x1F948;':r===3?'&#x1F949;':'';}
+function rc(r){return r===1?'r1':r===2?'r2':r===3?'r3':r<=10?'rt':'rn';}
+const tabsEl=document.getElementById('tabs');
+const mainEl=document.getElementById('main');
+DATA.forEach((con,ci)=>{
+  const isSmall=SMALL.includes(con.id);
+  const btn=document.createElement('button');
+  btn.className='tb'+(ci===0?' act':'');
+  btn.innerHTML=con.tab+'<span class="te">'+con.tagline.split('·')[0].trim()+'</span>';
+  btn.onclick=()=>{
+    document.querySelectorAll('.tb').forEach(b=>b.classList.remove('act'));
+    document.querySelectorAll('.pn').forEach(p=>p.classList.remove('act'));
+    btn.classList.add('act');
+    document.getElementById('p-'+con.id).classList.add('act');
+  };
+  tabsEl.appendChild(btn);
+  const genres=[...new Set(con.games.map(g=>g[1].split(' / ')[0]))].sort();
+  const panel=document.createElement('div');
+  panel.className='pn'+(ci===0?' act':'');
+  panel.id='p-'+con.id;
+  const count=con.games.length;
+  const noteHtml=isSmall?`<div class="note">Note: The ${con.title} had a limited library (~${count} games covered). This list ranks the best of the full catalogue.</div>`:'';
+  panel.innerHTML=`
+    <div class="ci">
+      <div class="cb">${con.badge}</div>
+      <div><div class="ct">${con.title}</div><div class="cg">${con.tagline}</div></div>
+      <div style="text-align:right"><div class="sv">${count}</div><div class="sl">${isSmall?'Games Listed':'Top Games'}</div></div>
+    </div>
+    ${noteHtml}
+    <div class="fb">
+      <input class="si" type="text" placeholder="Search games..." oninput="flt('${con.id}',this)"/>
+      <select class="gf" onchange="flt('${con.id}',null,this)">
+        <option value="">All Genres</option>
+        ${genres.map(g=>`<option value="${g.toLowerCase()}">${g}</option>`).join('')}
+      </select>
+      <span class="fc" id="fc-${con.id}">Showing ${count} games</span>
+    </div>
+    <div class="th"><div>RANK</div><div></div><div>TITLE</div><div>GENRE</div><div>YEAR</div></div>
+    <div id="lst-${con.id}">
+      ${con.games.map((g,i)=>{const r=i+1;return`<div class="gr ${tier(r)}" data-t="${g[0].toLowerCase()}" data-g="${g[1].toLowerCase()}">
+        <div class="rk ${rc(r)}">${r}</div>
+        <div class="md">${medal(r)}</div>
+        <div><div class="gt">${g[0]}</div></div>
+        <div class="gg">${g[1]}</div>
+        <div class="gy">${g[2]}</div>
+      </div>`;}).join('')}
+    </div>
+    <div class="nr" id="nr-${con.id}">No games match your search.</div>`;
+  mainEl.appendChild(panel);
+});
+function flt(id,sEl,gEl){
+  const panel=document.getElementById('p-'+id);
+  const s=(sEl||panel.querySelector('.si')).value.toLowerCase();
+  const g=(gEl||panel.querySelector('.gf')).value.toLowerCase();
+  const rows=panel.querySelectorAll('.gr');
+  let v=0;
+  rows.forEach(row=>{
+    const show=row.dataset.t.includes(s)&&(!g||row.dataset.g.includes(g));
+    row.classList.toggle('hd',!show);
+    if(show)v++;
+  });
+  document.getElementById('fc-'+id).textContent=`Showing ${v} game${v!==1?'s':''}`;
+  document.getElementById('nr-'+id).style.display=v===0?'block':'none';
+}
+</script>
+</body>
+</html>
