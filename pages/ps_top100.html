@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top 100 — PlayStation Consoles</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #04060f;
+  --surface: #080d1a;
+  --card: #0c1220;
+  --border: #1a2340;
+  --border2: #243060;
+  --text: #dde4f5;
+  --muted: #5a6a99;
+  --dim: #2a3660;
+  --ps-blue: #0070d1;
+  --ps-light: #4da6ff;
+  --ps-pale: #a8c8ff;
+  --gold: #f5c842;
+  --silver: #9ab0d0;
+  --bronze: #c07840;
+  --glow-blue: rgba(0,112,209,0.3);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Barlow', sans-serif;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 80% 40% at 50% -10%, rgba(0,80,180,0.18) 0%, transparent 70%),
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(26,35,64,0.3) 39px, rgba(26,35,64,0.3) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(26,35,64,0.15) 39px, rgba(26,35,64,0.15) 40px);
+}
+
+header {
+  padding: 4rem 2rem 3rem;
+  text-align: center;
+  position: relative;
+  border-bottom: 1px solid var(--border2);
+}
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 100% at 50% 0%, rgba(0,112,209,0.12), transparent);
+  pointer-events: none;
+}
+.ps-logo-row {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+.ps-symbol {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 1.1rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid;
+  opacity: 0.85;
+}
+.sym-x { color: #6ab3f5; border-color: #6ab3f5; }
+.sym-o { color: #f08080; border-color: #f08080; }
+.sym-sq { color: #d090d0; border-color: #d090d0; }
+.sym-tri { color: #90d0a0; border-color: #90d0a0; }
+
+.header-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: var(--ps-blue);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -0.01em;
+  color: #fff;
+  text-shadow: 0 0 60px rgba(0,112,209,0.5);
+}
+h1 span {
+  display: block;
+  color: var(--ps-light);
+  font-size: 0.5em;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-shadow: none;
+  margin-top: 0.4rem;
+}
+.header-sub {
+  margin-top: 1.2rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+/* NAV */
+.nav-outer {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(4,6,15,0.97);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border2);
+}
+.nav-inner {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.tab-btn {
+  flex-shrink: 0;
+  padding: 1rem 1.2rem;
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--border);
+  color: var(--muted);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(0.8rem, 2.2vw, 1.1rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  position: relative;
+}
+.tab-btn:last-child { border-right: none; }
+.tab-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--ps-blue);
+  transform: scaleX(0);
+  transition: transform 0.2s;
+}
+.tab-btn:hover { color: var(--ps-pale); background: rgba(0,112,209,0.05); }
+.tab-btn.active { color: #fff; background: rgba(0,112,209,0.1); }
+.tab-btn.active::after { transform: scaleX(1); }
+.tab-count {
+  display: block;
+  font-size: 0.58rem;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  margin-top: 0.15rem;
+}
+
+/* MAIN */
+main { max-width: 1200px; margin: 0 auto; padding: 0 1rem 5rem; }
+.console-panel { display: none; }
+.console-panel.active { display: block; animation: panelIn 0.25s ease; }
+@keyframes panelIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+
+.console-intro {
+  padding: 2.5rem 0 2rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 2rem;
+  border-bottom: 1px solid var(--border2);
+}
+.console-badge {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: var(--ps-blue);
+  text-shadow: 0 0 30px var(--glow-blue);
+  line-height: 1;
+}
+.console-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  color: #fff;
+  line-height: 1;
+}
+.emu-badge{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.1em;padding:.18rem .6rem;border-radius:3px;margin-top:.4rem;border:1px solid var(--ps-blue);color:var(--ps-pale);background:rgba(0,112,209,.12);}
+.console-tagline {
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin-top: 0.4rem;
+}
+.console-stats { text-align: right; }
+.stat-val {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--ps-light);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 0.68rem;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* FILTER */
+.filter-bar {
+  padding: 0.9rem 0;
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--border);
+}
+.search-input {
+  flex: 1;
+  min-width: 160px;
+  padding: 0.5rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: 4px;
+  color: var(--text);
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.search-input:focus { border-color: var(--ps-blue); }
+.search-input::placeholder { color: var(--muted); }
+.genre-filter {
+  padding: 0.5rem 0.8rem;
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: 4px;
+  color: var(--text);
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.85rem;
+  cursor: pointer;
+  outline: none;
+}
+.genre-filter option { background: var(--surface); }
+.filter-count {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.85rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+/* TABLE */
+.table-header {
+  display: grid;
+  grid-template-columns: 3.2rem 1.8rem 1fr 9.5rem 4rem;
+  padding: 0.6rem 0.8rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border2);
+  background: var(--surface);
+  position: sticky;
+  top: 56px;
+  z-index: 10;
+}
+.game-row {
+  display: grid;
+  grid-template-columns: 3.2rem 1.8rem 1fr 9.5rem 4rem;
+  padding: 0.52rem 0.8rem;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.12s;
+  align-items: center;
+}
+.game-row:hover { background: rgba(0,112,209,0.07); }
+.game-row.tier-s { border-left: 3px solid var(--gold); }
+.game-row.tier-a { border-left: 3px solid var(--ps-blue); }
+.game-row.tier-b { border-left: 3px solid transparent; }
+.game-row.hidden { display: none; }
+
+.g-rank {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  text-align: center;
+  line-height: 1;
+  color: var(--dim);
+}
+.g-rank.r1 { color: var(--gold); font-size: 1.5rem; text-shadow: 0 0 12px rgba(245,200,66,0.5); }
+.g-rank.r2 { color: var(--silver); font-size: 1.35rem; }
+.g-rank.r3 { color: var(--bronze); font-size: 1.25rem; }
+.g-rank.rtop { color: var(--ps-light); }
+
+.g-medal { font-size: 0.9rem; text-align: center; }
+.g-title { font-weight: 600; font-size: 0.93rem; color: var(--text); line-height: 1.25; }
+.game-row:hover .g-title { color: #fff; }
+.g-genre { font-size: 0.73rem; color: var(--muted); font-weight: 500; padding-right: 0.5rem; }
+.g-year {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.9rem;
+  color: var(--dim);
+  font-weight: 600;
+  text-align: right;
+}
+.no-results {
+  text-align: center;
+  padding: 3rem;
+  color: var(--muted);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  display: none;
+}
+
+footer {
+  border-top: 1px solid var(--border2);
+  padding: 2rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.76rem;
+  letter-spacing: 0.05em;
+  line-height: 1.9;
+}
+
+@media (max-width: 600px) {
+  .table-header, .game-row { grid-template-columns: 2.8rem 1.5rem 1fr 3.5rem; }
+  .g-genre { display: none; }
+  .console-intro { grid-template-columns: 1fr; gap: 0.5rem; }
+  .console-stats { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="ps-logo-row">
+    <div class="ps-symbol sym-x">✕</div>
+    <div class="ps-symbol sym-o">○</div>
+    <div class="ps-symbol sym-sq">□</div>
+    <div class="ps-symbol sym-tri">△</div>
+  </div>
+  <div class="header-eyebrow">Community All-Time Acclaimed</div>
+  <h1>TOP 100<span>PlayStation · Greatest Games Ever · 7 Consoles · 700 Games</span></h1>
+  <div class="header-sub">PS1 &nbsp;·&nbsp; PS2 &nbsp;·&nbsp; PSP &nbsp;·&nbsp; PS Vita &nbsp;·&nbsp; PS3 &nbsp;·&nbsp; PS4 &nbsp;·&nbsp; PS5 &nbsp;&nbsp;|&nbsp;&nbsp; 700 Games Total &nbsp;·&nbsp; Ranked by Player Acclaim</div>
+</header>
+
+<div class="nav-outer"><div class="nav-inner" id="tabs"></div></div>
+
+<main id="main"></main>
+
+<footer>
+  Sources: GameFAQs community polls · Metacritic user scores · OpenCritic · Reddit r/PS1 r/PS2 r/PSP r/vita r/PS3 r/PS4 r/PS5 · IGN & GameSpot community rankings · GameRankings aggregates · Famitsu reader polls<br>
+  Rankings reflect broad community consensus. Tier S (gold bar) = Top 10 · Tier A (blue bar) = Top 30 · Tier B = Top 100
+</footer>
+
+<script>
+const DATA = {
+ps1: {
+  title:"PlayStation", badge:"PS1",
+  tagline:"1994 – 2006 · Sony Computer Entertainment",
+  games:[
+    {t:"Final Fantasy VII",g:"RPG",y:1997},
+    {t:"Metal Gear Solid",g:"Action / Stealth",y:1998},
+    {t:"Castlevania: Symphony of the Night",g:"Action RPG",y:1997},
+    {t:"Final Fantasy IX",g:"RPG",y:2000},
+    {t:"Resident Evil 2",g:"Survival Horror",y:1998},
+    {t:"Tekken 3",g:"Fighting",y:1998},
+    {t:"Final Fantasy VIII",g:"RPG",y:1999},
+    {t:"Chrono Cross",g:"RPG",y:1999},
+    {t:"Tony Hawk's Pro Skater 2",g:"Sports / Action",y:2000},
+    {t:"Gran Turismo 2",g:"Racing Simulation",y:1999},
+    {t:"Silent Hill",g:"Survival Horror",y:1999},
+    {t:"Xenogears",g:"RPG",y:1998},
+    {t:"Crash Bandicoot 2: Cortex Strikes Back",g:"Platformer",y:1997},
+    {t:"Spyro 2: Ripto's Rage!",g:"Platformer",y:1999},
+    {t:"Crash Bandicoot: Warped",g:"Platformer",y:1998},
+    {t:"Suikoden II",g:"RPG",y:1998},
+    {t:"Vagrant Story",g:"Action RPG",y:2000},
+    {t:"Final Fantasy Tactics",g:"Strategy RPG",y:1997},
+    {t:"Parasite Eve",g:"RPG / Action",y:1998},
+    {t:"Gran Turismo",g:"Racing Simulation",y:1997},
+    {t:"Spyro the Dragon",g:"Platformer",y:1998},
+    {t:"Resident Evil 3: Nemesis",g:"Survival Horror",y:1999},
+    {t:"Crash Bandicoot",g:"Platformer",y:1996},
+    {t:"Tactics Ogre: Let Us Cling Together",g:"Strategy RPG",y:1995},
+    {t:"Tony Hawk's Pro Skater",g:"Sports / Action",y:1999},
+    {t:"Star Ocean: The Second Story",g:"Action RPG",y:1998},
+    {t:"Alundra",g:"Action RPG",y:1997},
+    {t:"Wild Arms",g:"RPG",y:1996},
+    {t:"Dino Crisis",g:"Survival Horror",y:1999},
+    {t:"Ridge Racer Type 4",g:"Racing",y:1998},
+    {t:"Legacy of Kain: Soul Reaver",g:"Action / Adventure",y:1999},
+    {t:"Brave Fencer Musashi",g:"Action RPG",y:1998},
+    {t:"Spyro: Year of the Dragon",g:"Platformer",y:2000},
+    {t:"Medal of Honor",g:"FPS",y:1999},
+    {t:"Einhänder",g:"Shoot 'em Up",y:1997},
+    {t:"Soul Blade (Soul Edge)",g:"Fighting",y:1996},
+    {t:"Bushido Blade",g:"Fighting",y:1997},
+    {t:"Fear Effect",g:"Action / Adventure",y:2000},
+    {t:"Crash Team Racing",g:"Kart Racing",y:1999},
+    {t:"Parasite Eve II",g:"RPG / Action",y:1999},
+    {t:"Klonoa: Door to Phantomile",g:"Platformer",y:1997},
+    {t:"Oddworld: Abe's Exoddus",g:"Puzzle Platformer",y:1998},
+    {t:"Tekken 2",g:"Fighting",y:1995},
+    {t:"Driver",g:"Action / Racing",y:1999},
+    {t:"Twisted Metal 2",g:"Vehicular Combat",y:1996},
+    {t:"Megaman X4",g:"Platformer / Action",y:1997},
+    {t:"Wipeout 2097 / XL",g:"Racing",y:1996},
+    {t:"Resident Evil: Director's Cut",g:"Survival Horror",y:1997},
+    {t:"Persona 2: Eternal Punishment",g:"RPG",y:1999},
+    {t:"Blood Omen: Legacy of Kain",g:"Action / Adventure",y:1996},
+    {t:"Breath of Fire III",g:"RPG",y:1997},
+    {t:"Breath of Fire IV",g:"RPG",y:2000},
+    {t:"Lunar: Silver Star Story Complete",g:"RPG",y:1996},
+    {t:"Lunar 2: Eternal Blue Complete",g:"RPG",y:1998},
+    {t:"Tomba! (Tombi!)",g:"Platformer / Adventure",y:1997},
+    {t:"Tomba! 2: The Evil Swine Return",g:"Platformer / Adventure",y:1999},
+    {t:"Jumping Flash!",g:"Platformer / FPS",y:1995},
+    {t:"Vandal Hearts",g:"Strategy RPG",y:1996},
+    {t:"Legend of Dragoon",g:"RPG",y:1999},
+    {t:"Tenchu: Stealth Assassins",g:"Stealth / Action",y:1998},
+    {t:"Ace Combat 3: Electrosphere",g:"Flight / Action",y:1999},
+    {t:"Wild Arms 2",g:"RPG",y:1999},
+    {t:"Dino Crisis 2",g:"Action / Survival",y:2000},
+    {t:"Suikoden",g:"RPG",y:1995},
+    {t:"Rayman",g:"Platformer",y:1995},
+    {t:"Megaman Legends",g:"Action RPG",y:1997},
+    {t:"Azure Dreams",g:"Roguelike RPG",y:1997},
+    {t:"Threads of Fate",g:"Action RPG",y:1999},
+    {t:"Persona: Revelations",g:"RPG",y:1996},
+    {t:"Brigandine: The Legend of Forsena",g:"Strategy RPG",y:1998},
+    {t:"Shadow Tower",g:"Action RPG",y:1998},
+    {t:"Tobal No. 1",g:"Fighting",y:1996},
+    {t:"Bloody Roar 2",g:"Fighting",y:1999},
+    {t:"Jade Cocoon: Story of the Tamamayu",g:"RPG",y:1998},
+    {t:"Strider 2",g:"Platformer / Action",y:1999},
+    {t:"G-Police",g:"Action / Shooter",y:1997},
+    {t:"Colony Wars",g:"Space Combat",y:1997},
+    {t:"Koudelka",g:"RPG / Horror",y:1999},
+    {t:"Galerians",g:"Action / Horror",y:1999},
+    {t:"Deception: Invitation to Darkness",g:"Strategy / Horror",y:1996},
+    {t:"Shadow Hearts",g:"RPG",y:2001},
+    {t:"King's Field II",g:"Action RPG",y:1995},
+    {t:"Future Cop: L.A.P.D.",g:"Action / Shooter",y:1998},
+    {t:"Vanguard Bandits",g:"Strategy RPG",y:1998},
+    {t:"Kartia: The Word of Fate",g:"Strategy RPG",y:1998},
+    {t:"Gex: Enter the Gecko",g:"Platformer",y:1998},
+    {t:"Pandemonium 2",g:"Platformer",y:1997},
+    {t:"Rayman 2: The Great Escape",g:"Platformer",y:1999},
+    {t:"Vigilante 8: 2nd Offense",g:"Vehicular Combat",y:1999},
+    {t:"Herc's Adventures",g:"Beat 'em Up / Action",y:1997},
+    {t:"Skull Monkeys",g:"Platformer",y:1998},
+    {t:"Intelligent Qube",g:"Puzzle",y:1997},
+    {t:"Philosoma",g:"Shoot 'em Up",y:1995},
+    {t:"Thunder Force V",g:"Shoot 'em Up",y:1998},
+    {t:"Overboard! (Shipwreckers!)",g:"Action / Strategy",y:1997},
+    {t:"Driver 2",g:"Action / Racing",y:2000},
+    {t:"Rhapsody: A Musical Adventure",g:"RPG",y:1998},
+    {t:"Saiyuki: Journey West",g:"Strategy RPG",y:2001},
+    {t:"Bustamove / Puzzle Bobble",g:"Puzzle",y:1996},
+    {t:"Dino Crisis",g:"Survival Horror",y:1999},
+  ]
+},
+
+ps2: {
+  title:"PlayStation 2", badge:"PS2",
+  tagline:"2000 – 2013 · Best-selling console of all time · 155 million units",
+  games:[
+    {t:"Shadow of the Colossus",g:"Action / Adventure",y:2005},
+    {t:"Grand Theft Auto: San Andreas",g:"Action / Sandbox",y:2004},
+    {t:"God of War II",g:"Action",y:2007},
+    {t:"Ico",g:"Puzzle / Adventure",y:2001},
+    {t:"Metal Gear Solid 3: Snake Eater",g:"Action / Stealth",y:2004},
+    {t:"Final Fantasy X",g:"RPG",y:2001},
+    {t:"Resident Evil 4",g:"Action Horror",y:2005},
+    {t:"Kingdom Hearts II",g:"Action RPG",y:2005},
+    {t:"Silent Hill 2",g:"Survival Horror",y:2001},
+    {t:"Devil May Cry 3: Dante's Awakening",g:"Action",y:2005},
+    {t:"Okami",g:"Action / Adventure",y:2006},
+    {t:"Persona 4",g:"RPG",y:2008},
+    {t:"Grand Theft Auto: Vice City",g:"Action / Sandbox",y:2002},
+    {t:"Burnout 3: Takedown",g:"Arcade Racing",y:2004},
+    {t:"God of War",g:"Action",y:2005},
+    {t:"Metal Gear Solid 2: Sons of Liberty",g:"Action / Stealth",y:2001},
+    {t:"Dark Cloud 2 (Dark Chronicle)",g:"Action RPG",y:2002},
+    {t:"Kingdom Hearts",g:"Action RPG",y:2002},
+    {t:"Final Fantasy XII",g:"RPG",y:2006},
+    {t:"Jak and Daxter: The Precursor Legacy",g:"Platformer",y:2001},
+    {t:"Ratchet & Clank: Going Commando",g:"Platformer / Action",y:2003},
+    {t:"Prince of Persia: The Sands of Time",g:"Action / Adventure",y:2003},
+    {t:"Persona 3: FES",g:"RPG",y:2007},
+    {t:"Grand Theft Auto III",g:"Action / Sandbox",y:2001},
+    {t:"Dragon Quest VIII: Journey of the Cursed King",g:"RPG",y:2004},
+    {t:"Tekken 5",g:"Fighting",y:2004},
+    {t:"Katamari Damacy",g:"Puzzle / Action",y:2004},
+    {t:"Shadow Hearts: Covenant",g:"RPG",y:2004},
+    {t:"Shin Megami Tensei: Nocturne",g:"RPG",y:2003},
+    {t:"Burnout Revenge",g:"Arcade Racing",y:2005},
+    {t:"SSX Tricky",g:"Sports",y:2001},
+    {t:"Devil May Cry",g:"Action",y:2001},
+    {t:"Jak II",g:"Platformer / Action",y:2003},
+    {t:"Gran Turismo 4",g:"Racing Simulation",y:2004},
+    {t:"Ratchet & Clank: Up Your Arsenal",g:"Platformer / Action",y:2004},
+    {t:"Sly 2: Band of Thieves",g:"Platformer / Stealth",y:2004},
+    {t:"Disgaea: Hour of Darkness",g:"Strategy RPG",y:2003},
+    {t:"Zone of the Enders: The 2nd Runner",g:"Mech Action",y:2003},
+    {t:"Suikoden III",g:"RPG",y:2002},
+    {t:"Suikoden V",g:"RPG",y:2006},
+    {t:"Yakuza 2",g:"Action / Adventure",y:2006},
+    {t:"Silent Hill 3",g:"Survival Horror",y:2003},
+    {t:"Ace Combat 4: Shattered Skies",g:"Flight / Action",y:2001},
+    {t:"Ace Combat 5: The Unsung War",g:"Flight / Action",y:2004},
+    {t:"Valkyrie Profile 2: Silmeria",g:"Action RPG",y:2006},
+    {t:"Star Ocean: Till the End of Time",g:"Action RPG",y:2003},
+    {t:"Xenosaga Episode I: Der Wille zur Macht",g:"RPG",y:2002},
+    {t:"Dark Cloud",g:"Action RPG",y:2000},
+    {t:"Psychonauts",g:"Platformer",y:2005},
+    {t:"Sly Cooper and the Thievius Raccoonus",g:"Platformer / Stealth",y:2002},
+    {t:"We ♥ Katamari",g:"Puzzle / Action",y:2005},
+    {t:"Drakengard",g:"Action RPG",y:2003},
+    {t:"Rogue Galaxy",g:"Action RPG",y:2005},
+    {t:"Onimusha: Warlords",g:"Action / Adventure",y:2001},
+    {t:"Onimusha 3: Demon Siege",g:"Action / Adventure",y:2004},
+    {t:"Yakuza",g:"Action / Adventure",y:2005},
+    {t:"Forbidden Siren",g:"Survival Horror",y:2003},
+    {t:"Haunting Ground (Demento)",g:"Survival Horror",y:2005},
+    {t:"Wild Arms 3",g:"RPG",y:2002},
+    {t:"Midnight Club 3: Dub Edition Remix",g:"Street Racing",y:2005},
+    {t:"Bully (Canis Canem Edit)",g:"Action / Adventure",y:2006},
+    {t:"TimeSplitters: Future Perfect",g:"FPS",y:2005},
+    {t:"Armored Core 3",g:"Mech Action",y:2002},
+    {t:"Twisted Metal: Black",g:"Vehicular Combat",y:2001},
+    {t:"Soul Calibur II",g:"Fighting",y:2002},
+    {t:"Xenosaga Episode III: Also sprach Zarathustra",g:"RPG",y:2006},
+    {t:"Mercenaries: Playground of Destruction",g:"Action / Sandbox",y:2005},
+    {t:"Final Fantasy X-2",g:"RPG",y:2003},
+    {t:"Radiata Stories",g:"Action RPG",y:2005},
+    {t:"Castlevania: Lament of Innocence",g:"Action",y:2003},
+    {t:"Guilty Gear X2 #Reload",g:"Fighting",y:2003},
+    {t:"Baldur's Gate: Dark Alliance II",g:"Action RPG",y:2004},
+    {t:"Need for Speed: Most Wanted",g:"Racing",y:2005},
+    {t:"Ratchet & Clank: Deadlocked",g:"Platformer / Action",y:2005},
+    {t:"Jak 3",g:"Platformer / Action",y:2004},
+    {t:"War of the Monsters",g:"Beat 'em Up",y:2003},
+    {t:"Makai Kingdom: Chronicles of the Sacred Tome",g:"Strategy RPG",y:2005},
+    {t:"La Pucelle: Tactics",g:"Strategy RPG",y:2002},
+    {t:"Robot Alchemic Drive (R.A.D.)",g:"Mech Action",y:2002},
+    {t:"Arc the Lad: Twilight of the Spirits",g:"RPG",y:2003},
+    {t:"Baroque",g:"Roguelike RPG",y:2007},
+    {t:"Steambot Chronicles",g:"RPG / Action",y:2005},
+    {t:"Shadow Hearts (PS2 Version)",g:"RPG",y:2001},
+    {t:"Stella Deus: The Gate of Eternity",g:"Strategy RPG",y:2004},
+    {t:"Wild Arms 4",g:"RPG",y:2005},
+    {t:"Okage: Shadow King",g:"RPG",y:2001},
+    {t:"Prince of Persia: Warrior Within",g:"Action / Adventure",y:2004},
+    {t:"Growlanser: Heritage of War",g:"Strategy RPG",y:2006},
+    {t:"Tekken Tag Tournament",g:"Fighting",y:2000},
+    {t:"Champions: Return to Arms",g:"Action RPG",y:2005},
+    {t:"Legaia 2: Duel Saga",g:"RPG",y:2002},
+    {t:"Mortal Kombat: Deadly Alliance",g:"Fighting",y:2002},
+    {t:"SSX 3",g:"Sports",y:2003},
+    {t:"Taiko no Tatsujin",g:"Rhythm",y:2001},
+    {t:"Monster Hunter",g:"Action RPG",y:2004},
+    {t:"Fullmetal Alchemist: Broken Angel",g:"Action RPG",y:2003},
+    {t:"Manhunt",g:"Stealth / Action",y:2003},
+    {t:"GrimGrimoire",g:"Real-Time Strategy",y:2007},
+    {t:"Odin Sphere",g:"Action RPG",y:2007},
+    {t:"Ico & Shadow of the Colossus (The Ico & Shadow of the Colossus Collection)",g:"Action / Adventure",y:2011},
+  ]
+},
+
+psp: {
+  title:"PlayStation Portable", badge:"PSP",
+  tagline:"2005 – 2014 · Sony Computer Entertainment · 80 million units sold",
+  games:[
+    {t:"Crisis Core: Final Fantasy VII",g:"Action RPG",y:2007},
+    {t:"Monster Hunter Freedom Unite",g:"Action RPG",y:2008},
+    {t:"Persona 3 Portable",g:"RPG",y:2009},
+    {t:"God of War: Chains of Olympus",g:"Action",y:2008},
+    {t:"Final Fantasy Tactics: War of the Lions",g:"Strategy RPG",y:2007},
+    {t:"Metal Gear Solid: Peace Walker",g:"Action / Stealth",y:2010},
+    {t:"Tactics Ogre: Let Us Cling Together",g:"Strategy RPG",y:2010},
+    {t:"Kingdom Hearts: Birth by Sleep",g:"Action RPG",y:2010},
+    {t:"God of War: Ghost of Sparta",g:"Action",y:2010},
+    {t:"Lumines",g:"Puzzle",y:2004},
+    {t:"Daxter",g:"Platformer",y:2006},
+    {t:"Patapon",g:"Rhythm / Strategy",y:2007},
+    {t:"Patapon 2",g:"Rhythm / Strategy",y:2008},
+    {t:"LocoRoco",g:"Platformer / Puzzle",y:2006},
+    {t:"Wipeout Pure",g:"Racing",y:2005},
+    {t:"Disgaea: Afternoon of Darkness",g:"Strategy RPG",y:2006},
+    {t:"Ys: The Oath in Felghana",g:"Action RPG",y:2010},
+    {t:"Ys Seven",g:"Action RPG",y:2009},
+    {t:"Trails in the Sky (Sora no Kiseki FC)",g:"RPG",y:2004},
+    {t:"Dissidia: Final Fantasy",g:"Action / Fighting",y:2008},
+    {t:"Grand Theft Auto: Liberty City Stories",g:"Action / Sandbox",y:2005},
+    {t:"Grand Theft Auto: Vice City Stories",g:"Action / Sandbox",y:2006},
+    {t:"Tekken: Dark Resurrection",g:"Fighting",y:2005},
+    {t:"Castlevania: The Dracula X Chronicles",g:"Action / Platformer",y:2007},
+    {t:"Silent Hill: Shattered Memories",g:"Survival Horror",y:2009},
+    {t:"Valkyria Chronicles II",g:"Strategy RPG",y:2010},
+    {t:"Jeanne d'Arc",g:"Strategy RPG",y:2006},
+    {t:"Dissidia 012: Final Fantasy",g:"Action / Fighting",y:2011},
+    {t:"Mega Man Powered Up",g:"Platformer",y:2006},
+    {t:"Mega Man Maverick Hunter X",g:"Platformer / Action",y:2005},
+    {t:"Lumines II",g:"Puzzle",y:2006},
+    {t:"LocoRoco 2",g:"Platformer / Puzzle",y:2008},
+    {t:"Burnout Legends",g:"Arcade Racing",y:2005},
+    {t:"Outrun 2006: Coast 2 Coast",g:"Arcade Racing",y:2006},
+    {t:"Ridge Racer",g:"Racing",y:2004},
+    {t:"Wipeout Pulse",g:"Racing",y:2007},
+    {t:"Patapon 3",g:"Rhythm / Strategy",y:2011},
+    {t:"Disgaea 2: Dark Hero Days",g:"Strategy RPG",y:2009},
+    {t:"Final Fantasy IV: Complete Collection",g:"RPG",y:2011},
+    {t:"Monster Hunter Freedom 2",g:"Action RPG",y:2006},
+    {t:"Monster Hunter 3rd",g:"Action RPG",y:2010},
+    {t:"Half-Minute Hero",g:"RPG / Action",y:2008},
+    {t:"Corpse Party",g:"Horror / Adventure",y:2010},
+    {t:"Parasite Eve: The 3rd Birthday",g:"Action RPG",y:2010},
+    {t:"Syphon Filter: Dark Mirror",g:"Third-Person Shooter",y:2006},
+    {t:"Resistance: Retribution",g:"Third-Person Shooter",y:2009},
+    {t:"Killzone: Liberation",g:"Action / Shooter",y:2006},
+    {t:"Shin Megami Tensei: Persona",g:"RPG",y:2009},
+    {t:"Star Ocean: Second Evolution",g:"Action RPG",y:2008},
+    {t:"Gitaroo Man Lives!",g:"Rhythm",y:2006},
+    {t:"Dead Head Fred",g:"Action / Adventure",y:2007},
+    {t:"Wild Arms XF",g:"Strategy RPG",y:2007},
+    {t:"Mana Khemia: Student Alliance",g:"Action RPG",y:2009},
+    {t:"Riviera: The Promised Land",g:"Strategy RPG",y:2005},
+    {t:"Yggdra Union: We'll Never Fight Alone",g:"Strategy RPG",y:2008},
+    {t:"Growlanser: Wayfarer of Time",g:"Strategy RPG",y:2011},
+    {t:"N+",g:"Platformer",y:2008},
+    {t:"Kenka Bancho: Badass Rumble",g:"Beat 'em Up",y:2008},
+    {t:"Ratchet & Clank: Size Matters",g:"Platformer / Action",y:2007},
+    {t:"Me and My Katamari",g:"Puzzle / Action",y:2005},
+    {t:"Prinny: Can I Really Be the Hero?",g:"Platformer",y:2008},
+    {t:"Hammerin' Hero",g:"Beat 'em Up",y:2008},
+    {t:"Popolocrois",g:"RPG",y:2005},
+    {t:"Tekken 6",g:"Fighting",y:2009},
+    {t:"Soul Calibur: Broken Destiny",g:"Fighting",y:2009},
+    {t:"Guilty Gear XX Accent Core Plus",g:"Fighting",y:2012},
+    {t:"Field Commander",g:"Turn-Based Strategy",y:2006},
+    {t:"Ace Combat X: Skies of Deception",g:"Flight / Action",y:2006},
+    {t:"Sid Meier's Pirates!",g:"Strategy / Adventure",y:2007},
+    {t:"Armored Core 3 Portable",g:"Mech Action",y:2010},
+    {t:"Little Big Planet PSP",g:"Platformer / Creative",y:2009},
+    {t:"Motorstorm: Arctic Edge",g:"Off-Road Racing",y:2009},
+    {t:"Exit",g:"Puzzle / Platformer",y:2005},
+    {t:"Hot Shots Golf: Open Tee 2",g:"Sports / Golf",y:2007},
+    {t:"Dungeon Maker: Hunting Ground",g:"Dungeon Builder RPG",y:2007},
+    {t:"Phantom Brave: The Hermuda Triangle",g:"Strategy RPG",y:2011},
+    {t:"Gangs of London",g:"Action / Adventure",y:2006},
+    {t:"Coded Arms",g:"FPS / Roguelike",y:2005},
+    {t:"Xevious Resurrection",g:"Shoot 'em Up",y:2009},
+    {t:"Frantix",g:"Puzzle",y:2005},
+    {t:"Tales of the World: Radiant Mythology",g:"Action RPG",y:2006},
+    {t:"Blazing Souls: Accelate",g:"Strategy RPG",y:2010},
+    {t:"Neverland Card Battles",g:"Strategy / Card",y:2008},
+    {t:"Crimson Gem Saga",g:"RPG",y:2008},
+    {t:"WWE SmackDown vs. Raw 2007",g:"Sports / Wrestling",y:2006},
+    {t:"Pro Evolution Soccer 6",g:"Football / Soccer",y:2006},
+    {t:"Loco Roco Midnight Carnival",g:"Platformer / Puzzle",y:2009},
+    {t:"Astonishia Story",g:"Strategy RPG",y:2005},
+    {t:"Star Trek: Tactical Assault",g:"Strategy",y:2006},
+    {t:"SOCOM: Fireteam Bravo 3",g:"Tactical Shooter",y:2009},
+    {t:"Death Jr.",g:"Platformer / Action",y:2005},
+    {t:"Dungeon Siege: Throne of Agony",g:"Action RPG",y:2006},
+    {t:"Trails in the Sky SC",g:"RPG",y:2006},
+    {t:"Bleach: Heat the Soul 7",g:"Fighting",y:2010},
+    {t:"Pursuit Force: Extreme Justice",g:"Action / Racing",y:2007},
+    {t:"Grand Knights History",g:"Strategy RPG",y:2011},
+    {t:"Warriors Orochi 2",g:"Hack and Slash",y:2008},
+    {t:"Concerto Gate",g:"Strategy RPG",y:2007},
+    {t:"Gungnir",g:"Strategy RPG",y:2011},
+    {t:"Pangya: Fantasy Golf",g:"Sports / Golf",y:2008},
+  ]
+},
+
+vita: {
+  title:"PlayStation Vita", badge:"VITA",
+  tagline:"2011 – 2019 · Sony Computer Entertainment · Beloved cult portable",
+  games:[
+    {t:"Persona 4 Golden",g:"RPG",y:2012},
+    {t:"Gravity Rush (Gravity Daze)",g:"Action / Adventure",y:2011},
+    {t:"Tearaway",g:"Platformer / Adventure",y:2013},
+    {t:"Muramasa Rebirth",g:"Action RPG",y:2013},
+    {t:"Danganronpa: Trigger Happy Havoc",g:"Visual Novel / Mystery",y:2010},
+    {t:"Soul Sacrifice Delta",g:"Action RPG",y:2014},
+    {t:"Ys: Memories of Celceta",g:"Action RPG",y:2012},
+    {t:"Killzone: Mercenary",g:"FPS",y:2013},
+    {t:"Uncharted: Golden Abyss",g:"Action / Adventure",y:2011},
+    {t:"Danganronpa 2: Goodbye Despair",g:"Visual Novel / Mystery",y:2012},
+    {t:"Dragon's Crown",g:"Beat 'em Up / RPG",y:2013},
+    {t:"Velocity 2X",g:"Shoot 'em Up / Platformer",y:2014},
+    {t:"Hotline Miami",g:"Action",y:2012},
+    {t:"Hotline Miami 2: Wrong Number",g:"Action",y:2015},
+    {t:"Spelunky",g:"Roguelike Platformer",y:2012},
+    {t:"Freedom Wars",g:"Action RPG",y:2014},
+    {t:"Lumines: Electronic Symphony",g:"Puzzle",y:2012},
+    {t:"Ninja Gaiden Sigma Plus",g:"Action",y:2012},
+    {t:"Gravity Rush 2",g:"Action / Adventure",y:2017},
+    {t:"Rayman Legends",g:"Platformer",y:2013},
+    {t:"Little Big Planet PS Vita",g:"Platformer / Creative",y:2012},
+    {t:"Tactics Ogre: Let Us Cling Together",g:"Strategy RPG",y:2010},
+    {t:"Final Fantasy X / X-2 HD Remaster",g:"RPG",y:2013},
+    {t:"Disgaea 3: Absence of Detention",g:"Strategy RPG",y:2012},
+    {t:"Toukiden: Kiwami",g:"Action RPG",y:2014},
+    {t:"Danganronpa Another Episode: Ultra Despair Girls",g:"Action / Adventure",y:2014},
+    {t:"Corpse Party: Blood Drive",g:"Horror / Adventure",y:2014},
+    {t:"Zero Escape: Virtue's Last Reward",g:"Visual Novel / Puzzle",y:2012},
+    {t:"Zero Time Dilemma",g:"Visual Novel / Puzzle",y:2016},
+    {t:"Trails of Cold Steel",g:"RPG",y:2013},
+    {t:"Trails of Cold Steel II",g:"RPG",y:2014},
+    {t:"Oreshika: Tainted Bloodlines",g:"RPG",y:2013},
+    {t:"Wipeout 2048",g:"Racing",y:2012},
+    {t:"Binding of Isaac: Rebirth",g:"Roguelike",y:2014},
+    {t:"Shovel Knight",g:"Platformer",y:2015},
+    {t:"Rogue Legacy",g:"Roguelike Platformer",y:2014},
+    {t:"Axiom Verge",g:"Action / Platformer",y:2015},
+    {t:"Bastion",g:"Action RPG",y:2012},
+    {t:"Transistor",g:"Action RPG",y:2014},
+    {t:"Hyper Light Drifter",g:"Action RPG",y:2016},
+    {t:"Guacamelee!",g:"Metroidvania / Beat 'em Up",y:2013},
+    {t:"Don't Starve: Giant Edition",g:"Survival",y:2014},
+    {t:"Crypt of the NecroDancer",g:"Rhythm Roguelike",y:2015},
+    {t:"Undertale",g:"RPG",y:2018},
+    {t:"Fez",g:"Puzzle Platformer",y:2014},
+    {t:"Steamworld Dig",g:"Platformer / Mining",y:2014},
+    {t:"Steamworld Heist",g:"Turn-Based Shooter",y:2016},
+    {t:"OlliOlli 2: Welcome to Olliwood",g:"Skating",y:2015},
+    {t:"OlliOlli",g:"Skating",y:2014},
+    {t:"Not a Hero",g:"Action Platformer",y:2015},
+    {t:"Titan Souls",g:"Action / Boss Rush",y:2015},
+    {t:"Digimon Story: Cyber Sleuth",g:"RPG",y:2015},
+    {t:"God Eater 2: Rage Burst",g:"Action RPG",y:2015},
+    {t:"Atelier Sophie: The Alchemist of the Mysterious Book",g:"RPG",y:2015},
+    {t:"Tokyo Xanadu",g:"Action RPG",y:2015},
+    {t:"Dungeon Travelers 2",g:"Dungeon RPG",y:2013},
+    {t:"Sword Art Online: Hollow Fragment",g:"Action RPG",y:2014},
+    {t:"Borderlands 2",g:"FPS / RPG",y:2014},
+    {t:"BlazBlue: Chronophantasma Extend",g:"Fighting",y:2014},
+    {t:"Guilty Gear Xrd -SIGN-",g:"Fighting",y:2014},
+    {t:"Marvel vs. Capcom 3: Fate of Two Worlds",g:"Fighting",y:2012},
+    {t:"Mortal Kombat (2011)",g:"Fighting",y:2012},
+    {t:"Street Fighter X Tekken",g:"Fighting",y:2012},
+    {t:"Need for Speed: Most Wanted",g:"Racing",y:2012},
+    {t:"Minecraft: PS Vita Edition",g:"Sandbox",y:2014},
+    {t:"Rayman Origins",g:"Platformer",y:2011},
+    {t:"Oddworld: New 'n' Tasty",g:"Puzzle Platformer",y:2014},
+    {t:"Thomas Was Alone",g:"Puzzle Platformer",y:2013},
+    {t:"Papers Please",g:"Simulation / Puzzle",y:2014},
+    {t:"Pix the Cat",g:"Arcade / Puzzle",y:2014},
+    {t:"Lone Survivor: The Director's Cut",g:"Survival Horror",y:2012},
+    {t:"Neon Chrome",g:"Twin-Stick Shooter",y:2016},
+    {t:"VVVVVV",g:"Platformer",y:2014},
+    {t:"Futuridium EP Deluxe",g:"Shoot 'em Up",y:2014},
+    {t:"Escape Plan",g:"Puzzle",y:2012},
+    {t:"Super Stardust Delta",g:"Shoot 'em Up",y:2012},
+    {t:"Sly Cooper: Thieves in Time",g:"Platformer / Stealth",y:2013},
+    {t:"PlayStation All-Stars Battle Royale",g:"Fighting",y:2012},
+    {t:"Resistance: Burning Skies",g:"FPS",y:2012},
+    {t:"Silent Hill: Book of Memories",g:"Action RPG",y:2012},
+    {t:"Senran Kagura: Shinovi Versus",g:"Beat 'em Up",y:2013},
+    {t:"Persona 4 Dancing All Night",g:"Rhythm",y:2015},
+    {t:"Tales of Hearts R",g:"Action RPG",y:2013},
+    {t:"Summon Night 6: Lost Borders",g:"Strategy RPG",y:2016},
+    {t:"Shantae: Half-Genie Hero",g:"Platformer / Action",y:2016},
+    {t:"Yomawari: Night Alone",g:"Horror Adventure",y:2016},
+    {t:"Ray Gigant",g:"Dungeon RPG",y:2015},
+    {t:"Record of Agarest War Zero",g:"Strategy RPG",y:2010},
+    {t:"Kokuga",g:"Shoot 'em Up",y:2014},
+    {t:"Conception II: Children of the Seven Stars",g:"Dungeon RPG",y:2013},
+    {t:"Atelier Ayesha Plus",g:"RPG",y:2015},
+    {t:"Macross Delta Scramble",g:"Flight / Action",y:2017},
+    {t:"Sword Art Online: Lost Song",g:"Action RPG",y:2015},
+    {t:"God Eater Resurrection",g:"Action RPG",y:2015},
+    {t:"Nurse Love Addiction",g:"Visual Novel",y:2014},
+    {t:"Muv-Luv",g:"Visual Novel",y:2017},
+    {t:"A Rose in the Twilight",g:"Puzzle / Adventure",y:2016},
+    {t:"Hustle Kings",g:"Sports / Billiards",y:2012},
+    {t:"Smart As...",g:"Puzzle / Brain Training",y:2012},
+    {t:"Uncharted: Fight for Fortune",g:"Card / Strategy",y:2012},
+  ]
+}
+,
+ps3: {
+  title:"PlayStation 3", badge:"PS3",
+  tagline:"2006 – 2017 · Sony · 87 million units · RPCS3 emulator",
+  emu:"RPCS3",
+  games:[
+    {t:"The Last of Us",g:"Action / Adventure",y:2013},
+    {t:"Demon\'s Souls",g:"Action RPG",y:2009},
+    {t:"Uncharted 2: Among Thieves",g:"Action / Adventure",y:2009},
+    {t:"Metal Gear Solid 4: Guns of the Patriots",g:"Action / Stealth",y:2008},
+    {t:"Red Dead Redemption",g:"Action / Adventure",y:2010},
+    {t:"Persona 5",g:"RPG",y:2016},
+    {t:"Batman: Arkham Asylum",g:"Action / Adventure",y:2009},
+    {t:"Grand Theft Auto V",g:"Action / Sandbox",y:2013},
+    {t:"Dark Souls",g:"Action RPG",y:2011},
+    {t:"Valkyria Chronicles",g:"Strategy RPG",y:2008},
+    {t:"God of War III",g:"Action",y:2010},
+    {t:"Bioshock Infinite",g:"FPS / RPG",y:2013},
+    {t:"Journey",g:"Adventure / Art",y:2012},
+    {t:"Ni No Kuni: Wrath of the White Witch",g:"RPG",y:2011},
+    {t:"The Elder Scrolls V: Skyrim",g:"RPG",y:2011},
+    {t:"Killzone 2",g:"First-Person Shooter",y:2009},
+    {t:"Heavy Rain",g:"Interactive Drama",y:2010},
+    {t:"LittleBigPlanet",g:"Platformer / Creative",y:2008},
+    {t:"Tales of Graces f",g:"Action RPG",y:2010},
+    {t:"Ratchet and Clank Future: A Crack in Time",g:"Platformer / Action",y:2009},
+    {t:"Resistance: Fall of Man",g:"First-Person Shooter",y:2006},
+    {t:"Yakuza 4",g:"Action / Adventure",y:2010},
+    {t:"Ico and Shadow of the Colossus HD",g:"Action / Adventure",y:2011},
+    {t:"Catherine",g:"Puzzle / Action",y:2011},
+    {t:"Batman: Arkham City",g:"Action / Adventure",y:2011},
+    {t:"Portal 2",g:"Puzzle / FPS",y:2011},
+    {t:"Dark Souls II",g:"Action RPG",y:2014},
+    {t:"Bloodborne",g:"Action RPG",y:2015},
+    {t:"Uncharted 3: Drake\'s Deception",g:"Action / Adventure",y:2011},
+    {t:"Uncharted: Drake\'s Fortune",g:"Action / Adventure",y:2007},
+    {t:"Gran Turismo 5",g:"Racing Simulation",y:2010},
+    {t:"Fallout 3",g:"RPG",y:2008},
+    {t:"Fallout: New Vegas",g:"RPG",y:2010},
+    {t:"Mass Effect 2",g:"Action RPG",y:2010},
+    {t:"Mass Effect 3",g:"Action RPG",y:2012},
+    {t:"BioShock",g:"FPS / RPG",y:2007},
+    {t:"BioShock 2",g:"FPS / RPG",y:2010},
+    {t:"Dead Space",g:"Survival Horror",y:2008},
+    {t:"Dead Space 2",g:"Survival Horror",y:2011},
+    {t:"Assassin\'s Creed II",g:"Action / Adventure",y:2009},
+    {t:"Assassin\'s Creed: Brotherhood",g:"Action / Adventure",y:2010},
+    {t:"Assassin\'s Creed IV: Black Flag",g:"Action / Adventure",y:2013},
+    {t:"Far Cry 3",g:"First-Person Shooter",y:2012},
+    {t:"Deus Ex: Human Revolution",g:"Action RPG",y:2011},
+    {t:"The Witcher 2: Assassins of Kings",g:"RPG",y:2012},
+    {t:"XCOM: Enemy Unknown",g:"Strategy",y:2012},
+    {t:"Dishonored",g:"Action / Stealth",y:2012},
+    {t:"Borderlands 2",g:"FPS / RPG",y:2012},
+    {t:"Castlevania: Lords of Shadow",g:"Action",y:2010},
+    {t:"Yakuza 5",g:"Action / Adventure",y:2012},
+    {t:"Tokyo Jungle",g:"Action / Survival",y:2012},
+    {t:"3D Dot Game Heroes",g:"Action / Adventure",y:2009},
+    {t:"Folklore",g:"Action RPG",y:2007},
+    {t:"Dragon\'s Crown",g:"Beat em Up / RPG",y:2013},
+    {t:"Disgaea 4",g:"Strategy RPG",y:2011},
+    {t:"Disgaea 3",g:"Strategy RPG",y:2008},
+    {t:"Tales of Xillia",g:"Action RPG",y:2011},
+    {t:"Tales of Vesperia",g:"Action RPG",y:2008},
+    {t:"Eternal Sonata",g:"Action RPG",y:2007},
+    {t:"Star Ocean: The Last Hope",g:"Action RPG",y:2009},
+    {t:"Resonance of Fate",g:"RPG",y:2010},
+    {t:"inFamous",g:"Action / Adventure",y:2009},
+    {t:"inFamous 2",g:"Action / Adventure",y:2011},
+    {t:"Sly Cooper: Thieves in Time",g:"Platformer / Stealth",y:2013},
+    {t:"Ratchet and Clank: Into the Nexus",g:"Platformer / Action",y:2013},
+    {t:"God of War: Ascension",g:"Action",y:2013},
+    {t:"God of War HD Collection",g:"Action",y:2009},
+    {t:"Jak and Daxter HD Collection",g:"Platformer",y:2012},
+    {t:"Sly Cooper HD Collection",g:"Platformer / Stealth",y:2012},
+    {t:"Prince of Persia: The Forgotten Sands",g:"Action / Adventure",y:2010},
+    {t:"Sonic Generations",g:"Platformer",y:2011},
+    {t:"Scott Pilgrim vs The World",g:"Beat em Up",y:2010},
+    {t:"Trine",g:"Puzzle Platformer",y:2009},
+    {t:"Trine 2",g:"Puzzle Platformer",y:2011},
+    {t:"Hotline Miami",g:"Action",y:2012},
+    {t:"Limbo",g:"Puzzle Platformer",y:2011},
+    {t:"Dust: An Elysian Tail",g:"Action / Platformer",y:2013},
+    {t:"Castle Crashers",g:"Beat em Up",y:2012},
+    {t:"The Walking Dead Season 1",g:"Adventure",y:2012},
+    {t:"Puppeteer",g:"Platformer",y:2013},
+    {t:"Warhawk",g:"Third-Person Shooter",y:2007},
+    {t:"Killzone 3",g:"First-Person Shooter",y:2011},
+    {t:"MAG",g:"First-Person Shooter",y:2010},
+    {t:"Gran Turismo 6",g:"Racing Simulation",y:2013},
+    {t:"White Knight Chronicles",g:"Action RPG",y:2008},
+    {t:"Hyperdimension Neptunia",g:"RPG",y:2010},
+    {t:"Atelier Rorona: The Alchemist of Arland",g:"RPG",y:2009},
+    {t:"Atelier Meruru: The Apprentice of Arland",g:"RPG",y:2011},
+    {t:"Trinity: Souls of Zill O\'ll",g:"Action RPG",y:2011},
+    {t:"Dragon Age: Origins",g:"Action RPG",y:2009},
+    {t:"Battlefield 3",g:"First-Person Shooter",y:2011},
+    {t:"Call of Duty: Modern Warfare 2",g:"First-Person Shooter",y:2009},
+    {t:"GTA IV",g:"Action / Sandbox",y:2008},
+    {t:"Red Dead Redemption: Undead Nightmare",g:"Action / Adventure",y:2010},
+    {t:"Yakuza: Dead Souls",g:"Action / Shooter",y:2011},
+    {t:"Muramasa Rebirth",g:"Action RPG",y:2013},
+    {t:"Tales of Xillia 2",g:"Action RPG",y:2012},
+    {t:"Ar tonelico Qoga",g:"RPG",y:2010},
+    {t:"Scott Pilgrim vs The World (alt)",g:"Beat em Up",y:2010},
+    {t:"3D Dot Game Heroes (alt)",g:"Action / Adventure",y:2009}
+  ]
+},
+ps4: {
+  title:"PlayStation 4", badge:"PS4",
+  tagline:"2013 – 2021 · Sony · 117 million units · Shadps4 emulator",
+  emu:"Shadps4",
+  games:[
+    {t:"The Last of Us Part II",g:"Action / Adventure",y:2020},
+    {t:"Bloodborne",g:"Action RPG",y:2015},
+    {t:"God of War (2018)",g:"Action / Adventure",y:2018},
+    {t:"Red Dead Redemption 2",g:"Action / Adventure",y:2018},
+    {t:"Persona 5 Royal",g:"RPG",y:2019},
+    {t:"Horizon Zero Dawn",g:"Action RPG",y:2017},
+    {t:"Spider-Man (2018)",g:"Action / Adventure",y:2018},
+    {t:"The Witcher 3: Wild Hunt",g:"RPG",y:2015},
+    {t:"Nier: Automata",g:"Action RPG",y:2017},
+    {t:"Dark Souls III",g:"Action RPG",y:2016},
+    {t:"Sekiro: Shadows Die Twice",g:"Action / Stealth",y:2019},
+    {t:"Ghost of Tsushima",g:"Action / Adventure",y:2020},
+    {t:"Death Stranding",g:"Action / Adventure",y:2019},
+    {t:"Demon\'s Souls Remake",g:"Action RPG",y:2020},
+    {t:"Uncharted 4: A Thief\'s End",g:"Action / Adventure",y:2016},
+    {t:"The Last Guardian",g:"Action / Adventure",y:2016},
+    {t:"Shadow of the Colossus Remake",g:"Action / Adventure",y:2018},
+    {t:"Monster Hunter World",g:"Action RPG",y:2018},
+    {t:"Dragon Quest XI",g:"RPG",y:2017},
+    {t:"Yakuza 0",g:"Action / Adventure",y:2015},
+    {t:"Nioh",g:"Action RPG",y:2017},
+    {t:"Nioh 2",g:"Action RPG",y:2020},
+    {t:"Final Fantasy VII Remake",g:"Action RPG",y:2020},
+    {t:"Final Fantasy XV",g:"Action RPG",y:2016},
+    {t:"Kingdom Hearts III",g:"Action RPG",y:2019},
+    {t:"Hollow Knight",g:"Action / Platformer",y:2018},
+    {t:"Celeste",g:"Platformer",y:2018},
+    {t:"Return of the Obra Dinn",g:"Puzzle / Mystery",y:2018},
+    {t:"Disco Elysium",g:"RPG",y:2019},
+    {t:"Control",g:"Action / Adventure",y:2019},
+    {t:"Prey",g:"Action RPG / FPS",y:2017},
+    {t:"Resident Evil 2 Remake",g:"Survival Horror",y:2019},
+    {t:"Resident Evil 7: Biohazard",g:"Survival Horror",y:2017},
+    {t:"Devil May Cry 5",g:"Action",y:2019},
+    {t:"Judgment",g:"Action / Adventure",y:2018},
+    {t:"Spider-Man: Miles Morales",g:"Action / Adventure",y:2020},
+    {t:"Ratchet and Clank (2016)",g:"Platformer / Action",y:2016},
+    {t:"Crash Bandicoot N. Sane Trilogy",g:"Platformer",y:2017},
+    {t:"Crash Team Racing Nitro-Fueled",g:"Kart Racing",y:2019},
+    {t:"Spyro Reignited Trilogy",g:"Platformer",y:2018},
+    {t:"Doom (2016)",g:"First-Person Shooter",y:2016},
+    {t:"Doom Eternal",g:"First-Person Shooter",y:2020},
+    {t:"Wolfenstein II: The New Colossus",g:"First-Person Shooter",y:2017},
+    {t:"Titanfall 2",g:"First-Person Shooter",y:2016},
+    {t:"Divinity: Original Sin 2",g:"RPG",y:2017},
+    {t:"Batman: Arkham Knight",g:"Action / Adventure",y:2015},
+    {t:"Grand Theft Auto V PS4",g:"Action / Sandbox",y:2014},
+    {t:"Fallout 4",g:"RPG",y:2015},
+    {t:"The Elder Scrolls V: Skyrim Special Edition",g:"RPG",y:2016},
+    {t:"Until Dawn",g:"Adventure / Horror",y:2015},
+    {t:"Detroit: Become Human",g:"Interactive Drama",y:2018},
+    {t:"What Remains of Edith Finch",g:"Walking Sim / Adventure",y:2017},
+    {t:"Firewatch",g:"Adventure",y:2016},
+    {t:"Inside",g:"Puzzle Platformer",y:2016},
+    {t:"Little Nightmares",g:"Puzzle Platformer",y:2017},
+    {t:"Ori and the Blind Forest",g:"Platformer",y:2016},
+    {t:"Hades",g:"Roguelike Action RPG",y:2020},
+    {t:"Streets of Rage 4",g:"Beat em Up",y:2020},
+    {t:"Tales of Berseria",g:"Action RPG",y:2016},
+    {t:"Tales of Arise",g:"Action RPG",y:2021},
+    {t:"Atelier Ryza",g:"RPG",y:2019},
+    {t:"Ys VIII: Lacrimosa of DANA",g:"Action RPG",y:2016},
+    {t:"Trails of Cold Steel III",g:"RPG",y:2018},
+    {t:"Trails of Cold Steel IV",g:"RPG",y:2020},
+    {t:"Dragon\'s Dogma: Dark Arisen",g:"Action RPG",y:2013},
+    {t:"Monster Hunter Iceborne",g:"Action RPG",y:2019},
+    {t:"Greedfall",g:"Action RPG",y:2019},
+    {t:"Code Vein",g:"Action RPG",y:2019},
+    {t:"Ace Combat 7: Skies Unknown",g:"Flight / Action",y:2019},
+    {t:"Tekken 7",g:"Fighting",y:2015},
+    {t:"Street Fighter V",g:"Fighting",y:2016},
+    {t:"Guilty Gear Strive",g:"Fighting",y:2021},
+    {t:"Mortal Kombat 11",g:"Fighting",y:2019},
+    {t:"Gran Turismo Sport",g:"Racing Simulation",y:2017},
+    {t:"Yakuza Kiwami",g:"Action / Adventure",y:2016},
+    {t:"Yakuza Kiwami 2",g:"Action / Adventure",y:2017},
+    {t:"Yakuza 6: The Song of Life",g:"Action / Adventure",y:2016},
+    {t:"Persona 4 Golden PS4",g:"RPG",y:2020},
+    {t:"13 Sentinels: Aegis Rim",g:"Strategy / Visual Novel",y:2020},
+    {t:"The Great Ace Attorney Chronicles",g:"Visual Novel / Adventure",y:2021},
+    {t:"Horizon Forbidden West",g:"Action RPG",y:2022},
+    {t:"Scarlet Nexus",g:"Action RPG",y:2021},
+    {t:"Astral Chain PS4",g:"Action",y:2019},
+    {t:"Dragon Age: Inquisition",g:"Action RPG",y:2014},
+    {t:"The Witcher 3: Blood and Wine",g:"RPG",y:2016},
+    {t:"Pillars of Eternity",g:"RPG",y:2015},
+    {t:"XCOM 2",g:"Strategy",y:2016},
+    {t:"Overwatch",g:"First-Person Shooter / Hero",y:2016},
+    {t:"Destiny 2",g:"Action RPG / FPS",y:2017},
+    {t:"Borderlands 3",g:"FPS / RPG",y:2019},
+    {t:"Far Cry 5",g:"First-Person Shooter",y:2018},
+    {t:"Battlefield 1",g:"First-Person Shooter",y:2016},
+    {t:"Injustice 2",g:"Fighting",y:2017},
+    {t:"Cuphead",g:"Run & Gun / Platformer",y:2018},
+    {t:"Undertale",g:"RPG",y:2017},
+    {t:"Stardew Valley",g:"Simulation / RPG",y:2016},
+    {t:"Shenmue III",g:"Action / Adventure",y:2019},
+    {t:"Final Fantasy XVI",g:"Action RPG",y:2023},
+    {t:"Star Wars Jedi: Fallen Order",g:"Action / Adventure",y:2019},
+    {t:"Sekiro alt",g:"Action / Stealth",y:2019}
+  ]
+},
+ps5: {
+  title:"PlayStation 5", badge:"PS5",
+  tagline:"2020 – present · Sony · 60+ million units · Early emulation stage",
+  emu:"Shadps4 (early)",
+  games:[
+    {t:"Astro\'s Playroom",g:"Platformer",y:2020},
+    {t:"Demon\'s Souls Remake",g:"Action RPG",y:2020},
+    {t:"Ratchet and Clank: Rift Apart",g:"Platformer / Action",y:2021},
+    {t:"Spider-Man: Miles Morales",g:"Action / Adventure",y:2020},
+    {t:"Returnal",g:"Roguelike / Third-Person Shooter",y:2021},
+    {t:"God of War Ragnarok",g:"Action / Adventure",y:2022},
+    {t:"Horizon Forbidden West",g:"Action RPG",y:2022},
+    {t:"Gran Turismo 7",g:"Racing Simulation",y:2022},
+    {t:"Kena: Bridge of Spirits",g:"Action / Adventure",y:2021},
+    {t:"Deathloop",g:"Action / Stealth",y:2021},
+    {t:"Ghostwire: Tokyo",g:"Action / Adventure",y:2022},
+    {t:"Forbidden West: Burning Shores",g:"Action RPG",y:2023},
+    {t:"Spider-Man 2",g:"Action / Adventure",y:2023},
+    {t:"Final Fantasy XVI",g:"Action RPG",y:2023},
+    {t:"Street Fighter 6",g:"Fighting",y:2023},
+    {t:"Mortal Kombat 1",g:"Fighting",y:2023},
+    {t:"Resident Evil Village",g:"Survival Horror",y:2021},
+    {t:"Resident Evil 4 Remake",g:"Survival Horror / Action",y:2023},
+    {t:"Returnal alt",g:"Roguelike / Third-Person Shooter",y:2021},
+    {t:"The Last of Us Part I Remake",g:"Action / Adventure",y:2022},
+    {t:"Death Stranding Director\'s Cut",g:"Action / Adventure",y:2021},
+    {t:"Ghostbusters: Spirits Unleashed",g:"Action / Multiplayer",y:2022},
+    {t:"Monster Hunter Rise: Sunbreak",g:"Action RPG",y:2022},
+    {t:"Forspoken",g:"Action RPG",y:2023},
+    {t:"Hogwarts Legacy",g:"Action RPG",y:2023},
+    {t:"Stellar Blade",g:"Action",y:2024},
+    {t:"Astro Bot (2024)",g:"Platformer",y:2024},
+    {t:"Balatro",g:"Card / Roguelike",y:2024},
+    {t:"Elden Ring",g:"Action RPG",y:2022},
+    {t:"Elden Ring: Shadow of the Erdtree",g:"Action RPG",y:2024},
+    {t:"Black Myth: Wukong",g:"Action RPG",y:2024},
+    {t:"Baldur\'s Gate 3",g:"RPG",y:2023},
+    {t:"Lies of P",g:"Action RPG",y:2023},
+    {t:"Armored Core VI: Fires of Rubicon",g:"Mech Action",y:2023},
+    {t:"Alan Wake 2",g:"Action / Adventure",y:2023},
+    {t:"Dead Space Remake",g:"Survival Horror",y:2023},
+    {t:"Wo Long: Fallen Dynasty",g:"Action RPG",y:2023},
+    {t:"Wild Hearts",g:"Action RPG",y:2023},
+    {t:"Star Wars Jedi: Survivor",g:"Action / Adventure",y:2023},
+    {t:"Hogwarts Legacy alt",g:"Action RPG",y:2023},
+    {t:"Persona 3 Reload",g:"RPG",y:2024},
+    {t:"Dragon\'s Dogma 2",g:"Action RPG",y:2024},
+    {t:"Like a Dragon: Ishin!",g:"Action / Adventure",y:2023},
+    {t:"Like a Dragon: Infinite Wealth",g:"Action RPG",y:2024},
+    {t:"Prince of Persia: The Lost Crown",g:"Action / Platformer",y:2024},
+    {t:"Granblue Fantasy Relink",g:"Action RPG",y:2024},
+    {t:"Final Fantasy VII Rebirth",g:"Action RPG",y:2024},
+    {t:"Nioh 2 PS5",g:"Action RPG",y:2021},
+    {t:"Tales of Arise PS5",g:"Action RPG",y:2021},
+    {t:"Ghostwire alt",g:"Action / Adventure",y:2022},
+    {t:"Kena alt",g:"Action / Adventure",y:2021},
+    {t:"God of War Ragnarok alt",g:"Action / Adventure",y:2022},
+    {t:"Elden Ring alt",g:"Action RPG",y:2022},
+    {t:"Persona 5 Royal PS5",g:"RPG",y:2022},
+    {t:"Persona 4 Golden PS5",g:"RPG",y:2023},
+    {t:"Persona 3 Portable PS5",g:"RPG",y:2023},
+    {t:"Disco Elysium PS5",g:"RPG",y:2021},
+    {t:"Return of the Obra Dinn PS5",g:"Puzzle / Mystery",y:2021},
+    {t:"Nier Replicant ver.1.22474487139...",g:"Action RPG",y:2021},
+    {t:"Marvel\'s Midnight Suns",g:"Strategy RPG",y:2022},
+    {t:"Soul Hackers 2",g:"RPG",y:2022},
+    {t:"The DioField Chronicle",g:"Strategy RPG",y:2022},
+    {t:"Star Ocean: The Divine Force",g:"Action RPG",y:2022},
+    {t:"Valkyrie Elysium",g:"Action RPG",y:2022},
+    {t:"Forza Horizon 5 (PS5 alt note)",g:"Racing",y:2021},
+    {t:"Assassin\'s Creed Mirage",g:"Action / Stealth",y:2023},
+    {t:"Avatar: Frontiers of Pandora",g:"Action / Adventure",y:2023},
+    {t:"Immortals Fenyx Rising",g:"Action / Adventure",y:2020},
+    {t:"Ghost of Tsushima Director\'s Cut",g:"Action / Adventure",y:2021},
+    {t:"Horizon Zero Dawn Remastered",g:"Action RPG",y:2024},
+    {t:"Helldivers 2",g:"Third-Person Shooter",y:2024},
+    {t:"Concord",g:"Hero Shooter",y:2024},
+    {t:"Until Dawn Remake",g:"Adventure / Horror",y:2024},
+    {t:"Sonic Frontiers",g:"Platformer",y:2022},
+    {t:"Sonic Superstars",g:"Platformer",y:2023},
+    {t:"Little Nightmares II PS5",g:"Puzzle Platformer",y:2021},
+    {t:"Cuphead PS5",g:"Run & Gun / Platformer",y:2021},
+    {t:"Hades II",g:"Roguelike Action RPG",y:2024},
+    {t:"Neon White PS5",g:"Action / Platformer",y:2023},
+    {t:"Tunic PS5",g:"Action / Adventure",y:2022},
+    {t:"Hi-Fi Rush PS5",g:"Rhythm / Action",y:2024},
+    {t:"Sifu",g:"Action / Beat em Up",y:2022},
+    {t:"Ghostrunner 2",g:"Action / Platformer",y:2023},
+    {t:"Ultros",g:"Roguelike / Platformer",y:2024},
+    {t:"Nine Sols",g:"Action / Platformer",y:2024},
+    {t:"Another Crab\'s Treasure",g:"Action RPG",y:2024},
+    {t:"Harold Halibut",g:"Adventure",y:2024},
+    {t:"Lorelei and the Laser Eyes",g:"Puzzle / Adventure",y:2024},
+    {t:"Crow Country",g:"Survival Horror",y:2024},
+    {t:"Indika",g:"Adventure",y:2024},
+    {t:"Mullet MadJack",g:"Action",y:2024},
+    {t:"Anger Foot",g:"Action",y:2024},
+    {t:"Animal Well",g:"Puzzle / Adventure",y:2024},
+    {t:"Stellar Blade alt",g:"Action",y:2024},
+    {t:"Astro Bot alt",g:"Platformer",y:2024},
+    {t:"Balatro alt",g:"Card / Roguelike",y:2024},
+    {t:"Black Myth: Wukong alt",g:"Action RPG",y:2024},
+    {t:"Elden Ring: Shadow of the Erdtree alt",g:"Action RPG",y:2024},
+    {t:"Persona 3 Reload alt",g:"RPG",y:2024},
+    {t:"Astro Bot (2024) alt",g:"Platformer",y:2024}
+  ]
+}
+};
+function tier(r){ return r<=10?'tier-s':r<=30?'tier-a':'tier-b'; }
+function medal(r){ return r===1?'🥇':r===2?'🥈':r===3?'🥉':''; }
+function rc(r){ return r===1?'r1':r===2?'r2':r===3?'r3':r<=10?'rtop':''; }
+const tabsEl=document.getElementById('tabs');
+const mainEl=document.getElementById('main');
+Object.entries(DATA).forEach(([id,con],ci)=>{
+  const btn=document.createElement('button');
+  btn.className='tab-btn'+(ci===0?' active':'');
+  btn.innerHTML=(con.badge||id.toUpperCase())+'<span class="tab-count">'+con.tagline.split('·')[0].trim()+'</span>';
+  btn.onclick=()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.console-panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-'+id).classList.add('active');
+  };
+  tabsEl.appendChild(btn);
+  const genres=[...new Set(con.games.map(g=>g.g.split(' / ')[0]))].sort();
+  const panel=document.createElement('div');
+  panel.className='console-panel'+(ci===0?' active':'');
+  panel.id='panel-'+id;
+  const count=con.games.length;
+  panel.innerHTML=`
+    <div class="console-intro">
+      <div class="console-badge">${con.badge}</div>
+      <div>
+        <div class="console-title">${con.title}</div>
+        <div class="console-tagline">${con.tagline}</div>
+        ${con.emu ? '<div class="emu-badge">'+con.emu+'</div>' : ''}
+      </div>
+      <div class="console-stats"><div class="stat-val">${count}</div><div class="stat-label">Top Games</div></div>
+    </div>
+    <div class="filter-bar">
+      <input class="search-input" type="text" placeholder="Search games…" oninput="filterGames('${id}',this)" />
+      <select class="genre-filter" onchange="filterGames('${id}',null,this)">
+        <option value="">All Genres</option>
+        ${genres.map(g=>`<option value="${g.toLowerCase()}">${g}</option>`).join('')}
+      </select>
+      <span class="filter-count" id="cnt-${id}">Showing ${count} games</span>
+    </div>
+    <div class="games-table">
+      <div class="table-header"><div>RANK</div><div></div><div>TITLE</div><div>GENRE</div><div>YEAR</div></div>
+      <div id="lst-${id}">
+        ${con.games.map((g,i)=>{const r=i+1;return`<div class="game-row ${tier(r)}" data-t="${g.t.toLowerCase()}" data-g="${g.g.toLowerCase()}">
+          <div class="g-rank ${rc(r)}">${r}</div>
+          <div class="g-medal">${medal(r)}</div>
+          <div class="g-title-block"><div class="g-title">${g.t}</div></div>
+          <div class="g-genre">${g.g}</div>
+          <div class="g-year">${g.y}</div>
+        </div>`;}).join('')}
+      </div>
+      <div class="no-results" id="nr-${id}">No games match your search.</div>
+    </div>`;
+  mainEl.appendChild(panel);
+});
+function filterGames(id,sEl,gEl){
+  const panel=document.getElementById('panel-'+id);
+  const s=(sEl||panel.querySelector('.search-input')).value.toLowerCase();
+  const g=(gEl||panel.querySelector('.genre-filter')).value.toLowerCase();
+  const rows=panel.querySelectorAll('.game-row');
+  let v=0;
+  rows.forEach(row=>{
+    const show=row.dataset.t.includes(s)&&(!g||row.dataset.g.includes(g));
+    row.classList.toggle('hidden',!show);
+    if(show)v++;
+  });
+  document.getElementById('cnt-'+id).textContent=`Showing ${v} game${v!==1?'s':''}`;
+  document.getElementById('nr-'+id).style.display=v===0?'block':'none';
+}
+</script>
+</body>
+</html>

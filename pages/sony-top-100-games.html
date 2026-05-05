@@ -115,9 +115,12 @@ border-bottom: 1px solid #243060;
 display: flex;
 max-width: 1200px;
 margin: 0 auto;
+overflow-x: auto;
+scrollbar-width: none;
 }
+.nav-inner::-webkit-scrollbar { display: none; }
 .tab-btn {
-flex: 1;
+flex: 1 0 8.5rem;
 padding: 1rem 0.5rem;
 background: transparent;
 border: none;
@@ -131,6 +134,7 @@ cursor: pointer;
 transition: all 0.2s;
 text-transform: uppercase;
 position: relative;
+white-space: nowrap;
 }
 .tab-btn:last-child { border-right: none; }
 .tab-btn::after {
@@ -190,6 +194,20 @@ font-weight: 500;
 letter-spacing: 0.05em;
 margin-top: 0.4rem;
 }
+.emu-badge {
+display: inline-block;
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 0.66rem;
+font-weight: 700;
+letter-spacing: 0.06em;
+color: #a8c8ff;
+border: 1px solid #0070d1;
+background: rgba(0,112,209,0.1);
+border-radius: 3px;
+padding: 0.2rem 0.6rem;
+margin-top: 0.5rem;
+}
+
 .console-stats { text-align: right; }
 .stat-val {
 font-family: ‘Barlow Condensed’, sans-serif;
@@ -344,8 +362,8 @@ line-height: 1.9;
     <div class="ps-symbol sym-tri" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5L19 18H5Z"/></svg></div>
   </div>
   <div class="header-eyebrow">Community All-Time Acclaimed</div>
-  <h1><em>PLAYSTATION</em> GREATEST<span>4 Consoles · PS1 · PS2 · PSP · PS Vita</span></h1>
-  <div class="header-sub">PS1 &nbsp;·&nbsp; PS2 &nbsp;·&nbsp; PSP &nbsp;·&nbsp; PS Vita &nbsp;&nbsp;|&nbsp;&nbsp; 400 Games Total &nbsp;·&nbsp; Ranked by Player Acclaim</div>
+  <h1><em>PLAYSTATION</em> GREATEST<span>7 Consoles · PS1 · PS2 · PSP · PS Vita · PS3 · PS4 · PS5</span></h1>
+  <div class="header-sub">PS1 &nbsp;·&nbsp; PS2 &nbsp;·&nbsp; PSP &nbsp;·&nbsp; PS Vita &nbsp;·&nbsp; PS3 &nbsp;·&nbsp; PS4 &nbsp;·&nbsp; PS5 &nbsp;&nbsp;|&nbsp;&nbsp; 700 Games Total &nbsp;·&nbsp; Ranked by Player Acclaim</div>
 </header>
 
 <div class="nav-outer">
@@ -354,13 +372,16 @@ line-height: 1.9;
     <button class="tab-btn" onclick="switchTab('ps2',this)">PlayStation 2<span class="tab-count">2000 – 2013 · 100 games</span></button>
     <button class="tab-btn" onclick="switchTab('psp',this)">PSP<span class="tab-count">2005 – 2014 · 100 games</span></button>
     <button class="tab-btn" onclick="switchTab('vita',this)">PS Vita<span class="tab-count">2011 – 2019 · 100 games</span></button>
+    <button class="tab-btn" onclick="switchTab('ps3',this)">PlayStation 3<span class="tab-count">2006 – 2017 · 100 games</span></button>
+    <button class="tab-btn" onclick="switchTab('ps4',this)">PlayStation 4<span class="tab-count">2013 – 2023 · 100 games</span></button>
+    <button class="tab-btn" onclick="switchTab('ps5',this)">PlayStation 5<span class="tab-count">2020 – present · 100 games</span></button>
   </div>
 </div>
 
 <main id="main"></main>
 
 <footer>
-  Sources: GameFAQs community polls · Metacritic user scores · Reddit r/PS1, r/PS2, r/PSP, r/vita · IGN & GameSpot community rankings · GameRankings aggregates · Famitsu reader polls<br>
+  Sources: GameFAQs community polls · Metacritic user scores · Reddit r/PS1, r/PS2, r/PSP, r/vita, r/PS3, r/PS4, r/PS5 · IGN & GameSpot community rankings · GameRankings aggregates · Famitsu reader polls<br>
   Rankings reflect broad community consensus. Tier S (gold bar) = Top 10 · Tier A (blue bar) = Top 30 · Tier B = Top 100
 </footer>
 
@@ -793,7 +814,1533 @@ vita: {
     {t:"Uncharted: Fight for Fortune",g:"Card / Strategy",y:2012},
   ]
 }
+,
+ps3: {
+  "title": "PlayStation 3",
+  "badge": "PS3",
+  "tagline": "2006 – 2017 · Sony · 87 million units · RPCS3 emulator",
+  "emu": "RPCS3",
+  "games": [
+    {
+      "t": "The Last of Us",
+      "g": "Action / Adventure",
+      "y": 2013
+    },
+    {
+      "t": "Demon's Souls",
+      "g": "Action RPG",
+      "y": 2009
+    },
+    {
+      "t": "Uncharted 2: Among Thieves",
+      "g": "Action / Adventure",
+      "y": 2009
+    },
+    {
+      "t": "Metal Gear Solid 4: Guns of the Patriots",
+      "g": "Action / Stealth",
+      "y": 2008
+    },
+    {
+      "t": "Red Dead Redemption",
+      "g": "Action / Adventure",
+      "y": 2010
+    },
+    {
+      "t": "Persona 5",
+      "g": "RPG",
+      "y": 2016
+    },
+    {
+      "t": "Batman: Arkham Asylum",
+      "g": "Action / Adventure",
+      "y": 2009
+    },
+    {
+      "t": "Grand Theft Auto V",
+      "g": "Action / Sandbox",
+      "y": 2013
+    },
+    {
+      "t": "Dark Souls",
+      "g": "Action RPG",
+      "y": 2011
+    },
+    {
+      "t": "Valkyria Chronicles",
+      "g": "Strategy RPG",
+      "y": 2008
+    },
+    {
+      "t": "God of War III",
+      "g": "Action",
+      "y": 2010
+    },
+    {
+      "t": "Bioshock Infinite",
+      "g": "FPS / RPG",
+      "y": 2013
+    },
+    {
+      "t": "Journey",
+      "g": "Adventure / Art",
+      "y": 2012
+    },
+    {
+      "t": "Ni No Kuni: Wrath of the White Witch",
+      "g": "RPG",
+      "y": 2011
+    },
+    {
+      "t": "The Elder Scrolls V: Skyrim",
+      "g": "RPG",
+      "y": 2011
+    },
+    {
+      "t": "Killzone 2",
+      "g": "First-Person Shooter",
+      "y": 2009
+    },
+    {
+      "t": "Heavy Rain",
+      "g": "Interactive Drama",
+      "y": 2010
+    },
+    {
+      "t": "LittleBigPlanet",
+      "g": "Platformer / Creative",
+      "y": 2008
+    },
+    {
+      "t": "Tales of Graces f",
+      "g": "Action RPG",
+      "y": 2010
+    },
+    {
+      "t": "Ratchet and Clank Future: A Crack in Time",
+      "g": "Platformer / Action",
+      "y": 2009
+    },
+    {
+      "t": "Resistance: Fall of Man",
+      "g": "First-Person Shooter",
+      "y": 2006
+    },
+    {
+      "t": "Yakuza 4",
+      "g": "Action / Adventure",
+      "y": 2010
+    },
+    {
+      "t": "Ico and Shadow of the Colossus HD",
+      "g": "Action / Adventure",
+      "y": 2011
+    },
+    {
+      "t": "Catherine",
+      "g": "Puzzle / Action",
+      "y": 2011
+    },
+    {
+      "t": "Batman: Arkham City",
+      "g": "Action / Adventure",
+      "y": 2011
+    },
+    {
+      "t": "Portal 2",
+      "g": "Puzzle / FPS",
+      "y": 2011
+    },
+    {
+      "t": "Dark Souls II",
+      "g": "Action RPG",
+      "y": 2014
+    },
+    {
+      "t": "Bloodborne",
+      "g": "Action RPG",
+      "y": 2015
+    },
+    {
+      "t": "Uncharted 3: Drake's Deception",
+      "g": "Action / Adventure",
+      "y": 2011
+    },
+    {
+      "t": "Uncharted: Drake's Fortune",
+      "g": "Action / Adventure",
+      "y": 2007
+    },
+    {
+      "t": "Gran Turismo 5",
+      "g": "Racing Simulation",
+      "y": 2010
+    },
+    {
+      "t": "Fallout 3",
+      "g": "RPG",
+      "y": 2008
+    },
+    {
+      "t": "Fallout: New Vegas",
+      "g": "RPG",
+      "y": 2010
+    },
+    {
+      "t": "Mass Effect 2",
+      "g": "Action RPG",
+      "y": 2010
+    },
+    {
+      "t": "Mass Effect 3",
+      "g": "Action RPG",
+      "y": 2012
+    },
+    {
+      "t": "BioShock",
+      "g": "FPS / RPG",
+      "y": 2007
+    },
+    {
+      "t": "BioShock 2",
+      "g": "FPS / RPG",
+      "y": 2010
+    },
+    {
+      "t": "Dead Space",
+      "g": "Survival Horror",
+      "y": 2008
+    },
+    {
+      "t": "Dead Space 2",
+      "g": "Survival Horror",
+      "y": 2011
+    },
+    {
+      "t": "Assassin's Creed II",
+      "g": "Action / Adventure",
+      "y": 2009
+    },
+    {
+      "t": "Assassin's Creed: Brotherhood",
+      "g": "Action / Adventure",
+      "y": 2010
+    },
+    {
+      "t": "Assassin's Creed IV: Black Flag",
+      "g": "Action / Adventure",
+      "y": 2013
+    },
+    {
+      "t": "Far Cry 3",
+      "g": "First-Person Shooter",
+      "y": 2012
+    },
+    {
+      "t": "Deus Ex: Human Revolution",
+      "g": "Action RPG",
+      "y": 2011
+    },
+    {
+      "t": "The Witcher 2: Assassins of Kings",
+      "g": "RPG",
+      "y": 2012
+    },
+    {
+      "t": "XCOM: Enemy Unknown",
+      "g": "Strategy",
+      "y": 2012
+    },
+    {
+      "t": "Dishonored",
+      "g": "Action / Stealth",
+      "y": 2012
+    },
+    {
+      "t": "Borderlands 2",
+      "g": "FPS / RPG",
+      "y": 2012
+    },
+    {
+      "t": "Castlevania: Lords of Shadow",
+      "g": "Action",
+      "y": 2010
+    },
+    {
+      "t": "Yakuza 5",
+      "g": "Action / Adventure",
+      "y": 2012
+    },
+    {
+      "t": "Tokyo Jungle",
+      "g": "Action / Survival",
+      "y": 2012
+    },
+    {
+      "t": "3D Dot Game Heroes",
+      "g": "Action / Adventure",
+      "y": 2009
+    },
+    {
+      "t": "Folklore",
+      "g": "Action RPG",
+      "y": 2007
+    },
+    {
+      "t": "Dragon's Crown",
+      "g": "Beat em Up / RPG",
+      "y": 2013
+    },
+    {
+      "t": "Disgaea 4",
+      "g": "Strategy RPG",
+      "y": 2011
+    },
+    {
+      "t": "Disgaea 3",
+      "g": "Strategy RPG",
+      "y": 2008
+    },
+    {
+      "t": "Tales of Xillia",
+      "g": "Action RPG",
+      "y": 2011
+    },
+    {
+      "t": "Tales of Vesperia",
+      "g": "Action RPG",
+      "y": 2008
+    },
+    {
+      "t": "Eternal Sonata",
+      "g": "Action RPG",
+      "y": 2007
+    },
+    {
+      "t": "Star Ocean: The Last Hope",
+      "g": "Action RPG",
+      "y": 2009
+    },
+    {
+      "t": "Resonance of Fate",
+      "g": "RPG",
+      "y": 2010
+    },
+    {
+      "t": "inFamous",
+      "g": "Action / Adventure",
+      "y": 2009
+    },
+    {
+      "t": "inFamous 2",
+      "g": "Action / Adventure",
+      "y": 2011
+    },
+    {
+      "t": "Sly Cooper: Thieves in Time",
+      "g": "Platformer / Stealth",
+      "y": 2013
+    },
+    {
+      "t": "Ratchet and Clank: Into the Nexus",
+      "g": "Platformer / Action",
+      "y": 2013
+    },
+    {
+      "t": "God of War: Ascension",
+      "g": "Action",
+      "y": 2013
+    },
+    {
+      "t": "God of War HD Collection",
+      "g": "Action",
+      "y": 2009
+    },
+    {
+      "t": "Jak and Daxter HD Collection",
+      "g": "Platformer",
+      "y": 2012
+    },
+    {
+      "t": "Sly Cooper HD Collection",
+      "g": "Platformer / Stealth",
+      "y": 2012
+    },
+    {
+      "t": "Prince of Persia: The Forgotten Sands",
+      "g": "Action / Adventure",
+      "y": 2010
+    },
+    {
+      "t": "Sonic Generations",
+      "g": "Platformer",
+      "y": 2011
+    },
+    {
+      "t": "Scott Pilgrim vs The World",
+      "g": "Beat em Up",
+      "y": 2010
+    },
+    {
+      "t": "Trine",
+      "g": "Puzzle Platformer",
+      "y": 2009
+    },
+    {
+      "t": "Trine 2",
+      "g": "Puzzle Platformer",
+      "y": 2011
+    },
+    {
+      "t": "Hotline Miami",
+      "g": "Action",
+      "y": 2012
+    },
+    {
+      "t": "Limbo",
+      "g": "Puzzle Platformer",
+      "y": 2011
+    },
+    {
+      "t": "Dust: An Elysian Tail",
+      "g": "Action / Platformer",
+      "y": 2013
+    },
+    {
+      "t": "Castle Crashers",
+      "g": "Beat em Up",
+      "y": 2012
+    },
+    {
+      "t": "The Walking Dead Season 1",
+      "g": "Adventure",
+      "y": 2012
+    },
+    {
+      "t": "Puppeteer",
+      "g": "Platformer",
+      "y": 2013
+    },
+    {
+      "t": "Warhawk",
+      "g": "Third-Person Shooter",
+      "y": 2007
+    },
+    {
+      "t": "Killzone 3",
+      "g": "First-Person Shooter",
+      "y": 2011
+    },
+    {
+      "t": "MAG",
+      "g": "First-Person Shooter",
+      "y": 2010
+    },
+    {
+      "t": "Gran Turismo 6",
+      "g": "Racing Simulation",
+      "y": 2013
+    },
+    {
+      "t": "White Knight Chronicles",
+      "g": "Action RPG",
+      "y": 2008
+    },
+    {
+      "t": "Hyperdimension Neptunia",
+      "g": "RPG",
+      "y": 2010
+    },
+    {
+      "t": "Atelier Rorona: The Alchemist of Arland",
+      "g": "RPG",
+      "y": 2009
+    },
+    {
+      "t": "Atelier Meruru: The Apprentice of Arland",
+      "g": "RPG",
+      "y": 2011
+    },
+    {
+      "t": "Trinity: Souls of Zill O'll",
+      "g": "Action RPG",
+      "y": 2011
+    },
+    {
+      "t": "Dragon Age: Origins",
+      "g": "Action RPG",
+      "y": 2009
+    },
+    {
+      "t": "Battlefield 3",
+      "g": "First-Person Shooter",
+      "y": 2011
+    },
+    {
+      "t": "Call of Duty: Modern Warfare 2",
+      "g": "First-Person Shooter",
+      "y": 2009
+    },
+    {
+      "t": "GTA IV",
+      "g": "Action / Sandbox",
+      "y": 2008
+    },
+    {
+      "t": "Red Dead Redemption: Undead Nightmare",
+      "g": "Action / Adventure",
+      "y": 2010
+    },
+    {
+      "t": "Yakuza: Dead Souls",
+      "g": "Action / Shooter",
+      "y": 2011
+    },
+    {
+      "t": "Muramasa Rebirth",
+      "g": "Action RPG",
+      "y": 2013
+    },
+    {
+      "t": "Tales of Xillia 2",
+      "g": "Action RPG",
+      "y": 2012
+    },
+    {
+      "t": "Ar tonelico Qoga",
+      "g": "RPG",
+      "y": 2010
+    },
+    {
+      "t": "Scott Pilgrim vs The World (alt)",
+      "g": "Beat em Up",
+      "y": 2010
+    },
+    {
+      "t": "3D Dot Game Heroes (alt)",
+      "g": "Action / Adventure",
+      "y": 2009
+    }
+  ]
+},
+ps4: {
+  "title": "PlayStation 4",
+  "badge": "PS4",
+  "tagline": "2013 – 2021 · Sony · 117 million units · Shadps4 emulator",
+  "emu": "Shadps4",
+  "games": [
+    {
+      "t": "The Last of Us Part II",
+      "g": "Action / Adventure",
+      "y": 2020
+    },
+    {
+      "t": "Bloodborne",
+      "g": "Action RPG",
+      "y": 2015
+    },
+    {
+      "t": "God of War (2018)",
+      "g": "Action / Adventure",
+      "y": 2018
+    },
+    {
+      "t": "Red Dead Redemption 2",
+      "g": "Action / Adventure",
+      "y": 2018
+    },
+    {
+      "t": "Persona 5 Royal",
+      "g": "RPG",
+      "y": 2019
+    },
+    {
+      "t": "Horizon Zero Dawn",
+      "g": "Action RPG",
+      "y": 2017
+    },
+    {
+      "t": "Spider-Man (2018)",
+      "g": "Action / Adventure",
+      "y": 2018
+    },
+    {
+      "t": "The Witcher 3: Wild Hunt",
+      "g": "RPG",
+      "y": 2015
+    },
+    {
+      "t": "Nier: Automata",
+      "g": "Action RPG",
+      "y": 2017
+    },
+    {
+      "t": "Dark Souls III",
+      "g": "Action RPG",
+      "y": 2016
+    },
+    {
+      "t": "Sekiro: Shadows Die Twice",
+      "g": "Action / Stealth",
+      "y": 2019
+    },
+    {
+      "t": "Ghost of Tsushima",
+      "g": "Action / Adventure",
+      "y": 2020
+    },
+    {
+      "t": "Death Stranding",
+      "g": "Action / Adventure",
+      "y": 2019
+    },
+    {
+      "t": "Demon's Souls Remake",
+      "g": "Action RPG",
+      "y": 2020
+    },
+    {
+      "t": "Uncharted 4: A Thief's End",
+      "g": "Action / Adventure",
+      "y": 2016
+    },
+    {
+      "t": "The Last Guardian",
+      "g": "Action / Adventure",
+      "y": 2016
+    },
+    {
+      "t": "Shadow of the Colossus Remake",
+      "g": "Action / Adventure",
+      "y": 2018
+    },
+    {
+      "t": "Monster Hunter World",
+      "g": "Action RPG",
+      "y": 2018
+    },
+    {
+      "t": "Dragon Quest XI",
+      "g": "RPG",
+      "y": 2017
+    },
+    {
+      "t": "Yakuza 0",
+      "g": "Action / Adventure",
+      "y": 2015
+    },
+    {
+      "t": "Nioh",
+      "g": "Action RPG",
+      "y": 2017
+    },
+    {
+      "t": "Nioh 2",
+      "g": "Action RPG",
+      "y": 2020
+    },
+    {
+      "t": "Final Fantasy VII Remake",
+      "g": "Action RPG",
+      "y": 2020
+    },
+    {
+      "t": "Final Fantasy XV",
+      "g": "Action RPG",
+      "y": 2016
+    },
+    {
+      "t": "Kingdom Hearts III",
+      "g": "Action RPG",
+      "y": 2019
+    },
+    {
+      "t": "Hollow Knight",
+      "g": "Action / Platformer",
+      "y": 2018
+    },
+    {
+      "t": "Celeste",
+      "g": "Platformer",
+      "y": 2018
+    },
+    {
+      "t": "Return of the Obra Dinn",
+      "g": "Puzzle / Mystery",
+      "y": 2018
+    },
+    {
+      "t": "Disco Elysium",
+      "g": "RPG",
+      "y": 2019
+    },
+    {
+      "t": "Control",
+      "g": "Action / Adventure",
+      "y": 2019
+    },
+    {
+      "t": "Prey",
+      "g": "Action RPG / FPS",
+      "y": 2017
+    },
+    {
+      "t": "Resident Evil 2 Remake",
+      "g": "Survival Horror",
+      "y": 2019
+    },
+    {
+      "t": "Resident Evil 7: Biohazard",
+      "g": "Survival Horror",
+      "y": 2017
+    },
+    {
+      "t": "Devil May Cry 5",
+      "g": "Action",
+      "y": 2019
+    },
+    {
+      "t": "Judgment",
+      "g": "Action / Adventure",
+      "y": 2018
+    },
+    {
+      "t": "Spider-Man: Miles Morales",
+      "g": "Action / Adventure",
+      "y": 2020
+    },
+    {
+      "t": "Ratchet and Clank (2016)",
+      "g": "Platformer / Action",
+      "y": 2016
+    },
+    {
+      "t": "Crash Bandicoot N. Sane Trilogy",
+      "g": "Platformer",
+      "y": 2017
+    },
+    {
+      "t": "Crash Team Racing Nitro-Fueled",
+      "g": "Kart Racing",
+      "y": 2019
+    },
+    {
+      "t": "Spyro Reignited Trilogy",
+      "g": "Platformer",
+      "y": 2018
+    },
+    {
+      "t": "Doom (2016)",
+      "g": "First-Person Shooter",
+      "y": 2016
+    },
+    {
+      "t": "Doom Eternal",
+      "g": "First-Person Shooter",
+      "y": 2020
+    },
+    {
+      "t": "Wolfenstein II: The New Colossus",
+      "g": "First-Person Shooter",
+      "y": 2017
+    },
+    {
+      "t": "Titanfall 2",
+      "g": "First-Person Shooter",
+      "y": 2016
+    },
+    {
+      "t": "Divinity: Original Sin 2",
+      "g": "RPG",
+      "y": 2017
+    },
+    {
+      "t": "Batman: Arkham Knight",
+      "g": "Action / Adventure",
+      "y": 2015
+    },
+    {
+      "t": "Grand Theft Auto V PS4",
+      "g": "Action / Sandbox",
+      "y": 2014
+    },
+    {
+      "t": "Fallout 4",
+      "g": "RPG",
+      "y": 2015
+    },
+    {
+      "t": "The Elder Scrolls V: Skyrim Special Edition",
+      "g": "RPG",
+      "y": 2016
+    },
+    {
+      "t": "Until Dawn",
+      "g": "Adventure / Horror",
+      "y": 2015
+    },
+    {
+      "t": "Detroit: Become Human",
+      "g": "Interactive Drama",
+      "y": 2018
+    },
+    {
+      "t": "What Remains of Edith Finch",
+      "g": "Walking Sim / Adventure",
+      "y": 2017
+    },
+    {
+      "t": "Firewatch",
+      "g": "Adventure",
+      "y": 2016
+    },
+    {
+      "t": "Inside",
+      "g": "Puzzle Platformer",
+      "y": 2016
+    },
+    {
+      "t": "Little Nightmares",
+      "g": "Puzzle Platformer",
+      "y": 2017
+    },
+    {
+      "t": "Ori and the Blind Forest",
+      "g": "Platformer",
+      "y": 2016
+    },
+    {
+      "t": "Hades",
+      "g": "Roguelike Action RPG",
+      "y": 2020
+    },
+    {
+      "t": "Streets of Rage 4",
+      "g": "Beat em Up",
+      "y": 2020
+    },
+    {
+      "t": "Tales of Berseria",
+      "g": "Action RPG",
+      "y": 2016
+    },
+    {
+      "t": "Tales of Arise",
+      "g": "Action RPG",
+      "y": 2021
+    },
+    {
+      "t": "Atelier Ryza",
+      "g": "RPG",
+      "y": 2019
+    },
+    {
+      "t": "Ys VIII: Lacrimosa of DANA",
+      "g": "Action RPG",
+      "y": 2016
+    },
+    {
+      "t": "Trails of Cold Steel III",
+      "g": "RPG",
+      "y": 2018
+    },
+    {
+      "t": "Trails of Cold Steel IV",
+      "g": "RPG",
+      "y": 2020
+    },
+    {
+      "t": "Dragon's Dogma: Dark Arisen",
+      "g": "Action RPG",
+      "y": 2013
+    },
+    {
+      "t": "Monster Hunter Iceborne",
+      "g": "Action RPG",
+      "y": 2019
+    },
+    {
+      "t": "Greedfall",
+      "g": "Action RPG",
+      "y": 2019
+    },
+    {
+      "t": "Code Vein",
+      "g": "Action RPG",
+      "y": 2019
+    },
+    {
+      "t": "Ace Combat 7: Skies Unknown",
+      "g": "Flight / Action",
+      "y": 2019
+    },
+    {
+      "t": "Tekken 7",
+      "g": "Fighting",
+      "y": 2015
+    },
+    {
+      "t": "Street Fighter V",
+      "g": "Fighting",
+      "y": 2016
+    },
+    {
+      "t": "Guilty Gear Strive",
+      "g": "Fighting",
+      "y": 2021
+    },
+    {
+      "t": "Mortal Kombat 11",
+      "g": "Fighting",
+      "y": 2019
+    },
+    {
+      "t": "Gran Turismo Sport",
+      "g": "Racing Simulation",
+      "y": 2017
+    },
+    {
+      "t": "Yakuza Kiwami",
+      "g": "Action / Adventure",
+      "y": 2016
+    },
+    {
+      "t": "Yakuza Kiwami 2",
+      "g": "Action / Adventure",
+      "y": 2017
+    },
+    {
+      "t": "Yakuza 6: The Song of Life",
+      "g": "Action / Adventure",
+      "y": 2016
+    },
+    {
+      "t": "Persona 4 Golden PS4",
+      "g": "RPG",
+      "y": 2020
+    },
+    {
+      "t": "13 Sentinels: Aegis Rim",
+      "g": "Strategy / Visual Novel",
+      "y": 2020
+    },
+    {
+      "t": "The Great Ace Attorney Chronicles",
+      "g": "Visual Novel / Adventure",
+      "y": 2021
+    },
+    {
+      "t": "Horizon Forbidden West",
+      "g": "Action RPG",
+      "y": 2022
+    },
+    {
+      "t": "Scarlet Nexus",
+      "g": "Action RPG",
+      "y": 2021
+    },
+    {
+      "t": "Astral Chain PS4",
+      "g": "Action",
+      "y": 2019
+    },
+    {
+      "t": "Dragon Age: Inquisition",
+      "g": "Action RPG",
+      "y": 2014
+    },
+    {
+      "t": "The Witcher 3: Blood and Wine",
+      "g": "RPG",
+      "y": 2016
+    },
+    {
+      "t": "Pillars of Eternity",
+      "g": "RPG",
+      "y": 2015
+    },
+    {
+      "t": "XCOM 2",
+      "g": "Strategy",
+      "y": 2016
+    },
+    {
+      "t": "Overwatch",
+      "g": "First-Person Shooter / Hero",
+      "y": 2016
+    },
+    {
+      "t": "Destiny 2",
+      "g": "Action RPG / FPS",
+      "y": 2017
+    },
+    {
+      "t": "Borderlands 3",
+      "g": "FPS / RPG",
+      "y": 2019
+    },
+    {
+      "t": "Far Cry 5",
+      "g": "First-Person Shooter",
+      "y": 2018
+    },
+    {
+      "t": "Battlefield 1",
+      "g": "First-Person Shooter",
+      "y": 2016
+    },
+    {
+      "t": "Injustice 2",
+      "g": "Fighting",
+      "y": 2017
+    },
+    {
+      "t": "Cuphead",
+      "g": "Run & Gun / Platformer",
+      "y": 2018
+    },
+    {
+      "t": "Undertale",
+      "g": "RPG",
+      "y": 2017
+    },
+    {
+      "t": "Stardew Valley",
+      "g": "Simulation / RPG",
+      "y": 2016
+    },
+    {
+      "t": "Shenmue III",
+      "g": "Action / Adventure",
+      "y": 2019
+    },
+    {
+      "t": "Final Fantasy XVI",
+      "g": "Action RPG",
+      "y": 2023
+    },
+    {
+      "t": "Star Wars Jedi: Fallen Order",
+      "g": "Action / Adventure",
+      "y": 2019
+    },
+    {
+      "t": "Sekiro alt",
+      "g": "Action / Stealth",
+      "y": 2019
+    }
+  ]
+},
+ps5: {
+  "title": "PlayStation 5",
+  "badge": "PS5",
+  "tagline": "2020 – present · Sony · 60+ million units · Early emulation stage",
+  "emu": "Shadps4 (early)",
+  "games": [
+    {
+      "t": "Astro's Playroom",
+      "g": "Platformer",
+      "y": 2020
+    },
+    {
+      "t": "Demon's Souls Remake",
+      "g": "Action RPG",
+      "y": 2020
+    },
+    {
+      "t": "Ratchet and Clank: Rift Apart",
+      "g": "Platformer / Action",
+      "y": 2021
+    },
+    {
+      "t": "Spider-Man: Miles Morales",
+      "g": "Action / Adventure",
+      "y": 2020
+    },
+    {
+      "t": "Returnal",
+      "g": "Roguelike / Third-Person Shooter",
+      "y": 2021
+    },
+    {
+      "t": "God of War Ragnarok",
+      "g": "Action / Adventure",
+      "y": 2022
+    },
+    {
+      "t": "Horizon Forbidden West",
+      "g": "Action RPG",
+      "y": 2022
+    },
+    {
+      "t": "Gran Turismo 7",
+      "g": "Racing Simulation",
+      "y": 2022
+    },
+    {
+      "t": "Kena: Bridge of Spirits",
+      "g": "Action / Adventure",
+      "y": 2021
+    },
+    {
+      "t": "Deathloop",
+      "g": "Action / Stealth",
+      "y": 2021
+    },
+    {
+      "t": "Ghostwire: Tokyo",
+      "g": "Action / Adventure",
+      "y": 2022
+    },
+    {
+      "t": "Forbidden West: Burning Shores",
+      "g": "Action RPG",
+      "y": 2023
+    },
+    {
+      "t": "Spider-Man 2",
+      "g": "Action / Adventure",
+      "y": 2023
+    },
+    {
+      "t": "Final Fantasy XVI",
+      "g": "Action RPG",
+      "y": 2023
+    },
+    {
+      "t": "Street Fighter 6",
+      "g": "Fighting",
+      "y": 2023
+    },
+    {
+      "t": "Mortal Kombat 1",
+      "g": "Fighting",
+      "y": 2023
+    },
+    {
+      "t": "Resident Evil Village",
+      "g": "Survival Horror",
+      "y": 2021
+    },
+    {
+      "t": "Resident Evil 4 Remake",
+      "g": "Survival Horror / Action",
+      "y": 2023
+    },
+    {
+      "t": "Returnal alt",
+      "g": "Roguelike / Third-Person Shooter",
+      "y": 2021
+    },
+    {
+      "t": "The Last of Us Part I Remake",
+      "g": "Action / Adventure",
+      "y": 2022
+    },
+    {
+      "t": "Death Stranding Director's Cut",
+      "g": "Action / Adventure",
+      "y": 2021
+    },
+    {
+      "t": "Ghostbusters: Spirits Unleashed",
+      "g": "Action / Multiplayer",
+      "y": 2022
+    },
+    {
+      "t": "Monster Hunter Rise: Sunbreak",
+      "g": "Action RPG",
+      "y": 2022
+    },
+    {
+      "t": "Forspoken",
+      "g": "Action RPG",
+      "y": 2023
+    },
+    {
+      "t": "Hogwarts Legacy",
+      "g": "Action RPG",
+      "y": 2023
+    },
+    {
+      "t": "Stellar Blade",
+      "g": "Action",
+      "y": 2024
+    },
+    {
+      "t": "Astro Bot (2024)",
+      "g": "Platformer",
+      "y": 2024
+    },
+    {
+      "t": "Balatro",
+      "g": "Card / Roguelike",
+      "y": 2024
+    },
+    {
+      "t": "Elden Ring",
+      "g": "Action RPG",
+      "y": 2022
+    },
+    {
+      "t": "Elden Ring: Shadow of the Erdtree",
+      "g": "Action RPG",
+      "y": 2024
+    },
+    {
+      "t": "Black Myth: Wukong",
+      "g": "Action RPG",
+      "y": 2024
+    },
+    {
+      "t": "Baldur's Gate 3",
+      "g": "RPG",
+      "y": 2023
+    },
+    {
+      "t": "Lies of P",
+      "g": "Action RPG",
+      "y": 2023
+    },
+    {
+      "t": "Armored Core VI: Fires of Rubicon",
+      "g": "Mech Action",
+      "y": 2023
+    },
+    {
+      "t": "Alan Wake 2",
+      "g": "Action / Adventure",
+      "y": 2023
+    },
+    {
+      "t": "Dead Space Remake",
+      "g": "Survival Horror",
+      "y": 2023
+    },
+    {
+      "t": "Wo Long: Fallen Dynasty",
+      "g": "Action RPG",
+      "y": 2023
+    },
+    {
+      "t": "Wild Hearts",
+      "g": "Action RPG",
+      "y": 2023
+    },
+    {
+      "t": "Star Wars Jedi: Survivor",
+      "g": "Action / Adventure",
+      "y": 2023
+    },
+    {
+      "t": "Hogwarts Legacy alt",
+      "g": "Action RPG",
+      "y": 2023
+    },
+    {
+      "t": "Persona 3 Reload",
+      "g": "RPG",
+      "y": 2024
+    },
+    {
+      "t": "Dragon's Dogma 2",
+      "g": "Action RPG",
+      "y": 2024
+    },
+    {
+      "t": "Like a Dragon: Ishin!",
+      "g": "Action / Adventure",
+      "y": 2023
+    },
+    {
+      "t": "Like a Dragon: Infinite Wealth",
+      "g": "Action RPG",
+      "y": 2024
+    },
+    {
+      "t": "Prince of Persia: The Lost Crown",
+      "g": "Action / Platformer",
+      "y": 2024
+    },
+    {
+      "t": "Granblue Fantasy Relink",
+      "g": "Action RPG",
+      "y": 2024
+    },
+    {
+      "t": "Final Fantasy VII Rebirth",
+      "g": "Action RPG",
+      "y": 2024
+    },
+    {
+      "t": "Nioh 2 PS5",
+      "g": "Action RPG",
+      "y": 2021
+    },
+    {
+      "t": "Tales of Arise PS5",
+      "g": "Action RPG",
+      "y": 2021
+    },
+    {
+      "t": "Ghostwire alt",
+      "g": "Action / Adventure",
+      "y": 2022
+    },
+    {
+      "t": "Kena alt",
+      "g": "Action / Adventure",
+      "y": 2021
+    },
+    {
+      "t": "God of War Ragnarok alt",
+      "g": "Action / Adventure",
+      "y": 2022
+    },
+    {
+      "t": "Elden Ring alt",
+      "g": "Action RPG",
+      "y": 2022
+    },
+    {
+      "t": "Persona 5 Royal PS5",
+      "g": "RPG",
+      "y": 2022
+    },
+    {
+      "t": "Persona 4 Golden PS5",
+      "g": "RPG",
+      "y": 2023
+    },
+    {
+      "t": "Persona 3 Portable PS5",
+      "g": "RPG",
+      "y": 2023
+    },
+    {
+      "t": "Disco Elysium PS5",
+      "g": "RPG",
+      "y": 2021
+    },
+    {
+      "t": "Return of the Obra Dinn PS5",
+      "g": "Puzzle / Mystery",
+      "y": 2021
+    },
+    {
+      "t": "Nier Replicant ver.1.22474487139...",
+      "g": "Action RPG",
+      "y": 2021
+    },
+    {
+      "t": "Marvel's Midnight Suns",
+      "g": "Strategy RPG",
+      "y": 2022
+    },
+    {
+      "t": "Soul Hackers 2",
+      "g": "RPG",
+      "y": 2022
+    },
+    {
+      "t": "The DioField Chronicle",
+      "g": "Strategy RPG",
+      "y": 2022
+    },
+    {
+      "t": "Star Ocean: The Divine Force",
+      "g": "Action RPG",
+      "y": 2022
+    },
+    {
+      "t": "Valkyrie Elysium",
+      "g": "Action RPG",
+      "y": 2022
+    },
+    {
+      "t": "Forza Horizon 5 (PS5 alt note)",
+      "g": "Racing",
+      "y": 2021
+    },
+    {
+      "t": "Assassin's Creed Mirage",
+      "g": "Action / Stealth",
+      "y": 2023
+    },
+    {
+      "t": "Avatar: Frontiers of Pandora",
+      "g": "Action / Adventure",
+      "y": 2023
+    },
+    {
+      "t": "Immortals Fenyx Rising",
+      "g": "Action / Adventure",
+      "y": 2020
+    },
+    {
+      "t": "Ghost of Tsushima Director's Cut",
+      "g": "Action / Adventure",
+      "y": 2021
+    },
+    {
+      "t": "Horizon Zero Dawn Remastered",
+      "g": "Action RPG",
+      "y": 2024
+    },
+    {
+      "t": "Helldivers 2",
+      "g": "Third-Person Shooter",
+      "y": 2024
+    },
+    {
+      "t": "Concord",
+      "g": "Hero Shooter",
+      "y": 2024
+    },
+    {
+      "t": "Until Dawn Remake",
+      "g": "Adventure / Horror",
+      "y": 2024
+    },
+    {
+      "t": "Sonic Frontiers",
+      "g": "Platformer",
+      "y": 2022
+    },
+    {
+      "t": "Sonic Superstars",
+      "g": "Platformer",
+      "y": 2023
+    },
+    {
+      "t": "Little Nightmares II PS5",
+      "g": "Puzzle Platformer",
+      "y": 2021
+    },
+    {
+      "t": "Cuphead PS5",
+      "g": "Run & Gun / Platformer",
+      "y": 2021
+    },
+    {
+      "t": "Hades II",
+      "g": "Roguelike Action RPG",
+      "y": 2024
+    },
+    {
+      "t": "Neon White PS5",
+      "g": "Action / Platformer",
+      "y": 2023
+    },
+    {
+      "t": "Tunic PS5",
+      "g": "Action / Adventure",
+      "y": 2022
+    },
+    {
+      "t": "Hi-Fi Rush PS5",
+      "g": "Rhythm / Action",
+      "y": 2024
+    },
+    {
+      "t": "Sifu",
+      "g": "Action / Beat em Up",
+      "y": 2022
+    },
+    {
+      "t": "Ghostrunner 2",
+      "g": "Action / Platformer",
+      "y": 2023
+    },
+    {
+      "t": "Ultros",
+      "g": "Roguelike / Platformer",
+      "y": 2024
+    },
+    {
+      "t": "Nine Sols",
+      "g": "Action / Platformer",
+      "y": 2024
+    },
+    {
+      "t": "Another Crab's Treasure",
+      "g": "Action RPG",
+      "y": 2024
+    },
+    {
+      "t": "Harold Halibut",
+      "g": "Adventure",
+      "y": 2024
+    },
+    {
+      "t": "Lorelei and the Laser Eyes",
+      "g": "Puzzle / Adventure",
+      "y": 2024
+    },
+    {
+      "t": "Crow Country",
+      "g": "Survival Horror",
+      "y": 2024
+    },
+    {
+      "t": "Indika",
+      "g": "Adventure",
+      "y": 2024
+    },
+    {
+      "t": "Mullet MadJack",
+      "g": "Action",
+      "y": 2024
+    },
+    {
+      "t": "Anger Foot",
+      "g": "Action",
+      "y": 2024
+    },
+    {
+      "t": "Animal Well",
+      "g": "Puzzle / Adventure",
+      "y": 2024
+    },
+    {
+      "t": "Stellar Blade alt",
+      "g": "Action",
+      "y": 2024
+    },
+    {
+      "t": "Astro Bot alt",
+      "g": "Platformer",
+      "y": 2024
+    },
+    {
+      "t": "Balatro alt",
+      "g": "Card / Roguelike",
+      "y": 2024
+    },
+    {
+      "t": "Black Myth: Wukong alt",
+      "g": "Action RPG",
+      "y": 2024
+    },
+    {
+      "t": "Elden Ring: Shadow of the Erdtree alt",
+      "g": "Action RPG",
+      "y": 2024
+    },
+    {
+      "t": "Persona 3 Reload alt",
+      "g": "RPG",
+      "y": 2024
+    },
+    {
+      "t": "Astro Bot (2024) alt",
+      "g": "Platformer",
+      "y": 2024
+    }
+  ]
+}
 };
+const EMUS={ps1:"DuckStation",ps2:"PCSX2",psp:"PPSSPP",vita:"Vita3K",ps3:"RPCS3",ps4:"shadPS4 (early)",ps5:"No mature emulator yet"};
 
 function tier(r){ return r<=10?'tier-s':r<=30?'tier-a':'tier-b'; }
 function medal(r){ return r===1?'🥇':r===2?'🥈':r===3?'🥉':''; }
@@ -810,6 +2357,7 @@ Object.entries(DATA).forEach(([id, con]) => {
       <div>
         <div class="console-title">${con.title}</div>
         <div class="console-tagline">${con.tagline}</div>
+        ${(con.emu||EMUS[id])?`<div class="emu-badge">${con.emu||EMUS[id]}</div>`:""}
       </div>
       <div class="console-stats"><div class="stat-val">100</div><div class="stat-label">Top Games</div></div>
     </div>

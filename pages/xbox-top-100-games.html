@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top Games — Xbox</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#080b08;--sur:#0c110c;--bdr:#162016;--bdr2:#1e2e1e;--txt:#ddf0dd;--mut:#487848;--dim:#1a2a1a;
+  --xb:#52b043;--xb-d:#3d8f30;--xb-pale:#a8e898;--xb-glow:rgba(82,176,67,0.25);
+  --gold:#f5c842;--sil:#b0c4d8;--brz:#c87840;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif;min-height:100vh;
+  background-image:radial-gradient(ellipse 60% 40% at 50% -5%,rgba(40,90,30,0.2),transparent 60%),
+  repeating-linear-gradient(0deg,transparent,transparent 47px,rgba(22,32,22,0.4) 47px,rgba(22,32,22,0.4) 48px),
+  repeating-linear-gradient(90deg,transparent,transparent 47px,rgba(22,32,22,0.2) 47px,rgba(22,32,22,0.2) 48px);}
+header{padding:4rem 2rem 3rem;text-align:center;position:relative;border-bottom:1px solid var(--bdr2);}
+header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 110% at 50% 0%,rgba(30,70,20,0.18),transparent);pointer-events:none;}
+header::after{content:'';position:absolute;bottom:-1px;left:50%;transform:translateX(-50%);width:360px;height:2px;background:linear-gradient(90deg,transparent,var(--xb),transparent);}
+.ey{font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:600;letter-spacing:.3em;color:#487848;text-transform:uppercase;margin-bottom:1rem;}
+h1{font-size:clamp(2.8rem,8vw,6rem);font-weight:900;line-height:.88;color:#fff;letter-spacing:-.03em;}
+h1 .xbg{background:linear-gradient(90deg,#52b043,#a8e898);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+h1 .sub{display:block;font-size:.2em;font-weight:400;letter-spacing:.15em;color:var(--mut);-webkit-text-fill-color:var(--mut);background:none;margin-top:.9rem;text-transform:uppercase;font-family:'JetBrains Mono',monospace;}
+.hs{margin-top:1.2rem;font-size:.82rem;color:var(--mut);letter-spacing:.08em;line-height:1.8;}
+.nav{position:sticky;top:0;z-index:200;background:rgba(8,11,8,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr2);}
+.ns{display:flex;overflow-x:auto;scrollbar-width:none;max-width:1400px;margin:0 auto;}
+.ns::-webkit-scrollbar{display:none;}
+.tb{flex-shrink:0;padding:.85rem 1.6rem;background:transparent;border:none;border-right:1px solid var(--bdr);color:var(--mut);font-family:'Inter',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.03em;cursor:pointer;transition:all .18s;text-transform:uppercase;position:relative;white-space:nowrap;line-height:1.5;}
+.tb:last-child{border-right:none;}
+.tb::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;transform:scaleX(0);transition:transform .2s;background:var(--xb);}
+.tb:hover{color:var(--txt);background:rgba(82,176,67,.06);}
+.tb.act{color:#fff;background:rgba(82,176,67,.1);}
+.tb.act::after{transform:scaleX(1);}
+.te{display:block;font-size:.55rem;font-weight:400;color:var(--mut);letter-spacing:.04em;margin-top:.12rem;}
+main{max-width:1400px;margin:0 auto;padding:0 1rem 5rem;}
+.pn{display:none;}
+.pn.act{display:block;animation:up .22s ease;}
+@keyframes up{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+.ci{padding:2.5rem 0 1.8rem;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:2rem;border-bottom:1px solid var(--bdr2);}
+.cb{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:clamp(1.4rem,3.5vw,2.4rem);line-height:1;color:var(--xb);}
+.ct{font-weight:800;font-size:clamp(1.2rem,3vw,2rem);color:#fff;line-height:1.05;letter-spacing:-.02em;}
+.cg{font-size:.75rem;color:var(--mut);margin-top:.4rem;font-family:'JetBrains Mono',monospace;}
+.sv{font-family:'JetBrains Mono',monospace;font-size:2.2rem;font-weight:600;line-height:1;color:var(--xb);}
+.sl{font-size:.6rem;color:var(--mut);letter-spacing:.14em;text-transform:uppercase;}
+.emu{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.58rem;padding:.2rem .6rem;border-radius:3px;margin-top:.5rem;border:1px solid var(--xb);color:var(--xb-pale);background:rgba(82,176,67,.12);}
+.note{font-size:.78rem;color:var(--mut);padding:.7rem 1rem;border-radius:3px;margin:.6rem 0;font-style:italic;background:rgba(82,176,67,.05);border:1px solid rgba(82,176,67,.18);}
+.fb{padding:.85rem 0;display:flex;gap:.7rem;align-items:center;flex-wrap:wrap;border-bottom:1px solid var(--bdr);}
+.si{flex:1;min-width:150px;padding:.5rem .9rem;background:var(--sur);border:1px solid var(--bdr2);border-radius:4px;color:var(--txt);font-family:'Inter',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s;}
+.si:focus{border-color:var(--xb);}
+.si::placeholder{color:var(--mut);}
+.gf{padding:.5rem .8rem;background:var(--sur);border:1px solid var(--bdr2);border-radius:4px;color:var(--txt);font-family:'Inter',sans-serif;font-size:.85rem;cursor:pointer;outline:none;}
+.gf option{background:var(--sur);}
+.fc{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--mut);white-space:nowrap;}
+.th{display:grid;grid-template-columns:3rem 1.6rem 1fr 9rem 4rem;padding:.6rem .85rem;font-size:.6rem;font-weight:700;letter-spacing:.15em;color:var(--mut);text-transform:uppercase;border-bottom:1px solid var(--bdr2);background:var(--sur);position:sticky;top:53px;z-index:10;}
+.gr{display:grid;grid-template-columns:3rem 1.6rem 1fr 9rem 4rem;padding:.52rem .85rem;border-bottom:1px solid var(--bdr);transition:background .12s;align-items:center;}
+.gr:hover{background:rgba(255,255,255,.025);}
+.gr.ts{border-left:3px solid var(--gold);}
+.gr.ta{border-left:3px solid var(--xb);}
+.gr.tb2{border-left:3px solid transparent;}
+.gr.hd{display:none;}
+.rk{font-family:'JetBrains Mono',monospace;font-size:.88rem;font-weight:600;text-align:center;line-height:1;}
+.rk.r1{color:var(--gold);font-size:1.3rem;text-shadow:0 0 12px rgba(245,200,66,.5);}
+.rk.r2{color:var(--sil);font-size:1.15rem;}
+.rk.r3{color:var(--brz);font-size:1.05rem;}
+.rk.rt{color:var(--xb);}
+.rk.rn{color:var(--dim);font-size:.8rem;}
+.md{font-size:.9rem;text-align:center;}
+.gt{font-weight:600;font-size:.92rem;color:var(--txt);line-height:1.25;}
+.gr:hover .gt{color:#fff;}
+.gg{font-size:.7rem;color:var(--mut);}
+.gy{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--dim);text-align:right;}
+.nr{text-align:center;padding:3rem;color:var(--mut);font-family:'JetBrains Mono',monospace;font-size:.85rem;letter-spacing:.1em;display:none;}
+footer{padding:2rem;text-align:center;font-size:.72rem;color:var(--mut);border-top:1px solid var(--bdr2);line-height:1.9;letter-spacing:.04em;}
+.xb-ring{display:inline-flex;align-items:center;justify-content:center;width:3.5rem;height:3.5rem;border-radius:50%;border:3px solid var(--xb);box-shadow:0 0 20px var(--xb-glow);margin-bottom:1rem;font-size:1.4rem;color:var(--xb);}
+@media(max-width:600px){
+  .th,.gr{grid-template-columns:2.2rem 1.4rem 1fr 0 3.2rem;}
+  .gg{display:none;}
+  .ci{grid-template-columns:auto 1fr;}
+  .sv,.sl{display:none;}
+}
+</style>
+</head>
+<body>
+<nav style="background:rgba(10,8,0,.97);border-bottom:1px solid #4a3800;padding:.6rem 1.5rem;"><a href="../index.html" style="font-family:Oswald,sans-serif;font-size:.85rem;color:#ff8c00;text-decoration:none;letter-spacing:.08em;">&#8592; ALL LISTS</a></nav>
+<header>
+  <div class="xb-ring">&#x2715;</div>
+  <div class="ey">Community All-Time Acclaimed</div>
+  <h1><span class="xbg">XBOX</span> GREATEST<span class="sub">Original · 360 · One · Series X/S</span></h1>
+  <div class="hs">
+    400 Games Total &nbsp;·&nbsp; Ranked by Player Acclaim<br>
+    Emulators: XEMU (Original) &nbsp;·&nbsp; Xenia Canary (360) &nbsp;·&nbsp; Xbox One / Series X/S: native hardware, no mature PC emulator
+  </div>
+</header>
+<div class="nav"><div class="ns" id="tabs"></div></div>
+<main id="main"></main>
+<footer>
+  Sources: Metacritic user scores · OpenCritic · Reddit r/xboxone r/XboxSeriesX r/original_xbox r/xbox360 · GameFAQs · HowLongToBeat · Xbox Wire<br>
+  Rankings reflect broad community consensus. Gold bar = Top 10 &nbsp;·&nbsp; Green bar = Top 11–30 &nbsp;·&nbsp; Tier B = remainder
+</footer>
+<script>
+const DATA=[{"id":"xbox","tab":"Xbox","badge":"XBOX","title":"Xbox (Original)","tagline":"2001 – 2009 · Microsoft · 24 million units · XEMU emulator","emu":"XEMU","games":[["Halo: Combat Evolved","First-Person Shooter",2001],["Halo 2","First-Person Shooter",2004],["Knights of the Old Republic","Action RPG",2003],["Fable","Action RPG",2004],["Ninja Gaiden","Action",2004],["Jade Empire","Action RPG",2005],["Ninja Gaiden Black","Action",2005],["The Elder Scrolls III: Morrowind","RPG",2002],["Jet Set Radio Future","Action / Platformer",2002],["Splinter Cell: Chaos Theory","Action / Stealth",2005],["Knights of the Old Republic II","Action RPG",2004],["Forza Motorsport","Racing Simulation",2005],["Conker: Live & Reloaded","Platformer / Action",2005],["Panzer Dragoon Orta","Rail Shooter",2002],["Splinter Cell","Action / Stealth",2002],["Burnout 3: Takedown","Racing",2004],["Crimson Skies: High Road to Revenge","Flight / Action",2003],["Prince of Persia: The Sands of Time","Action / Adventure",2003],["MechAssault","Mech Action",2002],["Dead or Alive 3","Fighting",2001],["Dead or Alive Ultimate","Fighting",2004],["Breakdown","First-Person Action",2004],["Otogi: Myth of Demons","Action",2002],["Otogi 2: Immortal Warriors","Action",2003],["Star Wars: Republic Commando","First-Person Shooter",2005],["Psychonauts","Platformer",2005],["The Chronicles of Riddick: Escape from Butcher Bay","First-Person Shooter",2004],["Rallisport Challenge 2","Racing",2004],["GTA: Vice City","Action / Sandbox",2003],["GTA: San Andreas","Action / Sandbox",2005],["Mortal Kombat: Deception","Fighting",2004],["Doom 3","First-Person Shooter",2004],["Splinter Cell: Pandora Tomorrow","Action / Stealth",2004],["Beyond Good & Evil","Action / Adventure",2003],["Project Gotham Racing","Racing",2001],["Project Gotham Racing 2","Racing",2003],["Brute Force","Third-Person Shooter",2003],["The Suffering","Survival Horror",2004],["Half-Life 2","First-Person Shooter",2005],["Max Payne","Action",2003],["Max Payne 2: The Fall of Max Payne","Action",2003],["Mercenaries: Playground of Destruction","Action / Sandbox",2005],["Tony Hawk's Pro Skater 3","Sports / Action",2002],["Tony Hawk's Underground","Sports / Action",2003],["SSX Tricky","Sports",2001],["SSX 3","Sports",2003],["Ghost Recon","Tactical Shooter",2002],["Rainbow Six 3","Tactical Shooter",2003],["Thief: Deadly Shadows","Action / Stealth",2004],["Deus Ex: Invisible War","Action RPG",2003],["Star Wars: Battlefront","Third-Person Shooter",2004],["Star Wars: Battlefront II","Third-Person Shooter",2005],["Phantom Dust","Action / Strategy",2004],["Shenmue II","Action / Adventure",2001],["Outrun 2","Racing",2004],["Outrun 2006: Coast 2 Coast","Racing",2006],["Black","First-Person Shooter",2006],["Brothers in Arms: Road to Hill 30","Tactical Shooter",2005],["Oddworld: Munch's Oddysee","Platformer",2001],["Oddworld: Stranger's Wrath","Action",2005],["Full Spectrum Warrior","Tactical Action",2004],["Battlefield 2: Modern Combat","First-Person Shooter",2005],["James Bond 007: Everything or Nothing","Third-Person Shooter",2004],["MechAssault 2: Lone Wolf","Mech Action",2004],["Grabbed by the Ghoulies","Action",2003],["Armed and Dangerous","Third-Person Shooter",2003],["Blinx: The Time Sweeper","Platformer / Action",2002],["Amped: Freestyle Snowboarding","Sports",2001],["Unreal Championship","First-Person Shooter",2002],["Unreal Championship 2: The Liandri Conflict","First-Person Shooter",2005],["Kung Fu Chaos","Beat em Up",2003],["Blood Wake","Naval Action",2001],["Dungeons & Dragons: Heroes","Beat em Up / RPG",2003],["Midway Arcade Treasures","Compilation / Arcade",2003],["Midway Arcade Treasures 2","Compilation / Arcade",2004],["Counter-Strike","First-Person Shooter",2003],["Tony Hawk's American Wasteland","Sports / Action",2005],["Burnout Revenge","Racing",2005],["Need for Speed: Most Wanted","Racing",2005],["Need for Speed: Underground 2","Racing",2004],["The Punisher","Third-Person Shooter",2005],["Psi-Ops: The Mindgate Conspiracy","Action",2004],["Sudeki","Action RPG",2004],["Battlestar Galactica","Flight / Action",2003],["Goblin Commander: Unleash the Horde","RTS",2003],["Moto GP","Racing",2002],["Rallisport Challenge","Racing",2002],["NASCAR Thunder 2003","Racing",2002],["Links 2004","Sports / Golf",2003],["Winning Eleven 7","Sports / Soccer",2003],["NFL Fever 2002","Sports",2001],["Madden NFL 2003","Sports",2002],["Tao Feng: Fist of the Lotus","Fighting",2003],["Vexx","Platformer",2003],["Whiplash","Platformer / Action",2003],["Dead or Alive Xtreme Beach Volleyball","Sports",2003],["Futurama: The Game","Platformer / Action",2003],["Fuzion Frenzy","Party / Action",2001],["Amped 2","Sports",2003],["Arx Fatalis","RPG",2003]]},{"id":"x360","tab":"Xbox 360","badge":"X360","title":"Xbox 360","tagline":"2005 – 2016 · Microsoft · 84 million units · Xenia Canary emulator","emu":"Xenia Canary","games":[["Dark Souls","Action RPG",2011],["Halo 3","First-Person Shooter",2007],["Red Dead Redemption","Action / Adventure",2010],["BioShock","FPS / RPG",2007],["Mass Effect 2","Action RPG",2010],["Gears of War 2","Third-Person Shooter",2008],["The Elder Scrolls V: Skyrim","RPG",2011],["Batman: Arkham City","Action / Adventure",2011],["Fallout: New Vegas","RPG",2010],["Portal 2","Puzzle / FPS",2011],["Halo: Reach","First-Person Shooter",2010],["Rock Band 2","Rhythm / Music",2008],["Ninja Gaiden II","Action",2008],["Bayonetta","Action",2009],["Tales of Vesperia","Action RPG",2008],["Lost Odyssey","RPG",2007],["Trials HD","Racing / Action",2009],["Shadow Complex","Action / Platformer",2009],["Geometry Wars: Retro Evolved 2","Shoot em Up",2008],["Left 4 Dead 2","FPS / Co-op",2009],["Castlevania: Lords of Shadow","Action",2010],["Dead Space","Survival Horror",2008],["Forza Motorsport 3","Racing",2009],["The Witcher 2: Assassins of Kings","RPG",2011],["Rayman Origins","Platformer",2011],["Mass Effect","Action RPG",2007],["Mass Effect 3","Action RPG",2012],["BioShock 2","FPS / RPG",2010],["BioShock Infinite","FPS / RPG",2013],["Grand Theft Auto V","Action / Sandbox",2013],["Grand Theft Auto IV","Action / Sandbox",2008],["Assassin's Creed II","Action / Adventure",2009],["Assassin's Creed IV: Black Flag","Action / Adventure",2013],["Batman: Arkham Asylum","Action / Adventure",2009],["Halo 4","First-Person Shooter",2012],["Gears of War","Third-Person Shooter",2006],["Gears of War 3","Third-Person Shooter",2011],["Borderlands 2","FPS / RPG",2012],["Dishonored","Action / Stealth",2012],["XCOM: Enemy Unknown","Strategy",2012],["Far Cry 3","First-Person Shooter",2012],["Dark Souls II","Action RPG",2014],["Deus Ex: Human Revolution","Action RPG",2011],["Fallout 3","RPG",2008],["Dragon Age: Origins","Action RPG",2009],["The Orange Box","FPS / Puzzle",2007],["Call of Duty 4: Modern Warfare","First-Person Shooter",2007],["Call of Duty: Modern Warfare 2","First-Person Shooter",2009],["Dead Rising","Action / Survival Horror",2006],["Dead Rising 2","Action / Survival Horror",2010],["Condemned: Criminal Origins","Action / Horror",2005],["Condemned 2: Bloodshot","Action / Horror",2008],["Alan Wake","Action / Adventure",2010],["Crackdown","Action / Sandbox",2007],["Crackdown 2","Action / Sandbox",2010],["Fable II","Action RPG",2008],["Fable III","Action RPG",2010],["Burnout Paradise","Racing",2008],["Forza Motorsport 4","Racing",2011],["Forza Horizon","Racing",2012],["Need for Speed: Most Wanted (2012)","Racing",2012],["Sonic Generations","Platformer",2011],["Castle Crashers","Beat em Up",2008],["Scott Pilgrim vs The World","Beat em Up",2010],["Limbo","Puzzle Platformer",2010],["Braid","Puzzle Platformer",2008],["Super Meat Boy","Platformer",2010],["Bastion","Action RPG",2011],["Terraria","Sandbox",2013],["Minecraft","Sandbox",2012],["Trine","Puzzle Platformer",2009],["Hotline Miami","Action",2012],["Dust: An Elysian Tail","Action / Platformer",2012],["The Walking Dead Season 1","Adventure",2012],["South Park: The Stick of Truth","RPG",2014],["Tekken 6","Fighting",2009],["Street Fighter IV","Fighting",2009],["Super Street Fighter IV","Fighting",2010],["BlazBlue: Calamity Trigger","Fighting",2009],["Mortal Kombat (2011)","Fighting",2011],["Injustice: Gods Among Us","Fighting",2013],["Red Dead Redemption: Undead Nightmare","Action / Adventure",2010],["L.A. Noire","Action / Adventure",2011],["Max Payne 3","Third-Person Shooter",2012],["Spec Ops: The Line","Third-Person Shooter",2012],["Vanquish","Third-Person Shooter",2010],["Resonance of Fate","RPG",2010],["Eternal Sonata","Action RPG",2007],["Star Ocean: The Last Hope","Action RPG",2009],["Enchanted Arms","RPG",2006],["Blue Dragon","RPG",2006],["Kameo: Elements of Power","Platformer / Action",2005],["Viva Pinata","Simulation / Strategy",2006],["Viva Pinata: Trouble in Paradise","Simulation / Strategy",2008],["Perfect Dark Zero","First-Person Shooter",2005],["Banjo-Kazooie: Nuts and Bolts","Platformer / Racing",2008],["Halo Wars","RTS",2009],["Condemned: Criminal Origins X360","Action / Horror",2005],["Alan Wake X360","Action / Adventure",2010],["Crackdown X360","Action / Sandbox",2007]]},{"id":"xone","tab":"Xbox One","badge":"XONE","title":"Xbox One","tagline":"2013 – 2020 · Microsoft · 51 million units · No mature PC emulator","emu":"Native hardware / no mature PC emulator","games":[["Halo 5: Guardians","First-Person Shooter",2015],["Halo: The Master Chief Collection","First-Person Shooter",2014],["Gears 5","Third-Person Shooter",2019],["Gears of War 4","Third-Person Shooter",2016],["Forza Horizon 4","Racing",2018],["Forza Horizon 3","Racing",2016],["Forza Motorsport 7","Racing Simulation",2017],["Sea of Thieves","Action / Adventure",2018],["Ori and the Blind Forest: Definitive Edition","Platformer",2016],["Ori and the Will of the Wisps","Platformer",2020],["Cuphead","Run & Gun / Platformer",2017],["Sunset Overdrive","Action / Platformer",2014],["Quantum Break","Action / Adventure",2016],["Rare Replay","Compilation",2015],["Killer Instinct (2013)","Fighting",2013],["Battletoads (2020)","Beat em Up",2020],["Hellblade: Senua's Sacrifice","Action / Adventure",2017],["Red Dead Redemption 2","Action / Adventure",2018],["The Witcher 3: Wild Hunt","RPG",2015],["Dark Souls III","Action RPG",2016],["Sekiro: Shadows Die Twice","Action / Stealth",2019],["Doom (2016)","First-Person Shooter",2016],["Doom Eternal","First-Person Shooter",2020],["Wolfenstein II: The New Colossus","First-Person Shooter",2017],["Titanfall 2","First-Person Shooter",2016],["Monster Hunter World","Action RPG",2018],["Dragon Quest XI","RPG",2017],["Nier: Automata","Action RPG",2017],["Control","Action / Adventure",2019],["Prey","Action RPG / FPS",2017],["Resident Evil 2 Remake","Survival Horror",2019],["Resident Evil 7","Survival Horror",2017],["Devil May Cry 5","Action",2019],["Batman: Arkham Knight","Action / Adventure",2015],["Grand Theft Auto V","Action / Sandbox",2014],["Fallout 4","RPG",2015],["Skyrim Special Edition","RPG",2016],["Hollow Knight","Action / Platformer",2018],["Celeste","Platformer",2018],["Hades","Roguelike Action RPG",2020],["Stardew Valley","Simulation / RPG",2016],["Undertale","RPG",2017],["Inside","Puzzle Platformer",2016],["Limbo","Puzzle Platformer",2016],["Shovel Knight","Platformer",2014],["A Hat in Time","Platformer",2018],["Crash Bandicoot N. Sane Trilogy","Platformer",2017],["Spyro Reignited Trilogy","Platformer",2018],["Streets of Rage 4","Beat em Up",2020],["Dragon Age: Inquisition","Action RPG",2014],["The Witcher 3: Blood and Wine","RPG",2016],["Final Fantasy XV","Action RPG",2016],["Kingdom Hearts III","Action RPG",2019],["Tales of Arise","Action RPG",2021],["Code Vein","Action RPG",2019],["Greedfall","Action RPG",2019],["Divinity: Original Sin 2","RPG",2017],["Pillars of Eternity II: Deadfire","RPG",2018],["Disco Elysium","RPG",2019],["XCOM 2","Strategy",2016],["Halo Wars 2","RTS",2017],["Ace Combat 7: Skies Unknown","Flight / Action",2019],["Tekken 7","Fighting",2015],["Street Fighter V","Fighting",2016],["Guilty Gear Strive","Fighting",2021],["Mortal Kombat 11","Fighting",2019],["Injustice 2","Fighting",2017],["Forza Horizon 2","Racing",2014],["Project Cars 2","Racing Simulation",2017],["DiRT Rally 2.0","Racing",2019],["Rocket League","Sports / Racing",2015],["Tony Hawk's Pro Skater 1+2","Sports / Action",2020],["Assassin's Creed IV: Black Flag","Action / Adventure",2013],["Assassin's Creed Origins","Action / Adventure",2017],["Assassin's Creed Odyssey","Action / Adventure",2018],["Far Cry 5","First-Person Shooter",2018],["Titanfall","First-Person Shooter",2014],["Overwatch","First-Person Shooter / Hero",2016],["Destiny 2","Action RPG / FPS",2017],["Borderlands 3","FPS / RPG",2019],["Battlefield 1","First-Person Shooter",2016],["Battlefield V","First-Person Shooter",2018],["Minecraft","Sandbox",2013],["Terraria","Sandbox",2013],["No Man's Sky","Space Exploration",2016],["Subnautica","Survival / Exploration",2018],["Dead Cells","Roguelike / Platformer",2018],["The Long Dark","Survival",2017],["Star Wars Jedi: Fallen Order","Action / Adventure",2019],["Ys VIII: Lacrimosa of DANA","Action RPG",2018],["Trails of Cold Steel III","RPG",2020],["Yakuza 0","Action / Adventure",2018],["Yakuza Kiwami","Action / Adventure",2018],["Sonic Generations","Platformer",2011],["Cuphead: The Delicious Last Course","Run & Gun / Platformer",2022],["FIFA 21","Sports",2020],["NBA 2K21","Sports",2020],["Madden NFL 21","Sports",2020],["Forza Motorsport 6","Racing Simulation",2015],["Assetto Corsa","Racing Simulation",2014]]},{"id":"xsx","tab":"Xbox Series","badge":"XSX","title":"Xbox Series X/S","tagline":"2020 – present · Microsoft · 28+ million units · No mature PC emulator","emu":"Native hardware / no mature PC emulator","games":[["Halo Infinite","First-Person Shooter",2021],["Forza Horizon 5","Racing",2021],["Gears 5: Game of the Year Edition","Third-Person Shooter",2021],["Microsoft Flight Simulator","Flight Simulation",2020],["Forza Motorsport (2023)","Racing Simulation",2023],["Hi-Fi Rush","Rhythm / Action",2023],["Ori and the Will of the Wisps XSX","Platformer",2020],["Psychonauts 2","Platformer",2021],["The Medium","Survival Horror",2021],["Shredders","Sports / Snowboarding",2022],["As Dusk Falls","Interactive Drama",2022],["Pentiment","Adventure / RPG",2022],["Minecraft Legends","Strategy / Action",2023],["Sea of Thieves Season Updates","Action / Adventure",2021],["Grounded","Survival",2022],["Elden Ring XSX","Action RPG",2022],["Elden Ring: Shadow of the Erdtree XSX","Action RPG",2024],["Baldur's Gate 3 XSX","RPG",2023],["Starfield","RPG / Space",2023],["Cyberpunk 2077","Action RPG",2020],["Cyberpunk 2077: Phantom Liberty","Action RPG",2023],["The Witcher 3: Wild Hunt Next-Gen","RPG",2022],["Red Dead Redemption 2 XSX","Action / Adventure",2018],["Dark Souls III XSX","Action RPG",2016],["Sekiro: Shadows Die Twice XSX","Action / Stealth",2019],["Resident Evil Village","Survival Horror",2021],["Resident Evil 4 Remake XSX","Survival Horror / Action",2023],["Devil May Cry 5 Special Edition","Action",2020],["Doom Eternal XSX","First-Person Shooter",2020],["Wolfenstein: Youngblood","First-Person Shooter",2019],["Halo: The Master Chief Collection XSX","First-Person Shooter",2014],["Gears of War 4 XSX","Third-Person Shooter",2016],["Monster Hunter Rise XSX","Action RPG",2021],["Tales of Arise XSX","Action RPG",2021],["Code Vein XSX","Action RPG",2019],["Dragon's Dogma 2 XSX","Action RPG",2024],["Wo Long: Fallen Dynasty XSX","Action RPG",2023],["Lies of P XSX","Action RPG",2023],["Armored Core VI XSX","Mech Action",2023],["Alan Wake 2 XSX","Action / Adventure",2023],["Star Wars Jedi: Survivor XSX","Action / Adventure",2023],["Hogwarts Legacy XSX","Action RPG",2023],["Persona 5 Royal XSX","RPG",2022],["Persona 4 Golden XSX","RPG",2023],["Persona 3 Reload XSX","RPG",2024],["Disco Elysium XSX","RPG",2021],["Hollow Knight XSX","Action / Platformer",2021],["Celeste XSX","Platformer",2021],["Hades XSX","Roguelike Action RPG",2021],["Cuphead XSX","Run & Gun / Platformer",2020],["Streets of Rage 4 XSX","Beat em Up",2020],["Guilty Gear Strive XSX","Fighting",2021],["Street Fighter 6 XSX","Fighting",2023],["Mortal Kombat 1 XSX","Fighting",2023],["Tekken 8","Fighting",2024],["Forza Horizon 4 XSX","Racing",2018],["DiRT 5","Racing",2020],["WRC 10 XSX","Racing",2021],["F1 2023 XSX","Racing Simulation",2023],["Tony Hawk's Pro Skater 1+2 XSX","Sports / Action",2020],["Rocket League XSX","Sports / Racing",2020],["NBA 2K23 XSX","Sports",2022],["FIFA 23 / EA Sports FC 24 XSX","Sports",2022],["Madden NFL 24 XSX","Sports",2023],["Overwatch 2 XSX","First-Person Shooter / Hero",2022],["Apex Legends XSX","Battle Royale",2021],["Call of Duty: Modern Warfare II (2022) XSX","First-Person Shooter",2022],["Battlefield 2042 XSX","First-Person Shooter",2021],["Far Cry 6 XSX","First-Person Shooter",2021],["Assassin's Creed Valhalla XSX","Action / Adventure",2020],["Assassin's Creed Mirage XSX","Action / Stealth",2023],["Watch Dogs Legion XSX","Action / Sandbox",2020],["Immortals Fenyx Rising XSX","Action / Adventure",2020],["Avatar: Frontiers of Pandora XSX","Action / Adventure",2023],["Minecraft XSX","Sandbox",2020],["No Man's Sky XSX","Space Exploration",2021],["Subnautica: Below Zero XSX","Survival / Exploration",2021],["Grounded Full Release XSX","Survival",2022],["The Long Dark XSX","Survival",2021],["Weird West XSX","Action RPG",2022],["Diablo IV XSX","Action RPG",2023],["Path of Exile 2 XSX","Action RPG",2024],["Like a Dragon: Ishin! XSX","Action / Adventure",2023],["Like a Dragon: Infinite Wealth XSX","Action RPG",2024],["Yakuza 0 XSX","Action / Adventure",2020],["Sonic Frontiers XSX","Platformer",2022],["Neon White XSX","Action / Platformer",2022],["Tunic XSX","Action / Adventure",2022],["Animal Well XSX","Puzzle / Adventure",2024],["Balatro XSX","Card / Roguelike",2024],["Black Myth: Wukong XSX","Action RPG",2024],["Astlibra Revision XSX","Action RPG",2022],["Nine Sols XSX","Action / Platformer",2024],["Another Crab's Treasure XSX","Action RPG",2024],["Lorelei and the Laser Eyes XSX","Puzzle / Adventure",2024],["Cocoon XSX","Puzzle / Adventure",2023],["Venba XSX","Narrative / Puzzle",2023],["Viewfinder XSX","Puzzle",2023],["Jusant XSX","Climbing / Adventure",2023],["Dordogne XSX","Adventure",2023]]}];
+const NOTES={};
+function tier(r){return r<=10?'ts':r<=30?'ta':'tb2';}
+function medal(r){return r===1?'🥇':r===2?'🥈':r===3?'🥉':'';}
+function rc(r){return r===1?'r1':r===2?'r2':r===3?'r3':r<=10?'rt':'rn';}
+const tabsEl=document.getElementById('tabs');
+const mainEl=document.getElementById('main');
+DATA.forEach((con,ci)=>{
+  const btn=document.createElement('button');
+  btn.className='tb'+(ci===0?' act':'');
+  btn.innerHTML=con.tab+'<span class="te">'+con.tagline.split('·')[0].trim()+'</span>';
+  btn.onclick=()=>{
+    document.querySelectorAll('.tb').forEach(b=>b.classList.remove('act'));
+    document.querySelectorAll('.pn').forEach(p=>p.classList.remove('act'));
+    btn.classList.add('act');
+    document.getElementById('p-'+con.id).classList.add('act');
+  };
+  tabsEl.appendChild(btn);
+  const genres=[...new Set(con.games.map(g=>g[1].split(' / ')[0]))].sort();
+  const panel=document.createElement('div');
+  panel.className='pn'+(ci===0?' act':'');
+  panel.id='p-'+con.id;
+  const count=con.games.length;
+  const noteHtml=NOTES[con.id]?`<div class="note">${NOTES[con.id]}</div>`:'';
+  panel.innerHTML=`
+    <div class="ci">
+      <div class="cb">${con.badge}</div>
+      <div>
+        <div class="ct">${con.title}</div>
+        <div class="cg">${con.tagline}</div>
+        <div class="emu">${con.emu}</div>
+      </div>
+      <div style="text-align:right"><div class="sv">${count}</div><div class="sl">Top Games</div></div>
+    </div>
+    ${noteHtml}
+    <div class="fb">
+      <input class="si" type="text" placeholder="Search games..." oninput="flt('${con.id}',this)"/>
+      <select class="gf" onchange="flt('${con.id}',null,this)">
+        <option value="">All Genres</option>
+        ${genres.map(g=>`<option value="${g.toLowerCase()}">${g}</option>`).join('')}
+      </select>
+      <span class="fc" id="fc-${con.id}">Showing ${count} games</span>
+    </div>
+    <div class="th"><div>RANK</div><div></div><div>TITLE</div><div>GENRE</div><div>YEAR</div></div>
+    <div id="lst-${con.id}">
+      ${con.games.map((g,i)=>{const r=i+1;return`<div class="gr ${tier(r)}" data-t="${g[0].toLowerCase()}" data-g="${g[1].toLowerCase()}">
+        <div class="rk ${rc(r)}">${r}</div>
+        <div class="md">${medal(r)}</div>
+        <div><div class="gt">${g[0]}</div></div>
+        <div class="gg">${g[1]}</div>
+        <div class="gy">${g[2]}</div>
+      </div>`;}).join('')}
+    </div>
+    <div class="nr" id="nr-${con.id}">No games match your search.</div>`;
+  mainEl.appendChild(panel);
+});
+function flt(id,sEl,gEl){
+  const panel=document.getElementById('p-'+id);
+  const s=(sEl||panel.querySelector('.si')).value.toLowerCase();
+  const g=(gEl||panel.querySelector('.gf')).value.toLowerCase();
+  const rows=panel.querySelectorAll('.gr');
+  let v=0;
+  rows.forEach(row=>{
+    const show=row.dataset.t.includes(s)&&(!g||row.dataset.g.includes(g));
+    row.classList.toggle('hd',!show);
+    if(show)v++;
+  });
+  document.getElementById('fc-'+id).textContent=`Showing ${v} game${v!==1?'s':''}`;
+  document.getElementById('nr-'+id).style.display=v===0?'block':'none';
+}
+</script>
+</body>
+</html>
