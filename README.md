@@ -18,24 +18,6 @@ Community-curated rankings of the greatest games across classic platforms — ho
 | **Arcade** | [pages/arcade-top-100-games.html](pages/arcade-top-100-games.html) | MAME / Arcade, Capcom CPS, Sega NAOMI, Cave shooters |
 | **Home Computers** | [pages/home-computers-top-100-games.html](pages/home-computers-top-100-games.html) | Commodore 64, Commodore Amiga, ZX Spectrum, MSX, MS-DOS/PC |
 
-## 🆕 Arcade Page
-
-The new arcade page adds a dedicated home for coin-op classics and emulator-era preservation favorites, with tabbed rankings covering:
-
-- **MAME / Arcade** classics across the 1970s to 2000s
-- **Capcom CPS** highlights from CPS-1, CPS-2, and CPS-3
-- **Sega NAOMI / Atomiswave** arcade standouts
-- **Cave shooters** and related bullet hell essentials
-
-Like the rest of the site, the page is self-contained static HTML with built-in search and genre filtering.
-
-## 🚀 Deploying to GitHub Pages
-
-1. Push the repository to GitHub
-2. Go to **Settings → Pages**
-3. Set source to **Deploy from a branch** → `main` / `/ (root)`
-4. The site will be live within a minute at the URL above
-
 ## 📁 Structure
 
 ```
